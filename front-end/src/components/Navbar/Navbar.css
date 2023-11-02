@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+header {
+  background-color: #FFFFFF;
+  display: flex;
+  gap: 25%;
+  
+}
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_Links {
+    display: flex;
+    align-items: center;
+    gap: 40%;
+    padding-right: 20rem;
+    font-size: large;
+    height: 75%;
+    
+  }
+
+.N-home {
+   text-decoration: none;
+   color: #0E395A;
+  
+}
+.N-categories {
+  text-decoration: none;
+  color: #0E395A;
+}
+.N-companies {
+  text-decoration: none;
+  color: #0E395A;
+
+}
+.N-about {
+  text-decoration: none;
+  color: #0E395A;
+}
+.N-contact {
+  text-decoration: none;
+  color: #0E395A;
+}
+
+.Logo {
+   width: 200px;  
+   margin-left: 2rem;
+   
+   
+}
+.header_Links a {
+    text-decoration: none;
+    color: #0E395A;
+    position: relative;
+  }
+  
+  .header_Links a::after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0;
+    background: transparent;
+    transition: width 0.5s ease, background-color 0.5s ease;
+  }
+  
+  .header_Links a:hover::after, .header_Links a:focus::after {
+    width: 100%;
+    background: #DA9100;
+    border-radius: 1rem;
+  }
+  
+  .header_icon {
+    display: none;
+    font-size: 3rem;
+    color: #0E395A;
+    margin: auto;
+  }
+  
+  .header_mobile_nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .header_mobile_nav {
+    color: #0E395A;
+    list-style-type: none;
+    color: white;
+    width: 100%;
+    display: flex;
+     justify-content: center;
+    
+  }
+  
+  .header_mobile_ul li {
+    padding: 10px;
+  }
+  
+  @media only screen and (max-width: 960px) {
+    header {
+      flex-direction: column;
+    }
+  
+    .header_Links {
+      display: none;
+      
+    }
+    .header_nav {
+      width: 90%;
+    }
+    
+    .header_icon {
+      display: flex;
+      align-items: center;
+     
+    }
+    .Logo {
+     display: flex;
+     justify-content: center;
+     width: 50%;
+     margin: auto;
+    }
+    .header_mobile_ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: auto;
+      gap: 2rem;
+      font-size: 2rem;
+      padding-top: 1rem;
+      
+    }
+    .header_mobile_ul a::after {
+      content: '';
+      display: block;
+      margin: auto;
+      height: 2px;
+      width: 10%;
+      background: transparent;
+      transition: width 0.5s ease, background-color 0.5s ease;
+    }
+    
+    .header_mobile_ul a:hover::after, .header_mobile_ul a:focus::after {
+      width: 100%;
+      background: #DA9100;
+    }
+  }
+  
+ 
+

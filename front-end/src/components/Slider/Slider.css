@@ -1,0 +1,26 @@
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slider-image {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .slider-button {
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .slider-button:hover {
+    background-color: #45a049;
+  }
+  

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/Logo.png';
+import Logo from '../../Photos/Logo.png';''
 import "./Navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';

@@ -1,12 +1,12 @@
 import React from 'react';
-import Slider from '/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/components/Slider/Slider.js'; 
-
+import FlipCard from '../../components/Cards/Cards.js';
+import "./Companies.css"
 const CompaniesPage = () => {
   return (
-    <div>
-      <Slider />
+    <div className='body'>
+       <FlipCard />
     </div>
+  
   );
 };
-
 export default CompaniesPage;

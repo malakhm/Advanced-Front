@@ -83,6 +83,7 @@ header {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    display: none;
   }
   
   .header_mobile_nav {

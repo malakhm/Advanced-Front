@@ -1,0 +1,86 @@
+*{
+  font-family: inter;
+  color: #DA9100
+}
+
+.Home-categories img {
+  max-width: 100%;
+}
+.Home-categories-cards h1{
+text-align: center;
+margin-top: 5%;
+font-size: 25px;
+}
+
+.Home-categories{
+margin-left: 5%;
+margin-right: 5%;
+margin-top: 15%;
+
+}
+
+
+.Home-categories-cards-line1{
+  display: flex;
+  margin-top: 5%;
+  align-content: center;
+  gap: 8%;
+  flex: 2;
+
+
+}
+
+.Home-categories-cards-line2{
+  display: flex;
+  margin-top: 5%;
+  gap: 7%;
+
+
+}
+
+.Home-categories-txt{
+  color: white;
+  font-size: 50px;
+  text-align: center;
+
+}
+
+.Home-categories-card1{
+  width: 30%;
+}
+.card-down{
+  margin-top: 5%;
+}
+
+
+@media (max-width: 768px) {
+  .Home-categories-txt {
+    font-size: 20px; 
+    
+  }
+  .Home-categories-cards h1{
+   
+    font-size: 15px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+  .Home-categories-txt {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .Home-categories-cards h1{
+   
+    font-size: 10px;
+    }
+}
+
+@media  only screen and (min-width: 1000px) and (max-width: 1400px) {
+
+  .Home-categories-txt {
+
+    margin-top: 25%;
+
+
+  }
+}

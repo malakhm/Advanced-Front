@@ -17,7 +17,7 @@ const FlipCard = () => {
           <div className="front">
              <img src={INFINITELB} alt='' className='INFINITE-Logo'/>
                <div className='Info'>
-               <img src={Email} alt='' className='Icon1'  /> <h3>www.gmail.com</h3>
+               <img src={Email} alt='' className='Icon1'  /> <h3>www.SpaceLoom.com</h3>
                <img src={Gmail} alt='' className='Icon1'  />   <h3>ex.gamil.com</h3>
                </div>
                <div className='Info2'>

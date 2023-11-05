@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inter');
+
 
 .AboutUsPage {
     display: flex;
@@ -6,20 +6,80 @@
     align-items: center;
     justify-content: center;
 }
-.AboutSpaceLoom {
+
+.AboutSec {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 70%;
     gap: 1rem;
     font-family: Inter;
+    background-color: #082235;
+    text-align: center;
+    position: relative;
+    padding: 50px 0px;
+    
 }
 
-.H1 {
+.AboutSec .H1 {
     color: #DA9100;
+    padding-bottom: 20px;
 }
 
-.H2 {
-    color: #DA9100;
+.Text {
+    color: #142D41;
+    line-height: 2.5rem;
+    padding: 1rem;
+    letter-spacing: 1.5px;
+    font-size: 25px;
+    border: #DA9100 5px solid;
+    background-color: rgba(255, 255, 255, 0.568);
+    font-weight: bold;
 }
+
+.AboutImgSec
+{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 450px;
+    padding: 40px;
+}
+
+.Our-spac
+{  
+    background-image: url(../../Photos/Artshoc/one.webp);
+}
+
+.Our-miss
+{  
+    background-image: url(../../Photos/Artshoc/two.webp);
+}
+
+.Our-visi
+{  
+    background-image: url(../../Photos/Artshoc/three.webp);
+}
+
+#arrowContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px; 
+    height: 60px;
+    cursor: pointer;
+}
+
+#arrowContainer img {
+    width: 100%; 
+    height: 100%; 
+}
+
+
+
+
+
+
+
+

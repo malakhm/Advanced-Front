@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+  .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slider-image {
+    width: 100%;
+    object-fit: cover;
+    animation: slide 1s ease;
+  }
+  
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slider-image.prev {
+    animation: slide-prev 1s ease;
+  }
+  
+  @keyframes slide-prev {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slider-arrows {
+    display: flex;
+  }
+  
+  .arrowleft {
+    width: 10%;
+    padding-bottom: 1rem;
+  }
+
+  .arrowright {
+    width: 10%;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+
+

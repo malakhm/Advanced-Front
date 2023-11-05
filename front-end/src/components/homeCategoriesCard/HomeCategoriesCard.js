@@ -1,11 +1,11 @@
 import React from 'react'
 import HeaderCss from './HomeCategoriesCard.css';
-import imagesCategories1 from '../../photos/categories-1.png'
-import imagesCategories2 from '../../photos/categories-2.png'
-import imagesCategories3 from '../../photos/categories-3.png'
-import imagesCategories4 from '../../photos/categories-4.png'
-import imagesCategories5 from '../../photos/categories-5.png'
-import imagesCategories6 from '../../photos/categories-6.png'
+import imagesCategories1 from '../../Photos/categories-1.png'
+import imagesCategories2 from '../../Photos/categories-2.png'
+import imagesCategories3 from '../../Photos/categories-3.png'
+import imagesCategories4 from '../../Photos/categories-4.png'
+import imagesCategories5 from '../../Photos/categories-5.png'
+import imagesCategories6 from '../../Photos/categories-6.png'
 
 
 

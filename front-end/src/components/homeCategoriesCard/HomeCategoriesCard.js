@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderCss from './HomeCategoriesCard.css';
+import  './HomeCategoriesCard.css';
 import imagesCategories1 from '../../Photos/categories-1.png'
 import imagesCategories2 from '../../Photos/categories-2.png'
 import imagesCategories3 from '../../Photos/categories-3.png'

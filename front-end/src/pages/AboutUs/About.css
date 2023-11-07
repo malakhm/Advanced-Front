@@ -198,3 +198,8 @@ textarea {
     height: 200px;
   }
 }
+.right p {
+  font-family: inter;
+  color: #da9100;
+  margin-top: 1rem;
+}

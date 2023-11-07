@@ -21,7 +21,7 @@ const Navbar = () => {
                <Link to="/Companies" className="N-companies">Companies</Link>
                <Link to="/Categories" className="N-categories">Categories</Link>
                <Link to="/About" className="N-about">AboutUs</Link>
-               <Link to="/About#Contact" name={'contactUs'} onClick={executeScroll} className="N-contact"> ContactUs </Link>;
+               <Link to="/About#Contact" name={'contactUs'} onClick={executeScroll} className="N-contact"> ContactUs </Link>
 
             </div>
             <FontAwesomeIcon icon={collapse ? faBars : faXmark} className="header_icon" onClick={() => setCollapsed(!collapse)} />

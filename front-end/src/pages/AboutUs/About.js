@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom"
 import "./About.css";
 import Arrowup from "../../Photos/Arrowup.png";
 import Header from "../../components/header/Header";
 import imageHeader from "../../Photos/header-1.png";
-
+import emailjs from '@emailjs/browser';
 const AboutPage = () => {
 
   const location = useLocation()
@@ -32,9 +32,46 @@ const AboutPage = () => {
   };
 
   useEffect(() => {
-    if (location.hash) executeScroll();
+    if (location.hash) {
+      setTimeout(() => {
+        executeScroll();
+      }, 0);
+    }
   }, [location.hash]);
 
+  const form = useRef();
+
+  const [isMessageSent, setMessageSent] = useState(false);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    phone: "",
+    message: "",
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pd98twe', 'template_utnvs9n', form.current, 'PuCdCBN6lOG2qgfMX')
+      .then((result) => {
+        console.log(result.text);
+        console.log("success");
+      }, (error) => {
+        console.log(error.text);
+      }); setMessageSent(true);
+    setFormData({
+      from_name: "",
+      from_email: "",
+      phone: "",
+      message: "",
+    });
+  }
 
   return (
     <>
@@ -103,17 +140,20 @@ const AboutPage = () => {
             <div id="Contact" className="contact-box">
               <div className="left"></div>
               <div className="right">
-                <button onClick={handleContactFormToggle} className="SwitchForm">
-                  Contact Us
-                </button>
-                <button onClick={handleFeedbackFormToggle} className="SwitchForm">
-                  Feedback
-                </button>
-                <input type="text" className="field" placeholder="Your Name" />
-                <input type="text" className="field" placeholder="Your Email" />
-                <input type="text" className="field" placeholder="Phone" />
-                <textarea placeholder="Message" className="field"></textarea>
-                <button className="btn">SEND</button>
+                <form ref={form} onSubmit={sendEmail}>
+                  <button onClick={handleContactFormToggle} className="SwitchForm">
+                    Contact Us
+                  </button>
+                  <button onClick={handleFeedbackFormToggle} className="SwitchForm">
+                    Feedback
+                  </button>
+                  <input value={formData.from_name} onChange={handleInputChange} type="text" name="from_name" className="field" placeholder="Your Name" />
+                  <input value={formData.from_email} onChange={handleInputChange} type="text" name="from_email" className="field" placeholder="Your Email" />
+                  <input value={formData.phone} onChange={handleInputChange} name="Phone" type="text" className="field" placeholder="Phone" />
+                  <textarea value={formData.message} onChange={handleInputChange} name="message" placeholder="Message" className="field"></textarea>
+                  <button type="submit" className="btn">SEND</button>
+                </form>
+                {isMessageSent && <p>Message sent successfully!</p>}
               </div>
             </div>
           ) : (

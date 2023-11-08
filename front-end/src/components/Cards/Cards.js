@@ -33,7 +33,7 @@ const FlipCard = () => {
           <div className="card-wrapper flip-right">
             <div className="card">
               <div className="front">
-                <img src={each.logo} alt='' className='INFINITE-Logo' />
+                <img src={each.logo} alt='' className='card-Logo' />
                 <div className='Info'>
                   <img src={Email} alt='' className='Icon1' /> <h3>{each.website_link}</h3>
                   <img src={Gmail} alt='' className='Icon1' />   <h3>{each.email}</h3>

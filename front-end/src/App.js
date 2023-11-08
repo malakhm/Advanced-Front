@@ -11,6 +11,7 @@ import AdminCategory from './adminPanel/adminCategory';
 import EditCategory from './adminPanel/editCategory';
 import Footer from "./components/Footer/Footer.js"
 import Categories from './pages/Categories/Categories.js';
+import Loginpage from './adminPanel/Loginpage.js';
 
 // ...
 
@@ -37,6 +38,7 @@ function AppContent() {
           <Route path="/Companies" element={<CompaniesPage />} />
           <Route path="/Categories" element={<Categories />} />
           <Route path="/About" element={<AboutPage />} />
+          <Route path="/Login" element={<Loginpage />} />
           <Route path="/admin/" element={<AdminPage />} />
           <Route path="/admin/Categories" element={<AdminCategory />} />
 

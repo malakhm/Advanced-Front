@@ -6,6 +6,43 @@ import Header from "../../components/header/Header";
 import imageHeader from "../../Photos/header-1.png";
 import emailjs from '@emailjs/browser';
 const AboutPage = () => {
+  const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
+  const [feedbacksLastName, setFeedbacksLastName] = useState("");
+  const [feedbacksContent, setFeedbacksContent] = useState("");
+  const [error, setError] = useState("");
+
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault();
+
+    const requestBody = {
+      first_name: feedbacksFirstName,
+      last_name: feedbacksLastName,
+      content: feedbacksContent,
+    };
+
+    try {
+      const response = await fetch("/api/feedbacks/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        setFeedbacksFirstName("");
+        setFeedbacksLastName("");
+        setFeedbacksContent("");
+        setError("");
+      } else {
+        const json = await response.json();
+        setError(json.message);
+      }
+    } catch (error) {
+      setError("Network error");
+    }
+  };
+
 
   const location = useLocation()
 
@@ -166,9 +203,32 @@ const AboutPage = () => {
                 <button onClick={handleFeedbackFormToggle} className="SwitchForm">
                   Feedback
                 </button>
-                <input type="text" className="field" placeholder="Your Name" />
-                <textarea placeholder="Message" className="field2"></textarea>
-                <button className="btn">SEND</button>
+                
+                
+                <input
+                  type="text"
+                  required
+                  onChange={(e) => setFeedbacksFirstName(e.target.value)}
+                  value={feedbacksFirstName} htmlFor="feedbacksFirstName"
+                  className="field"
+                  placeholder="First Name" />
+                <form className="field0ne" onSubmit={handleFeedbackSubmit}>
+
+                  <input
+                    type="text"
+                    required
+                    onChange={(e) => setFeedbacksLastName(e.target.value)}
+                    value={feedbacksLastName} htmlFor="feedbacksLastName" className="field" placeholder="Last Name" />
+                    
+                  <textarea
+                    className="field2"
+                    placeholder="Message"
+                    required
+                    onChange={(e) => setFeedbacksContent(e.target.value)}
+                    value={feedbacksContent}
+                  ></textarea>
+                  <button className="btn">SEND</button>
+                </form>
               </div>
             </div>
           )}

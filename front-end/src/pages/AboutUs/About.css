@@ -5,6 +5,11 @@
   justify-content: center;
   padding-top: 15rem;
 }
+ .field0ne {
+    display: flex;
+    flex-direction: column;
+  }
+
 
 .AboutSec {
   display: flex;
@@ -165,7 +170,7 @@
 }
 
 textarea {
-  min-height: 150px;
+  min-height: 120px;
 }
 
 .btn {
@@ -197,9 +202,31 @@ textarea {
   .left {
     height: 200px;
   }
-}
+
 .right p {
   font-family: inter;
   color: #da9100;
   margin-top: 1rem;
 }
+
+.SwitchForm {
+  color: #da9100;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: width 0.5s ease, background-color 0.5s ease;
+  background-color: rgba(218, 145, 0, 0);
+  display: flex;
+}
+.btn {
+ width: 80%;
+ padding-bottom: 1.6rem;
+}
+.AboutSec {
+  font-size: small;
+}
+.Text {
+  font-size: large;
+}
+}
+

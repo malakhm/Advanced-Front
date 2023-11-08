@@ -30,7 +30,7 @@ const Home = () => {
             <section className='home-comments'>
                 <section className='comments-left'>
                     <p className='review'>review</p>
-                    <p className='comment-description'><strong> Over 100 designs completed for happy clients.</strong></p>
+                    <p className='comment-description'><strong> Over 100 desyigns completed for happy clients.</strong></p>
                 </section>
 
                 <section className='comments-right'>

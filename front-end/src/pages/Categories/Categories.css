@@ -9,7 +9,6 @@
   }
   .min-Header{
   background-color: #0E395A;
-  /* position: absolute; */
   padding-top:10px ;
   text-align: center;
   justify-content: center;
@@ -24,6 +23,8 @@
     color: white;
     position: relative;
     transition: text-decoration 0.3s;
+    font-size: medium;
+    cursor: pointer;
   }
   
   .categories_Buttons button::after {
@@ -35,13 +36,15 @@
     background: transparent;
     transition: width 0.5s ease, background-color 0.5s ease;
     background-color: white;
+    
   }
   
   .categories_Buttons button:hover::after,
   .categories_Buttons button:focus::after {
-    width: 50%;
+    width: 30%;
     background: #DA9100;
     margin-right: 2rem;
+    cursor: pointer;
   }
   
   .image-container {

@@ -23,6 +23,7 @@ const Navbar = () => {
                <Link to="/Categories" className="N-categories">Categories</Link>
                <Link to="/About" className="N-about">AboutUs</Link>
                <Link to="/About#Contact" name={'contactUs'} onClick={executeScroll} className="N-contact"> ContactUs </Link>
+               <Link to="/Login" className="N-Login">Login</Link>
 
             </div>
             <FontAwesomeIcon icon={collapse ? faBars : faXmark} className="header_icon" onClick={() => setCollapsed(!collapse)} />
@@ -34,8 +35,10 @@ const Navbar = () => {
                   <Link to="/Companies" className="N-companies">Companies</Link>
                   <Link to="/Categories" className="N-categories">Categories</Link>
                   <Link to="/About" className="N-about">AboutUs</Link>
-                  <Link to="/About#Contact" onClick={executeScroll} className="N-contact"> ContactUs </Link>;
+                  <Link to="/About#Contact" onClick={executeScroll} className="N-contact"> ContactUs </Link>
+                  <Link to="/Login" className="N-Login">Login</Link>
                </div>
+               
             </nav>
             : null}
 

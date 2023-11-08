@@ -77,12 +77,16 @@ header {
     font-size: 3rem;
     color: #0E395A;
     margin: auto;
+    cursor: pointer;
+    padding-bottom: 1rem;
   }
   
   .header_mobile_nav {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    display: none;
+    padding-bottom: 1rem;
   }
   
   .header_mobile_nav {

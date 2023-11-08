@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+  .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slider-image {
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+    animation: slide 1s ease;
+  }
+  
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slider-image.prev {
+    animation: slide-prev 1s ease;
+  }
+  
+  @keyframes slide-prev {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .slider-arrows {
+    display: flex;
+  }
+  
+  .arrowleft {
+    width: 10%;
+    padding-bottom: 1rem;
+  }
+
+  .arrowright {
+    width: 10%;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+
+  @media (max-width: 768px) {
+    .slider-image {
+
+      height: 200px;
+
+    }
+      
+  }
+
+  @media (max-width: 900px) {
+    .slider-image {
+
+      height: 300px;
+
+    }
+      
+  }
+
+  @media only screen and (min-width: 900px) and (max-width:1500px) {
+    .slider-image {
+
+      height: 400px;
+
+    }
+      
+  }
+  
+  
+  @media (max-width: 480px) {
+    .slider-image {
+
+    height: 150px;
+    } 
+  }

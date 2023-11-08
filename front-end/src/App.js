@@ -4,6 +4,7 @@ import CompaniesPage  from './pages/Companies/Companies';
 import Home from './pages/home/Home'
 import Navbar from './components/Navbar/Navbar'
 import AboutPage from './pages/AboutUs/About.js'
+import Footer from './components/Footer/Footer.js';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/About" element={<AboutPage />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
       
 

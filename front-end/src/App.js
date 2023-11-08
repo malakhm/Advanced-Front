@@ -9,6 +9,7 @@ import AdminNavbar from './adminPanel/adminNavbar';
 import EditCompany from './adminPanel/editCompany';
 import AdminCategory from './adminPanel/adminCategory';
 import EditCategory from './adminPanel/editCategory';
+import Footer from "./components/Footer/Footer.js"
 
 
 // ...
@@ -45,7 +46,7 @@ function AppContent() {
 
 
         </Routes>
-        
+        <Footer/>
        
       </div>
     </>

@@ -30,13 +30,14 @@ color: white;
   color: white;
 }
 .comments-left{
-  width: 100%;
+  width: 40%;
 }
 
 .comments-right{
 display: flex;
 gap: 8%;
 flex-wrap: wrap;
+margin-left: 5rem;
 }
 
 .comment-description{

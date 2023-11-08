@@ -33,15 +33,17 @@ const Home = () => {
                     <p className='comment-description'><strong> Over 100 designs completed for happy clients.</strong></p>
                 </section>
 
-                {feedbacks &&
-                    feedbacks.map(each => (
-                        <section className='comments-right'>
-                        <section className='comments-item'> 
-                        <h1 className='name-comments'>{each.first_name}{each.last_name}</h1>
-                        <p className='comment-itself'>{each.content}</p>
-                        </section>
-                        </section>
-                    ))}
+                <section className='comments-right'>
+  {feedbacks &&
+    feedbacks.map((each, index) => (
+      <div className='comments-item' key={index}>
+        <h1 className='name-comments'>{each.first_name} {each.last_name}</h1>
+        <p className='comment-itself'>{each.content}</p>
+      </div>
+    ))}
+</section>
+
+                   
             </section>
         </div>
 

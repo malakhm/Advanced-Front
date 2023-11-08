@@ -1,10 +1,11 @@
-import { React } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import Logo from '../../Photos/Logo.png';
 import "./Navbar.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react'
+
 const Navbar = () => {
    const [collapse, setCollapsed] = useState(true)
    const executeScroll = () => {

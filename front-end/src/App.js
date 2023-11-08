@@ -10,7 +10,7 @@ import EditCompany from './adminPanel/editCompany';
 import AdminCategory from './adminPanel/adminCategory';
 import EditCategory from './adminPanel/editCategory';
 import Footer from "./components/Footer/Footer.js"
-
+import Categories from './pages/Categories/Categories.js';
 
 // ...
 
@@ -35,6 +35,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Companies" element={<CompaniesPage />} />
+          <Route path="/Categories" element={<Categories />} />
           <Route path="/About" element={<AboutPage />} />
           <Route path="/admin/" element={<AdminPage />} />
           <Route path="/admin/Categories" element={<AdminCategory />} />

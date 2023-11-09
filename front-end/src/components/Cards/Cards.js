@@ -13,13 +13,9 @@ const FlipCard = () => {
     const fetchCompanies = async () => {
       const response = await fetch("/api/companies")
       const json = await response.json()
-
-
       if (response.ok) {
         setcompanies(json.data)
       }
-
-
     }
     console.log(companies)
     fetchCompanies();

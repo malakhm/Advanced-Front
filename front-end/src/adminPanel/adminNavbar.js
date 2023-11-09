@@ -14,7 +14,9 @@ function AdminNavbar() {
      <div className="header_Links">
             <Link to="/admin" className="">Companies</Link>
             <Link to="/admin/Categories" className="">Categories</Link>
-            <Link to="/admin/comments" className="">Comments</Link>
+            <Link to="/admin/Designs" className="">Designs</Link>
+
+            <Link to="/admin/Users" className="">Users</Link>
 
             
       </div>

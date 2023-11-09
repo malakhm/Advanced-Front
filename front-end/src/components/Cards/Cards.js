@@ -6,8 +6,34 @@ import Email from "../../Photos/Email.png"
 import Gmail from "../../Photos/Gmail.png"
 import Location from "../../Photos/Location.png"
 import MobileNumber from "../../Photos/MobileNumber.png"
+
+
 const FlipCard = () => {
   const [companies, setcompanies] = useState([])
+
+
+  function CompanyDesigns({ companyId }) {
+    const [designs, setDesigns] = useState([]);
+  
+    useEffect(() => {
+      const apiUrl = `/api/designs/company/${companyId}`;
+  
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setDesigns(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, [companyId]);
+  }
+
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -56,7 +82,7 @@ const FlipCard = () => {
     </div>
 
   )
-
+  
 }
 
 export default FlipCard

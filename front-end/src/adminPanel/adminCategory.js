@@ -158,9 +158,9 @@ function AdminPanel() {
                 </td>
                 <td>
                   <Link to={`/api/categories/${category._id}/edit`}>
-                    <button className="edit-button">Edit</button>
+                    <button className="button">Edit</button>
                   </Link>
-                  <button onClick={() => onDeleteCategory(category._id)}>
+                  <button onClick={() => onDeleteCategory(category._id)} className="button">
                     Delete
                   </button>
                 </td>

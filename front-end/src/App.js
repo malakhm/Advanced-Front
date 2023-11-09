@@ -11,6 +11,10 @@ import AdminCategory from './adminPanel/adminCategory';
 import EditCategory from './adminPanel/editCategory';
 import Footer from "./components/Footer/Footer.js"
 import Categories from './pages/Categories/Categories.js';
+import AdminDesign from './adminPanel/adminDesign';
+import EditDesign from './adminPanel/editDesign';
+import AdminList from './adminPanel/adminList.js';
+import EditUser from './adminPanel/editUser.js';
 
 // ...
 
@@ -39,10 +43,18 @@ function AppContent() {
           <Route path="/About" element={<AboutPage />} />
           <Route path="/admin/" element={<AdminPage />} />
           <Route path="/admin/Categories" element={<AdminCategory />} />
+          <Route path="/admin/Designs" element={<AdminDesign />} />
+          <Route path="/admin/users" element={<AdminList />} />
+
+
 
 
           <Route path="/api/companies/:companyId/edit" element={<EditCompany />} />
           <Route path="/api/categories/:categoryId/edit" element={<EditCategory />} />
+          <Route path="/api/design/:designId/edit" element={<EditDesign />} />
+          <Route path="/api/users/:userId/edit" element={<EditUser />} />
+
+
 
 
 

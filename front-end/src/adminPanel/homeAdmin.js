@@ -241,11 +241,11 @@ function AdminPanel() {
                 <td>
                 
                 <Link to={`/api/companies/${company._id}/edit`}>
-                 <button>Edit</button>
+                 <button className="button">Edit</button>
                  </Link>
                   
-                  <button onClick={() => onDeleteCompany(company._id)}>
-                    Delete
+                  <button onClick={() => onDeleteCompany(company._id)} className="button">
+                    Delete 
                   </button>
                 </td>
               </tr>

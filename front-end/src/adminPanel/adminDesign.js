@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Link,Route } from "react-router-dom";
-import "./styleadmin.css"
+import { Link } from "react-router-dom";
 
-function AdminPanel() {
-  cosnt [companies,setCompanies] =useState(null)
-  const [categories, setCategories] = useState(null);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedCompanies, setSelectedCompanies] = useState([]);
-
+function AdminDesign() {
+  const [designs, setDesigns] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState("");
+  const [images, setImages] = useState([]);
   const [error, setError] = useState("");
 
-  
-
-
   const fetchData = async () => {
-    const response = await fetch("/api/desings/");
-    const json = await response.json();
-
-    if (response.ok) {
-      setData(json);
+    try {
+      const response = await fetch("/api/designs/");
+      if (response.ok) {
+        const data = await response.json();
+        setDesigns(data.data);
+      } else {
+        console.error("Failed to fetch Designs");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
     }
   };
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories");
+      const response = await fetch("/api/categories/");
       if (response.ok) {
         const data = await response.json();
-        setCategories(data);
+        setCategories(data.data);
       } else {
         console.error("Failed to fetch categories");
       }
@@ -36,64 +38,65 @@ function AdminPanel() {
     }
   };
 
+  const fetchCompanies = async () => {
+    try {
+      const response = await fetch("/api/companies/");
+      if (response.ok) {
+        const data = await response.json();
+        setCompanies(data.data);
+      } else {
+        console.error("Failed to fetch companies");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+  };
   useEffect(() => {
     fetchData();
     fetchCategories();
+    fetchCompanies();
   }, []);
-  console.log(categories);
-  const handleFileChange = (e) => {
-    const uploadedFile = e.target.files[0];
-    setCompanyLogo(uploadedFile);
-  };
 
-  const onDeleteCompany = async (companyId) => {
-    if (window.confirm("Are you sure you want to delete this company?")) {
+  const onDeleteDesign = async (designId) => {
+    if (window.confirm("Are you sure you want to delete this design?")) {
       try {
-        const response = await fetch(`/api/companies/${companyId}`, {
+        const response = await fetch(`/api/designs/${designId}`, {
           method: "DELETE",
         });
 
         if (response.ok) {
           fetchData();
         } else {
-          console.error("Failed to delete company");
+          console.error("Failed to delete design");
         }
       } catch (error) {
         console.error("Network error:", error);
       }
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    selectedCategories.forEach((category) => {
-      formData.append("categories[]", category);
-    });
-    formData.append("name", companyName);
-    formData.append("telephone", companyTelephone);
-    formData.append("location", companyLocation);
-    formData.append("website_link", companyLink);
-    formData.append("email", companyEmail);
+    formData.append("categoryId", selectedCategory);
+    formData.append("companyId", selectedCompany);
 
-    formData.append("logo", companyLogo);
+    for (let i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
 
     try {
-      const response = await fetch("/api/companies/", {
+      const response = await fetch("/api/designs", {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setCompanyName("");
-        setCompanyTelephone("");
-        setCompanyLocation("");
-        setCompanyLink("");
-        setCompanyEmail("");
-        setCompanyLogo(null);
         setError("");
-        setSelectedCategories([]);
+        setSelectedCategory("");
+        setSelectedCompany("");
+        setImages([]);
         fetchData();
       } else {
         const json = await response.json();
@@ -106,100 +109,62 @@ function AdminPanel() {
 
   return (
     <div>
-      <h1 className="admin-h1">Company</h1>
+      <h1 className="admin-h1">Designs</h1>
 
       <form
         className="form-adminDashbord"
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        <label htmlFor="name"className="label">Company Name</label>
-        <input
-          className="input"
-          type="text"
-          id="name"
-          required
-          onChange={(e) => setCompanyName(e.target.value)}
-          value={companyName}
-        />
-
-        <label htmlFor="telephone" className="label">Company telephone</label>
-        <input
-          className="input"
-          type="text"
-          id="telephone"
-          required
-          onChange={(e) => setCompanyTelephone(e.target.value)}
-          value={companyTelephone}
-        />
-
-        <label htmlFor="location" className="label">Company location</label>
-        <input
-          className="input"
-          type="text"
-          id="location"
-          required
-          onChange={(e) => setCompanyLocation(e.target.value)}
-          value={companyLocation}
-        />
-
-        <label htmlFor="website_link" className="label">Website link</label>
-        <input
-        className="input"
-          type="text"
-          id="website_link"
-          required
-          onChange={(e) => setCompanyLink(e.target.value)}
-          value={companyLink}
-        />
-
-        <label htmlFor="email"className="label">Company Email</label>
-
-        <input
-        className="input"
-          type="email"
-          id="email"
-          required
-          onChange={(e) => setCompanyEmail(e.target.value)}
-          value={companyEmail}
-        />
-        <label htmlFor="logo" className="label">logo</label>
-        <input
-          type="file"
-          id="logo"
-          name="logo"
-          onChange={handleFileChange}
-          required
-          className="input"
-        />
-
-        <label htmlFor="categories" className="label">Categories</label>
+        <label htmlFor="category" className="label">
+          Select Category
+        </label>
         <select
-        className="category"
-          id="categories"
-          multiple
-          onChange={(e) => {
-            const selectedOptions = Array.from(
-              e.target.selectedOptions,
-              (option) => option.value
-            );
-            setSelectedCategories(selectedOptions);
-          }}
-          value={selectedCategories}
+          id="category"
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          value={selectedCategory}
         >
-          {categories &&
-            categories.data.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.name}
-              </option>
-            ))}
+          <option value="">Select a category</option>
+          {categories && categories.length > 0 && categories.map((category) => (
+            <option key={category._id} value={category._id}>
+              {category.name}
+            </option>
+          ))}
         </select>
 
+        <label htmlFor="company" className="label">
+          Select Company
+        </label>
+        <select
+          id="company"
+          onChange={(e) => setSelectedCompany(e.target.value)}
+          value={selectedCompany}
+        >
+          <option value="">Select a company</option>
+          {companies && companies.length > 0 && companies.map((company) => (
+            <option key={company._id} value={company._id}>
+              {company.name}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="images" className="label">
+          Upload Images
+        </label>
+        <input 
+          type="file"
+          id="images"  
+          name="images"
+          onChange={(e) => setImages([...images, ...e.target.files])}
+          multiple
+          required
+          className="input"
+        />
+
         <input
-        
           type="submit"
           name="submit"
-          value="Add Company"
+          value="Add Design"
           className="submit"
         />
       </form>
@@ -207,47 +172,41 @@ function AdminPanel() {
       <table>
         <thead>
           <tr>
-            <th>Company Name</th>
-            <th>Company Telephone</th>
-            <th>Company Location</th>
-            <th>Website Link</th>
-            <th>Email</th>
-            <th>Company Logo</th>
-            <th>categories</th>
+            <th>Category</th>
+            <th>Company</th>
+            <th>Images</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {data &&
-            data.data &&
-            data.data.length > 0 &&
-            data.data.map((company) => (
-              <tr key={company._id}>
-                <td>{company.name}</td>
-                <td>{company.telephone}</td>
-                <td>{company.location}</td>
-                <td>{company.website_link}</td>
-                <td>{company.email}</td>
-                <td>
-                  <img src={company.logo} width="100px" alt={company.name} />
-                </td>
-                <td>{company.categories.map((category)=>`${(category.name)} ,`)}</td>
-                <td>
+          {designs && designs.length > 0 && designs.map((design) => (
+            <tr key={design._id}>
+              <td>{design.categoryId &&design.categoryId.name}</td>
+              <td>{design.companyId &&design.companyId.name}</td>
+              <td>
+              {design && design.images.map((image, index) => (
+              <img src={`http://localhost:4000/${image}`} alt={`Design ${index}`} key={index} width="200px"/>
+))}
+
+
+              </td>
+              <td>
+                <button onClick={() => onDeleteDesign(design._id)}className="button">
+                  Delete
+                </button>
+
+                <Link to={`/api/design/${design._id}/edit`}>
+                    <button className="button">Edit</button>
+                  </Link>
                 
-                <Link to={`/api/companies/${company._id}/edit`}>
-                 <button>Edit</button>
-                 </Link>
-                  
-                  <button onClick={() => onDeleteCompany(company._id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
 }
 
-export default AdminPanel;
+export default AdminDesign;

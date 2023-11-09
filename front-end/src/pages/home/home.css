@@ -50,7 +50,7 @@ margin-left: 5rem;
 .comments-item{
   background-color: white;
   width: 22%;
-  height: auto;
+  /* height: auto; */
   padding-bottom: 5px;
   border-radius: 8px;
   margin-bottom: 5%;
@@ -95,21 +95,25 @@ margin-left: 5rem;
     }
 
     .comments-right{
-      display: flex;
+      display: block;
       flex-wrap: wrap;
       margin-top: 5%;
+      margin-left: 5%;
+
       }
 
       .comments-item{
         
-        width: 25%;
-        height: auto;
+        width: 80%;
+        height:100px ;
         
       }
 
       .comment-itself{
 
         font-size: 12px;
+        margin-bottom: 5px;
+        text-wrap: wrap;
 
       }
 
@@ -124,7 +128,7 @@ margin-left: 5rem;
 @media (max-width: 480px) {
   .home-slider p{
    
-    font-size:18px;
+    font-size:15px;
     }
 
     .comment-description{
@@ -148,14 +152,13 @@ margin-left: 5rem;
 
       .comments-item{
         
-        width: 25%;
-        height: auto;
+        width: 40%;
         
       }
 
       .comment-itself{
 
-        font-size: 8px;
+        font-size: 7px;
 
       }
 

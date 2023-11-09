@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import './styleadmin.css';
+
 
 function EditCategory() {
   const { categoryId } = useParams();
@@ -41,6 +41,7 @@ function EditCategory() {
     fetchData();
   }, [categoryId]);
 
+  
   const handleUpdate = async (e) => {
     e.preventDefault();
 

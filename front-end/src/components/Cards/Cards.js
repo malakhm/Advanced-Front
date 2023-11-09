@@ -6,46 +6,16 @@ import Email from "../../Photos/Email.png"
 import Gmail from "../../Photos/Gmail.png"
 import Location from "../../Photos/Location.png"
 import MobileNumber from "../../Photos/MobileNumber.png"
-
-
 const FlipCard = () => {
   const [companies, setcompanies] = useState([])
-
-
-  function CompanyDesigns({ companyId }) {
-    const [designs, setDesigns] = useState([]);
-  
-    useEffect(() => {
-      const apiUrl = `/api/designs/company/${companyId}`;
-  
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setDesigns(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, [companyId]);
-  }
-
 
   useEffect(() => {
     const fetchCompanies = async () => {
       const response = await fetch("/api/companies")
       const json = await response.json()
-
-
       if (response.ok) {
         setcompanies(json.data)
       }
-
-
     }
     console.log(companies)
     fetchCompanies();
@@ -59,7 +29,7 @@ const FlipCard = () => {
           <div className="card-wrapper flip-right">
             <div className="card">
               <div className="front">
-                <img src={each.logo} alt='' className='INFINITE-Logo' />
+                <img src={each.logo} alt='' className='card-Logo' />
                 <div className='Info'>
                   <img src={Email} alt='' className='Icon1' /> <h3>{each.website_link}</h3>
                   <img src={Gmail} alt='' className='Icon1' />   <h3>{each.email}</h3>
@@ -82,7 +52,7 @@ const FlipCard = () => {
     </div>
 
   )
-  
+
 }
 
 export default FlipCard

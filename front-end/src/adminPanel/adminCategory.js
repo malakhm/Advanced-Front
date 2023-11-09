@@ -22,23 +22,23 @@ function AdminPanel() {
     }
   };
 
-  const fetchCompanies = async () => {
-    try {
-      const response = await fetch("/api/companies/");
-      if (response.ok) {
-        const data = await response.json();
-        setCompanies(data.data);
-      } else {
-        console.error("Failed to fetch companies");
-      }
-    } catch (error) {
-      console.error("Network error:", error);
-    }
-  };
+  // const fetchCompanies = async () => {
+  //   try {
+  //     const response = await fetch("/api/companies/");
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       setCompanies(data.data);
+  //     } else {
+  //       console.error("Failed to fetch companies");
+  //     }
+  //   } catch (error) {
+  //     console.error("Network error:", error);
+  //   }
+  // };
 
   useEffect(() => {
     fetchData();
-    fetchCompanies();
+    // fetchCompanies();
   }, []);
 
   const onDeleteCategory = async (categoryId) => {
@@ -107,10 +107,10 @@ function AdminPanel() {
           value={categoryName}
         />
 
-        <label htmlFor="companies" className="label">
+        {/* <label htmlFor="companies" className="label">
           Companies
-        </label>
-        <select
+        </label> */}
+        {/* <select
           className="category"
           id="companies"
           multiple
@@ -128,7 +128,7 @@ function AdminPanel() {
               {company.name}
             </option>
           ))}
-        </select>
+        </select> */}
 
         <input
           type="submit"
@@ -142,7 +142,7 @@ function AdminPanel() {
         <thead>
           <tr>
             <th>Category Name</th>
-            <th>Companies</th>
+            {/* <th>Companies</th> */}
             <th>Actions</th>
           </tr>
         </thead>
@@ -153,9 +153,9 @@ function AdminPanel() {
             data.data.map((category) => (
               <tr key={category._id}>
                 <td>{category.name}</td>
-                <td>
+                {/* <td>
                   {category.companies.map((company) => `${company.name}, `)}
-                </td>
+                </td> */}
                 <td>
                   <Link to={`/api/categories/${category._id}/edit`}>
                     <button className="button">Edit</button>

@@ -26,17 +26,17 @@ function EditCategory() {
       }
 
       
-      try {
-        const response = await fetch("/api/companies");
-        if (response.ok) {
-          const data = await response.json();
-          setAllCompanies(data.data);
-        } else {
-          console.error("Failed to fetch companies");
-        }
-      } catch (error) {
-        console.error("Network error:", error);
-      }
+      // try {
+      //   const response = await fetch("/api/companies");
+      //   if (response.ok) {
+      //     const data = await response.json();
+      //     setAllCompanies(data.data);
+      //   } else {
+      //     console.error("Failed to fetch companies");
+      //   }
+      // } catch (error) {
+      //   console.error("Network error:", error);
+      // }
     };
     fetchData();
   }, [categoryId]);
@@ -86,7 +86,7 @@ function EditCategory() {
           value={categoryName}
         />
 
-        <label htmlFor="companies" className="label">Companies</label>
+        {/* <label htmlFor="companies" className="label">Companies</label>
         <select
           className="category"
           id="companies"
@@ -106,7 +106,7 @@ function EditCategory() {
                 {company.name}
               </option>
             ))}
-        </select>
+        </select> */}
 
         <input  type="submit" className="submit" value="update category"/> 
         <p>{error}</p>

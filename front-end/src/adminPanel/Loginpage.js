@@ -49,7 +49,7 @@ const Loginpage = () => {
     <div className="login">
     <div className="top">
       <div className="avatar">
-        <img src={Logo} alt="Logo" />
+        <img className="LoginLogo" src={Logo} alt="Logo" />
       </div>
     </div>
     <div className="bottom">

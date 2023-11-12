@@ -16,34 +16,39 @@
 .AboutSec {
   display: flex;
   flex-direction: row;
-  width : 100%;
-  gap: 1rem;
   font-family: Inter;
-  position: relative;
-  padding: 50px 0px;
-}
+  padding-bottom: 50px;
+
+} 
+
 .aboutus-img {
-   width: 30%;
-
+  width: 600px;
+  margin-left: 15rem;
+  margin-top: 30px;
+  padding-right: 1rem;
 }
-
-
-.AboutSec .H1 {
+.AboutImgSec .Our-spac {
+ width: 100%;
+}
+ .H1 {
   color: #da9100;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .Text {
-  color: #142d41;
-  line-height: 2.5rem;
+  color: #fff;
+  line-height: 3.5rem;
   padding: 3rem;
   letter-spacing: 1.5px;
   font-size: 25px;
+  margin-top: 2.5rem;
+  width: 70%;
+  padding-bottom: 8rem;
   border: #da9100 3px solid;
-  background-color: rgba(255, 255, 255, 0.568);
-  font-weight: bold;
-  margin-top: 1rem;
+  border-radius: 33px;
 }
+
 
 #arrowContainer {
   position: fixed;
@@ -147,12 +152,7 @@
   padding-bottom: 135px;
 }
 
-.field:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.field2:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
+
 
 textarea {
   min-height: 120px;
@@ -181,37 +181,35 @@ textarea {
 }
 
 @media screen and (max-width: 880px) {
-  .contact-box {
-    grid-template-columns: 1fr;
+  .AboutUsPage {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
   }
-  .left {
-    height: 200px;
+  .aboutus-img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
   }
-
-.right p {
-  font-family: inter;
-  color: #da9100;
-  margin-top: 1rem;
-}
-
-.SwitchForm {
-  color: #da9100;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: width 0.5s ease, background-color 0.5s ease;
-  background-color: rgba(218, 145, 0, 0);
+  .contact-box{
   display: flex;
-}
-.btn {
- width: 80%;
- padding-bottom: 1.6rem;
-}
-.AboutSec {
-  font-size: small;
-}
-.Text {
-  font-size: large;
-}
+  flex-direction: column;
+  background-color: #08223511;
+  
+  }
+  .AboutSec {
+  display: flex;
+  flex-direction: column;
+
+  }
+ .Text {
+  font-size: 1.3rem;
+  font-family: inter;
+  line-height: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+ } 
 }
 

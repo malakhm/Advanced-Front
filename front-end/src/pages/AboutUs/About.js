@@ -159,8 +159,8 @@ const AboutPage = () => {
           </div>
         </div>
         <h1 className="H1">OUR VISION</h1>
-        <div className="aboutus-img" className="AboutSec">
-          <img src={Img3} ></img>
+        <div className="AboutSec">
+          <img  className="aboutus-img" src={Img3} ></img>
           <div className="AboutImgSec Our-visi">
             <p className="Text">
               Our vision is to become the definitive online destination for
@@ -178,7 +178,7 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        <div className="AboutSec">
+        <div className="AboutSec-bottom">
           {showContactUs ? (
             <div id="Contact" className="contact-box">
               <div className="left"></div>

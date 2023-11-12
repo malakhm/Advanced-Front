@@ -68,8 +68,6 @@ td {
 .category {
   width: 200px;
 }
-.submit {
-}
 
 .wrapper {
   height: 100%;
@@ -97,7 +95,6 @@ td {
   animation: gradient 10s infinite alternate linear;
   place-items: center;
   margin: 0;
-  padding: 0 24px;
   color: #f9f9f9;
 }
 
@@ -136,12 +133,24 @@ td {
   border-radius: 33px 33px 33px 33px;
   position: absolute;
   margin-top: 30rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
-@media (width >= 450px) {
-  .bottom {
-    width: 30%;
-  }
+@media screen and (max-width: 880px) {
+
+  .top {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem; 
+    margin-bottom: 10rem;
+    padding-bottom: 6rem;
+    border-radius: 33px 33px 0px 0px;
+    }
+   
 }
 
 .bottom > h2 {
@@ -233,7 +242,6 @@ td {
 }
 .N-Login {
   background-color: #DA9100;
-  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

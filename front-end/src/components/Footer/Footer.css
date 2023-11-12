@@ -72,55 +72,57 @@
   text-align: center;
 }
 
- @media only screen and (max-width: 960px) {
-    .footer{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .footer-imgs {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        margin-top: 2rem;
-        margin-right: 4rem
-    }
-    
-    .footer-img {
-       width: 100%;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       padding: 0;
-    }
-    .footerContainer {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       flex-direction: column;
-       margin: 0;
-    
-    }
-    .form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .inp {
-        width: 70%;
-      }
-      .inp:hover {
-        background-color: #da9100;
-      }
-      #input {
-        width: 200%;
-      }
-      #input:hover {
-        background-color: #da9100;
-      }
- }
+@media only screen and (max-width: 960px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-imgs {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 2rem;
+    margin-right: 9rem;
+  }
+
+  .footer-img {
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  .inp {
+    width: 40%;
+  }
+  .inp:hover {
+    background-color: #da9100;
+  }
+  #input {
+    width: 250%;
+  }
+  #input:hover {
+    background-color: #da9100;
+  }
+  .footerContainer h1,
+  .p {
+  margin-right: 2rem;
+  }
+}

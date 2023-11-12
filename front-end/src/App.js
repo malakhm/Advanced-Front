@@ -15,6 +15,7 @@ import AdminDesign from './adminPanel/adminDesign';
 import EditDesign from './adminPanel/editDesign';
 import AdminList from './adminPanel/adminList.js';
 import EditUser from './adminPanel/editUser.js';
+import Loginpage from './adminPanel/Loginpage.js';
 
 // ...
 
@@ -41,6 +42,7 @@ function AppContent() {
           <Route path="/Companies" element={<CompaniesPage />} />
           <Route path="/Categories" element={<Categories />} />
           <Route path="/About" element={<AboutPage />} />
+          <Route path="/Login" element={<Loginpage />} />
           <Route path="/admin/" element={<AdminPage />} />
           <Route path="/admin/Categories" element={<AdminCategory />} />
           <Route path="/admin/Designs" element={<AdminDesign />} />

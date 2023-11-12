@@ -1,92 +1,278 @@
-.admin-h1{
-    text-align: center;
-    margin-top: 2%;
-    color: white;
+.admin-h1 {
+  text-align: center;
+  margin-top: 2%;
+  color: white;
 }
 
-.form-adminDashbord{
-
-    width: 50%;
-    margin:auto;
-    margin-top: 2%;
-    display: flex;
-    flex-direction: column;
+.form-adminDashbord {
+  width: 50%;
+  margin: auto;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
 }
 
-.label{
-    font-style: inter;
-    color: white;
-    margin-bottom: 10px;
-    margin-top: 10px;
+.label {
+  font-style: inter;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.input,.submit{
-    height: 30px;
-    width: 70%;
-    font-size: 20px;
-    color:#DA9100
+.input,
+.submit {
+  height: 30px;
+  width: 70%;
+  font-size: 20px;
+  color: #da9100;
 }
 
-.submit{
-    margin-top: 2%;
+.submit {
+  margin-top: 2%;
 }
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 5%;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 5%;
 }
 
 /* Style for table headings (header row) */
 th {
-    background-color: #333;
-    color: white;
-    text-align: left;
-    padding: 10px;
+  background-color: #333;
+  color: white;
+  text-align: left;
+  padding: 10px;
 }
 
 /* Style for alternating row colors */
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* Style for table data cells */
 td {
-    padding: 10px;
-    border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
-.button  {
-
-width: 120px;
-background-color: #DA9100;
-color:white;
-border-radius: 10px;
-margin-left: 20px;
-height: 30px;
-background-color: #DA9100;
-
+.button {
+  width: 120px;
+  background-color: #da9100;
+  color: white;
+  border-radius: 10px;
+  margin-left: 20px;
+  height: 30px;
+  background-color: #da9100;
 }
 
 .category {
-
-    width: 200px;
+  width: 200px;
 }
-.submit{
 
+.wrapper {
+  height: 100%;
 }
+
+@keyframes gradient {
+  100% {
+    background-size: 4000px 1000px;
+  }
+}
+
+.login {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0 24px;
+  background-size: 2000px 1000px;
+  background-position: -500px 0;
+  color: #f9f9f9;
+}
+
+.bottom {
+  background-color: #142d41;
+  font-family: inter;
+  animation: gradient 10s infinite alternate linear;
+  place-items: center;
+  margin: 0;
+  color: #f9f9f9;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+  border-radius: 33px;
+  height: 100%;
+}
+
+.top {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 10rem;
+  padding-bottom: 6rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 33px 33px 0px 0px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 33px 33px 33px 33px;
+  position: absolute;
+  margin-top: 30rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@media screen and (max-width: 880px) {
+
+  .top {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem; 
+    margin-bottom: 10rem;
+    padding-bottom: 6rem;
+    border-radius: 33px 33px 0px 0px;
+    }
+   
+}
+
+.bottom > h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.bottom > h3 {
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0 0 30px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+  place-items: center;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+.Login-button {
+    padding: 0;
+    font-family: inter;
+    font-size: 25px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.login-form input {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 18px;
+  margin-right: 200px;
+  padding-left: 1rem;
+  color: inherit;
+  width: 100%;
+  height: 60px;
+  padding-left: 1rem;
+  font-family: inter;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.login-form input:focus {
+  border-color: #157ae1;
+}
+
+.login-form input:focus ~ span {
+  color: #157ae1;
+}
+
+.Login-button {
+  padding: 0.5rem 1rem;
+  background-color: #da9100;
+  color: #142d41;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.Login-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.Sign {
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: small;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #da9100;
+  text-decoration: none;
+}
+
+.Sign:hover {
+  color: #fff;
+}
+
+.sign a {
+  font-size: 20px;
+  text-align: left;
+  text-decoration: none;
+  color: #da9100;
+}
+.N-Login {
+  background-color: #DA9100;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.N-Login:hover {
+  background-color: #FFA733;
+}
+
+
 @media screen and (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
 
-    /* Hide table headings (th) for smaller screens */
-    thead {
-        display: none;
-    }
+  /* Hide table headings (th) for smaller screens */
+  thead {
+    display: none;
+  }
 
-    /* Add some space between table data cells (td) */
-    td {
-        text-align: right;
-        padding-left: 50%;
-    }
+  /* Add some space between table data cells (td) */
+  td {
+    text-align: right;
+    padding-left: 50%;
+  }
 }

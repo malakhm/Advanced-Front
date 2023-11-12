@@ -6,7 +6,6 @@ const CompaniesPage = () => {
     <div className='body'>
        <FlipCard />
     </div>
-  
   );
 };
 export default CompaniesPage;

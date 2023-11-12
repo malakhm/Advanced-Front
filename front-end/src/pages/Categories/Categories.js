@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import "./Categories.css";
-
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -54,19 +52,9 @@ const Categories = () => {
     FilterDesignByCat();
   }, [filterCat]);
 
-
-
-  // Filter categories based on selected category
-  const filteredCategories = categories.filter(category => {
-    if (filterCat === 'all') {
-      return true;
-    } else {
-      return category.name.toLowerCase() === filterCat.toLowerCase();
-    }
-  });
-
   return (
     <div>
+
       <header className="min-Header">
         <div className="categories_Buttons">
           <button id="btn" type="button" onClick={() => setFilterCat('all')}>

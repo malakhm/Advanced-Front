@@ -5,7 +5,47 @@ import Arrowup from "../../Photos/Arrowup.png";
 import Header from "../../components/header/Header";
 import imageHeader from "../../Photos/header-1.png";
 import emailjs from '@emailjs/browser';
+import Img1 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-1.png";
+import Img2 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-2.png";
+import Img3 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-3.png";
 const AboutPage = () => {
+  const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
+  const [feedbacksLastName, setFeedbacksLastName] = useState("");
+  const [feedbacksContent, setFeedbacksContent] = useState("");
+  const [error, setError] = useState("");
+
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault();
+
+    const requestBody = {
+      first_name: feedbacksFirstName,
+      last_name: feedbacksLastName,
+      content: feedbacksContent,
+    };
+
+    try {
+      const response = await fetch("/api/feedbacks/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        setFeedbacksFirstName("");
+        setFeedbacksLastName("");
+        setFeedbacksContent("");
+        setError("");
+      } else {
+        const json = await response.json();
+        setError(json.message);
+      }
+    } catch (error) {
+      setError("Network error");
+    }
+  };
+
 
   const location = useLocation()
 
@@ -78,8 +118,9 @@ const AboutPage = () => {
       <Header imageSrc={imageHeader} />
       <div className="AboutUsPage">
         <div className="Header"></div>
+        <h1 className="H1">ABOUT SPACE-LOOM</h1>
         <div className="AboutSec">
-          <h1 className="H1">ABOUT SPACE-LOOM</h1>
+          <img className="aboutus-img" src={Img1} ></img>
           <div className="AboutImgSec Our-spac">
             <p className="Text">
               Spaceloom is more than just an online platform; it is a
@@ -97,8 +138,9 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <h1 className="H1">OUR MISSION </h1>
         <div className="AboutSec">
-          <h1 className="H1">OUR MISSION </h1>
+          <img className="aboutus-img" src={Img2} ></img>
           <div className="AboutImgSec Our-miss">
             <p className="Text">
               {" "}
@@ -116,8 +158,9 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <h1 className="H1">OUR VISION</h1>
         <div className="AboutSec">
-          <h1 className="H1">OUR VISION</h1>
+          <img  className="aboutus-img" src={Img3} ></img>
           <div className="AboutImgSec Our-visi">
             <p className="Text">
               Our vision is to become the definitive online destination for
@@ -135,7 +178,7 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        <div className="AboutSec">
+        <div className="AboutSec-bottom">
           {showContactUs ? (
             <div id="Contact" className="contact-box">
               <div className="left"></div>
@@ -166,9 +209,32 @@ const AboutPage = () => {
                 <button onClick={handleFeedbackFormToggle} className="SwitchForm">
                   Feedback
                 </button>
-                <input type="text" className="field" placeholder="Your Name" />
-                <textarea placeholder="Message" className="field2"></textarea>
-                <button className="btn">SEND</button>
+
+
+                <input
+                  type="text"
+                  required
+                  onChange={(e) => setFeedbacksFirstName(e.target.value)}
+                  value={feedbacksFirstName} htmlFor="feedbacksFirstName"
+                  className="field"
+                  placeholder="First Name" />
+                <form className="field0ne" onSubmit={handleFeedbackSubmit}>
+
+                  <input
+                    type="text"
+                    required
+                    onChange={(e) => setFeedbacksLastName(e.target.value)}
+                    value={feedbacksLastName} htmlFor="feedbacksLastName" className="field" placeholder="Last Name" />
+
+                  <textarea
+                    className="field2"
+                    placeholder="Message"
+                    required
+                    onChange={(e) => setFeedbacksContent(e.target.value)}
+                    value={feedbacksContent}
+                  ></textarea>
+                  <button className="btn">SEND</button>
+                </form>
               </div>
             </div>
           )}

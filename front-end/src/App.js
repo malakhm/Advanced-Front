@@ -41,8 +41,6 @@ function AppContent() {
           <Route path="/Login" element={<Loginpage />} />
           <Route path="/admin/" element={<AdminPage />} />
           <Route path="/admin/Categories" element={<AdminCategory />} />
-
-
           <Route path="/api/companies/:companyId/edit" element={<EditCompany />} />
           <Route path="/api/categories/:categoryId/edit" element={<EditCategory />} />
 

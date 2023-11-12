@@ -5,6 +5,9 @@ import Arrowup from "../../Photos/Arrowup.png";
 import Header from "../../components/header/Header";
 import imageHeader from "../../Photos/header-1.png";
 import emailjs from '@emailjs/browser';
+import Img1 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-1.png";
+import Img2 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-2.png";
+import Img3 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-3.png";
 const AboutPage = () => {
   const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
   const [feedbacksLastName, setFeedbacksLastName] = useState("");
@@ -115,8 +118,9 @@ const AboutPage = () => {
       <Header imageSrc={imageHeader} />
       <div className="AboutUsPage">
         <div className="Header"></div>
+        <h1 className="H1">ABOUT SPACE-LOOM</h1>
         <div className="AboutSec">
-          <h1 className="H1">ABOUT SPACE-LOOM</h1>
+          <img className="aboutus-img" src={Img1} ></img>
           <div className="AboutImgSec Our-spac">
             <p className="Text">
               Spaceloom is more than just an online platform; it is a
@@ -134,8 +138,9 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <h1 className="H1">OUR MISSION </h1>
         <div className="AboutSec">
-          <h1 className="H1">OUR MISSION </h1>
+          <img className="aboutus-img" src={Img2} ></img>
           <div className="AboutImgSec Our-miss">
             <p className="Text">
               {" "}
@@ -153,8 +158,9 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        <div className="AboutSec">
-          <h1 className="H1">OUR VISION</h1>
+        <h1 className="H1">OUR VISION</h1>
+        <div className="aboutus-img" className="AboutSec">
+          <img src={Img3} ></img>
           <div className="AboutImgSec Our-visi">
             <p className="Text">
               Our vision is to become the definitive online destination for
@@ -203,8 +209,8 @@ const AboutPage = () => {
                 <button onClick={handleFeedbackFormToggle} className="SwitchForm">
                   Feedback
                 </button>
-                
-                
+
+
                 <input
                   type="text"
                   required
@@ -219,7 +225,7 @@ const AboutPage = () => {
                     required
                     onChange={(e) => setFeedbacksLastName(e.target.value)}
                     value={feedbacksLastName} htmlFor="feedbacksLastName" className="field" placeholder="Last Name" />
-                    
+
                   <textarea
                     className="field2"
                     placeholder="Message"

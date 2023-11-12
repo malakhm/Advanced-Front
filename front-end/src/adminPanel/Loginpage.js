@@ -80,8 +80,8 @@ const Loginpage = () => {
             onChange={(e) => setpassword(e.target.value)}
           />
         </div>
-        <button type="submit">LOGIN</button>
-        <a href="https://website.com">
+        <Link to="/admin" className="Login-button" >Login</Link>
+        <a className="Sign" href="https://website.com">
           Don't have an account? <a className="Sign">SignUP</a>
         </a>
       </form>

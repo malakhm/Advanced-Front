@@ -54,6 +54,7 @@ const Categories = () => {
 
   return (
     <div>
+
       <header className="min-Header">
         <div className="categories_Buttons">
           <button id="btn" type="button" onClick={() => setFilterCat('all')}>

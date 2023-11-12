@@ -1,6 +1,5 @@
 
 
-
 .categories_Buttons {
     display: flex;
     gap: 100px;
@@ -9,7 +8,7 @@
   }
   .min-Header{
   background-color: #0E395A;
-  padding-top:10px ;
+  padding-top:30px ;
   text-align: center;
   justify-content: center;
   }

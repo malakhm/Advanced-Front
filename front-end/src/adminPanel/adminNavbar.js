@@ -15,6 +15,7 @@ function AdminNavbar() {
             <Link to="/admin" className="">Companies</Link>
             <Link to="/admin/Categories" className="">Categories</Link>
             <Link to="/admin/comments" className="">Comments</Link>
+            <Link to="/Login" className="N-Login">Logout</Link>
 
             
       </div>

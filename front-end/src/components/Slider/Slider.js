@@ -1,14 +1,38 @@
-import React, { useState } from 'react';
-import './Slider.css';
-import arrowLeft from '../../Photos/ArrowLeft.png';
-import arrowRight from '../../Photos/ArrowRight.png';
+import React, { useState,useEffect} from "react";
+import "./Slider.css";
+import arrowLeft from "../../Photos/ArrowLeft.png";
+import arrowRight from "../../Photos/ArrowRight.png";
 import one from "../../Photos/Artshoc/one.webp";
 import two from "../../Photos/Artshoc/two.webp";
 import three from "../../Photos/Artshoc/three.webp";
 
-const Slider = () => {
+const Slider = ({ companyId }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [one, two, three];
+  const [images,setImages]= useState([]);
+  const [designs, setDesigns] = useState([]);
+
+  const Getdesigns = async() => {
+    try {
+      const response = await fetch(`/api/designs/company/${companyId}`);
+      const data=  await response.json();
+      setDesigns(data)
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    const allImages =designs&& designs.reduce((acc, design) => [...acc, ...design.images], []);
+
+    setImages(allImages);
+
+  }, [designs]); 
+  useEffect(() =>{
+    Getdesigns()
+  },[]);
+  console.log(designs);
+
 
   const nextSlide = () => {
     setCurrentImage((currentImage + 1) % images.length);
@@ -20,16 +44,33 @@ const Slider = () => {
 
   return (
     <div className="slider">
-      <div className="slider-container">
-        <img src={arrowLeft} alt="Prev" className="arrowleft" onClick={prevSlide} />
+                    
+       <div className="slider-container">
+        <img
+          src={arrowLeft}
+          alt="Prev"
+          className="arrowleft"
+          onClick={prevSlide}
+        />
         <img
           src={images[currentImage]}
           alt={`Slide ${currentImage}`}
-          className={`slider-image ${currentImage > 0 ? 'prev' : ''}`}
+          className={`slider-image ${currentImage > 0 ? "prev" : ""}`}
         />
-        <img src={arrowRight} alt="Next" className="arrowright" onClick={nextSlide} />
+        <img
+          src={arrowRight}
+          alt="Next"
+          className="arrowright"
+          onClick={nextSlide}
+        />
+      </div> 
+
+
+
+      
+
       </div>
-    </div>
+    
   );
 };
 

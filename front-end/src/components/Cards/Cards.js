@@ -44,7 +44,7 @@ const FlipCard = () => {
                 </div>
               </div>
               <div className="back">
-                <Slider />
+                <Slider companyId={each._id} />
               </div>
             </div>
           </div>

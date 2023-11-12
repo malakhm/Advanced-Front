@@ -4,6 +4,8 @@
     display: flex;
     gap: 100px;
     justify-content: center;
+    row-gap: 10px;
+    flex-wrap: wrap;
     
   }
   .min-Header{
@@ -82,4 +84,14 @@
     border-color: gold;
   }
   
-  
+  header{
+    width: 100%;
+  }
+
+
+  @media screen and (max-width:950){
+    
+    .image {
+      width: 50%; 
+      height: 150px; }
+  }

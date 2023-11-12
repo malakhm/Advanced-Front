@@ -25,7 +25,7 @@ const Home = () => {
             <HomeCategoriescard />
             <section className='home-slider'>
                 <p>Recommended design </p>
-                <Slider />
+                <Slider companyId={'654cb02ad922370459ecb1d4'} />
             </section>
             <section className='home-comments'>
                 <section className='comments-left'>

@@ -179,3 +179,8 @@ body {
     width: 45%;
   }
 }
+
+.front img {
+      height: 120px;
+      margin-top: 1%;
+}

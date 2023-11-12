@@ -3,9 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 100px;
+  margin-bottom: 4rem;
   font-family: inter;
   margin-left: 5rem;
+  padding: 2rem;
 }
 .card-wrapper {
   margin: 10px 20px;
@@ -180,7 +181,4 @@ body {
   }
 }
 
-.front img {
-      height: 120px;
-      margin-top: 1%;
-}
+

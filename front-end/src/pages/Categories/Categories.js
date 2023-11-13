@@ -74,7 +74,7 @@ const Categories = () => {
         <div className="image-container">
           <div className="image-row">
             {Filterdesigns && Filterdesigns.map(each=>(
-              <img src={`https://spaceloom.onrender.com${each.images[0]}`} alt="Kitchen 1" className="image" />
+              <img src={`https://spaceloom.onrender.com/${each.images[0]}`} alt="Kitchen 1" className="image" />
             ))}
           </div>
         </div>

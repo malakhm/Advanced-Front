@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchfeedbacks = async () => {
-            const response = await fetch("/api/feedbacks")
+            const response = await fetch("https://spaceloom.onrender.com/api/feedbacks")
             const json = await response.json()
             if (response.ok) {
                 setfeedbacks(json.data)
@@ -24,7 +24,7 @@ const Home = () => {
             <Header imageSrc={imageHeader} />
             <HomeCategoriescard />
             <section className='home-slider'>
-                <p>Recommendedd design </p>
+                <p>Recommended design </p>
                 <Slider companyId={'654cb02ad922370459ecb1d4'} />
             </section>
             <section className='home-comments'>

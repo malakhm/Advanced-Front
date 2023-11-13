@@ -10,7 +10,8 @@ const Home = () => {
 
     useEffect(() => {
         const fetchfeedbacks = async () => {
-            const response = await fetch("https://spaceloom.onrender.com/api/feedbacks")
+            const response = await fetch("https://spaceloom.onrender.com/api/feedbacks/")
+            console.log(response)
             const json = await response.json()
             if (response.ok) {
                 setfeedbacks(json.data)

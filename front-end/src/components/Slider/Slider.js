@@ -3,7 +3,6 @@ import "./Slider.css";
 import arrowLeft from "../../Photos/ArrowLeft.png";
 import arrowRight from "../../Photos/ArrowRight.png";
 
-
 const Slider = ({ companyId }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [images,setImages]= useState([]);

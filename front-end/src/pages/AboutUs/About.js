@@ -24,7 +24,7 @@ const AboutPage = () => {
     };
 
     try {
-      const response = await fetch("/https://spaceloom.onrender.com/api/feedbacks/", {
+      const response = await fetch("/api/feedbacks/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

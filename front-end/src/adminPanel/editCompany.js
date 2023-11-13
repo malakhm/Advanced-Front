@@ -50,7 +50,7 @@ function EditCompany() {
   }, [companyId]);
 
   const handleFileChange = (e) => {
-    const uploadedFile = `https://spaceloom.onrender.com/${images[e.target.files[0]]}`
+    const uploadedFile = `https://spaceloom.onrender.com/${[e.target.files[0]]}`
     setCompanyLogo(uploadedFile);
   };
 

@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import Img1 from "../../Photos/categories-1.png";
 import Img2 from "../../Photos/categories-2.png";
 import Img3 from "../../Photos/categories-3.png";
+
 const AboutPage = () => {
   const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
   const [feedbacksLastName, setFeedbacksLastName] = useState("");
@@ -73,9 +74,10 @@ const AboutPage = () => {
 
   useEffect(() => {
     if (location.hash) {
-      setTimeout(() => {
+      // setTimeout(() => {
+      //   executeScroll();
+      // }, 0);
         executeScroll();
-      }, 0);
     }
   }, [location.hash]);
 

@@ -11,7 +11,7 @@ const FlipCard = () => {
 
   useEffect(() => {
     const fetchCompanies = async () => {
-      const response = await fetch("/api/companies")
+      const response = await fetch("https://spaceloom.onrender.com/api/companies")
       const json = await response.json()
       if (response.ok) {
         setcompanies(json.data)

@@ -13,7 +13,7 @@ function EditCategory() {
     const fetchData = async () => {
       // Fetch the category data
       try {
-        const response = await fetch(`/api/categories/${categoryId}`);
+        const response = await fetch(`https://spaceloom.onrender.com/api/categories/${categoryId}`);
         if (response.ok) {
           const data = await response.json();
           setCategoryName(data.data.name);
@@ -51,7 +51,7 @@ function EditCategory() {
     };
 
     try {
-      const response = await fetch(`/api/categories/${categoryId}`, {
+      const response = await fetch(`https://spaceloom.onrender.com/api/categories/${categoryId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ function AdminUsers() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/admins");
+      const response = await fetch("https://spaceloom.onrender.com/api/admins");
       if (response.ok) {
         const data = await response.json();
         setUsers(data.data);
@@ -31,7 +31,7 @@ function AdminUsers() {
   const onDeleteUser = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        const response = await fetch(`/api/admins/${userId}`, {
+        const response = await fetch(`https://spaceloom.onrender.com/api/admins/${userId}`, {
           method: "DELETE",
         });
 
@@ -57,7 +57,7 @@ function AdminUsers() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/admins", {
+      const response = await fetch("https://spaceloom.onrender.com/api/admins", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

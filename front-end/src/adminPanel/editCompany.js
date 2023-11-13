@@ -17,7 +17,7 @@ function EditCompany() {
     const fetchData = async () => {
       // Fetch the company data
       try {
-        const response = await fetch(`/api/companies/${companyId}`);
+        const response = await fetch(`https://spaceloom.onrender.com/api/companies/${companyId}`);
         if (response.ok) {
           const data = await response.json();
           setCompanyName(data.data.name);
@@ -35,7 +35,7 @@ function EditCompany() {
 
       // Fetch all categories
       try {
-        const response = await fetch("/api/categories");
+        const response = await fetch("https://spaceloom.onrender.com/api/categories");
         if (response.ok) {
           const data = await response.json();
           setAllCategories(data.data);
@@ -81,7 +81,7 @@ function EditCompany() {
           }
         }
     
-        const response = await fetch(`/api/companies/${companyId}`, {
+        const response = await fetch(`https://spaceloom.onrender.com/api/companies/${companyId}`, {
           method: "PATCH",
           body: formData,
         });

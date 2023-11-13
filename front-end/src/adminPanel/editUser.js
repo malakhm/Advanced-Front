@@ -11,7 +11,7 @@ function EditUser() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/admins/${userId}`);
+        const response = await fetch(`https://spaceloom.onrender.com/api/admins/${userId}`);
         if (response.ok) {
           const data = await response.json();
           setUsername(data.username);
@@ -37,7 +37,7 @@ function EditUser() {
     };
 
     try {
-      const response = await fetch(`/api/admins/${userId}`, {
+      const response = await fetch(`https://spaceloom.onrender.com/api/admins/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

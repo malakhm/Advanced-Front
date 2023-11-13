@@ -9,7 +9,7 @@ const Categories = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('api/categories/');
+      const response = await fetch('https://spaceloom.onrender.com/api/categories/');
       const jsonCategories = await response.json();
       if (response.status === 200) {
         setCategories(jsonCategories.data);
@@ -21,7 +21,7 @@ const Categories = () => {
 
   const fetchDesign = async () => {
     try {
-      const response = await fetch('api/designs');
+      const response = await fetch('https://spaceloom.onrender.com/api/designs');
       const jsonDesigns = await response.json();
       if (response.status === 200) {
         setDesigns(jsonDesigns.data);

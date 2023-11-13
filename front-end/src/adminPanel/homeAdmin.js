@@ -20,7 +20,7 @@ function AdminPanel() {
 
 
   const fetchData = async () => {
-    const response = await fetch("/api/companies/");
+    const response = await fetch("https://spaceloom.onrender.com/api/companies/");
     const json = await response.json();
 
     if (response.ok) {
@@ -30,7 +30,7 @@ function AdminPanel() {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories");
+      const response = await fetch("https://spaceloom.onrender.com/api/categories");
       if (response.ok) {
         const data = await response.json();
         setCategories(data);
@@ -55,7 +55,7 @@ function AdminPanel() {
   const onDeleteCompany = async (companyId) => {
     if (window.confirm("Are you sure you want to delete this company?")) {
       try {
-        const response = await fetch(`/api/companies/${companyId}`, {
+        const response = await fetch(`https://spaceloom.onrender.com/api/companies/${companyId}`, {
           method: "DELETE",
         });
 
@@ -86,7 +86,7 @@ function AdminPanel() {
     formData.append("logo", companyLogo);
 
     try {
-      const response = await fetch("/api/companies/", {
+      const response = await fetch("https://spaceloom.onrender.com/api/companies/", {
         method: "POST",
         body: formData,
       });

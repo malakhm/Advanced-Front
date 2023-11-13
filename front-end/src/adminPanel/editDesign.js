@@ -13,7 +13,7 @@ function EditDesign() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/designs/${designId}`);
+        const response = await fetch(`https://spaceloom.onrender.com/api/designs/${designId}`);
         if (response.ok) {
           const data = await response.json();
           setSelectedCategory(data.data.categoryId._id);
@@ -27,7 +27,7 @@ function EditDesign() {
 
       // Fetch all categories
       try {
-        const response = await fetch("/api/categories");
+        const response = await fetch("https://spaceloom.onrender.com/api/categories");
         if (response.ok) {
           const data = await response.json();
           setAllCategories(data.data);
@@ -40,7 +40,7 @@ function EditDesign() {
 
       // Fetch all companies
       try {
-        const response = await fetch("/api/companies");
+        const response = await fetch("https://spaceloom.onrender.com/api/companies");
         if (response.ok) {
           const data = await response.json();
           setAllCompanies(data.data);
@@ -80,7 +80,7 @@ function EditDesign() {
         }
       }
 
-      const response = await fetch(`/api/designs/${designId}`, {
+      const response = await fetch(`https://spaceloom.onrender.com/api/designs/${designId}`, {
         method: "PATCH",
         body: formData,
       });

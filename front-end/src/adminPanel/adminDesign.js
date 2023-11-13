@@ -12,7 +12,7 @@ function AdminDesign() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/designs/");
+      const response = await fetch("https://spaceloom.onrender.com/api/designs/");
       if (response.ok) {
         const data = await response.json();
         setDesigns(data.data);
@@ -26,7 +26,7 @@ function AdminDesign() {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories/");
+      const response = await fetch("https://spaceloom.onrender.com/api/categories/");
       if (response.ok) {
         const data = await response.json();
         setCategories(data.data);
@@ -40,7 +40,7 @@ function AdminDesign() {
 
   const fetchCompanies = async () => {
     try {
-      const response = await fetch("/api/companies/");
+      const response = await fetch("https://spaceloom.onrender.com/api/companies/");
       if (response.ok) {
         const data = await response.json();
         setCompanies(data.data);
@@ -60,7 +60,7 @@ function AdminDesign() {
   const onDeleteDesign = async (designId) => {
     if (window.confirm("Are you sure you want to delete this design?")) {
       try {
-        const response = await fetch(`/api/designs/${designId}`, {
+        const response = await fetch(`https://spaceloom.onrender.com/api/designs/${designId}`, {
           method: "DELETE",
         });
 
@@ -87,7 +87,7 @@ function AdminDesign() {
     }
 
     try {
-      const response = await fetch("/api/designs", {
+      const response = await fetch("https://spaceloom.onrender.com/api/designs", {
         method: "POST",
         body: formData,
       });

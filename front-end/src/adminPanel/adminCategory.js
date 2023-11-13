@@ -10,7 +10,7 @@ function AdminPanel() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/categories/");
+      const response = await fetch("https://spaceloom.onrender.com/api/categories/");
       if (response.ok) {
         const json = await response.json();
         setData(json);
@@ -22,19 +22,6 @@ function AdminPanel() {
     }
   };
 
-  // const fetchCompanies = async () => {
-  //   try {
-  //     const response = await fetch("/api/companies/");
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       setCompanies(data.data);
-  //     } else {
-  //       console.error("Failed to fetch companies");
-  //     }
-  //   } catch (error) {
-  //     console.error("Network error:", error);
-  //   }
-  // };
 
   useEffect(() => {
     fetchData();
@@ -68,7 +55,7 @@ function AdminPanel() {
     };
   
     try {
-      const response = await fetch("/api/categories/", {
+      const response = await fetch("https://spaceloom.onrender.com/api/categories/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", 

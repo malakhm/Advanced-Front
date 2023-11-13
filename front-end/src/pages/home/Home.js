@@ -24,7 +24,7 @@ const Home = () => {
             <Header imageSrc={imageHeader} />
             <HomeCategoriescard />
             <section className='home-slider'>
-                <p>Recommendedddd design </p>
+                <p>Recommended design </p>
                 <Slider companyId={'654cb02ad922370459ecb1d4'} />
             </section>
             <section className='home-comments'>

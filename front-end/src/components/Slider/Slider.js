@@ -50,7 +50,7 @@ const Slider = ({ companyId }) => {
           onClick={prevSlide}
         />
         <img
-          src={images[currentImage]}
+          src={`https://spaceloom.onrender.com/${images[currentImage]}`}
           alt={`Slide ${currentImage}`}
           className={`slider-image ${currentImage > 0 ? "prev" : ""}`}
         />

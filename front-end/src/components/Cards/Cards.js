@@ -6,6 +6,8 @@ import Email from "../../Photos/Email.png"
 import Gmail from "../../Photos/Gmail.png"
 import Location from "../../Photos/Location.png"
 import MobileNumber from "../../Photos/MobileNumber.png"
+
+
 const FlipCard = () => {
   const [companies, setcompanies] = useState([])
 
@@ -29,7 +31,7 @@ const FlipCard = () => {
           <div className="card-wrapper flip-right">
             <div className="card">
               <div className="front">
-                <img src={each.logo} alt='' className='card-Logo' />
+                <img src={`https://spaceloom.onrender.com/${each.logo}`} alt='' className='card-Logo' />
                 <div className='Info'>
                   <img src={Email} alt='' className='Icon1' /> <h3>{each.website_link}</h3>
                   <img src={Gmail} alt='' className='Icon1' />   <h3>{each.email}</h3>

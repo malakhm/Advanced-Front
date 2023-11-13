@@ -2,9 +2,7 @@ import React, { useState,useEffect} from "react";
 import "./Slider.css";
 import arrowLeft from "../../Photos/ArrowLeft.png";
 import arrowRight from "../../Photos/ArrowRight.png";
-import one from "../../Photos/Artshoc/one.webp";
-import two from "../../Photos/Artshoc/two.webp";
-import three from "../../Photos/Artshoc/three.webp";
+
 
 const Slider = ({ companyId }) => {
   const [currentImage, setCurrentImage] = useState(0);

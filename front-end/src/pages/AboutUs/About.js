@@ -5,9 +5,9 @@ import Arrowup from "../../Photos/Arrowup.png";
 import Header from "../../components/header/Header";
 import imageHeader from "../../Photos/header-1.png";
 import emailjs from '@emailjs/browser';
-import Img1 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-1.png";
-import Img2 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-2.png";
-import Img3 from "/home/mohamad/Desktop/Codi-grp2-frontend/front-end/src/Photos/categories-3.png";
+import Img1 from "../../Photos/categories-1.png";
+import Img2 from "../../Photos/categories-2.png";
+import Img3 from "../../Photos/categories-3.png";
 const AboutPage = () => {
   const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
   const [feedbacksLastName, setFeedbacksLastName] = useState("");

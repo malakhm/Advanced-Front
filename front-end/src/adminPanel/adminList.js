@@ -140,7 +140,7 @@ function AdminUsers() {
                     Delete
                   </button>
 
-                  <Link to={`/api/users/${user._id}/edit`}>
+                  <Link to={`https://spaceloom.onrender.com/api/users/${user._id}/edit`}>
                     <button className="button">Edit</button>
                   </Link>
                 </td>

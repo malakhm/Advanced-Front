@@ -31,7 +31,7 @@ function AdminPanel() {
   const onDeleteCategory = async (categoryId) => {
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
-        const response = await fetch(`/api/categories/${categoryId}`, {
+        const response = await fetch(`https://spaceloom.onrender.com/api/categories/${categoryId}`, {
           method: "DELETE",
         });
 

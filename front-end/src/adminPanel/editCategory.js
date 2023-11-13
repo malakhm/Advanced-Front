@@ -25,18 +25,6 @@ function EditCategory() {
         console.error("Network error:", error);
       }
 
-      
-      // try {
-      //   const response = await fetch("/api/companies");
-      //   if (response.ok) {
-      //     const data = await response.json();
-      //     setAllCompanies(data.data);
-      //   } else {
-      //     console.error("Failed to fetch companies");
-      //   }
-      // } catch (error) {
-      //   console.error("Network error:", error);
-      // }
     };
     fetchData();
   }, [categoryId]);
@@ -85,28 +73,6 @@ function EditCategory() {
           onChange={(e) => setCategoryName(e.target.value)}
           value={categoryName}
         />
-
-        {/* <label htmlFor="companies" className="label">Companies</label>
-        <select
-          className="category"
-          id="companies"
-          multiple
-          onChange={(e) => {
-            const selectedOptions = Array.from(
-              e.target.selectedOptions,
-              (option) => option.value
-            );
-            setSelectedCompanies(selectedOptions);
-          }}
-          value={selectedCompanies}
-        >
-          {allCompanies &&
-            allCompanies.map((company) => (
-              <option key={company._id} value={company._id}>
-                {company.name}
-              </option>
-            ))}
-        </select> */}
 
         <input  type="submit" className="submit" value="update category"/> 
         <p>{error}</p>

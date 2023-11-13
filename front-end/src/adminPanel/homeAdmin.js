@@ -235,7 +235,7 @@ function AdminPanel() {
                 <td>{company.website_link}</td>
                 <td>{company.email}</td>
                 <td>
-                  <img src={company.logo} width="100px" alt={company.name} />
+                  <img src={`https://spaceloom.onrender.com/${company.logo}`} width="100px" alt={company.name} />
                 </td>
                 <td>{company.categories.map((category)=>`${(category.name)} ,`)}</td>
                 <td>

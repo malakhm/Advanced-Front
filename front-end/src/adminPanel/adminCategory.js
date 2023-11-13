@@ -94,29 +94,6 @@ function AdminPanel() {
           value={categoryName}
         />
 
-        {/* <label htmlFor="companies" className="label">
-          Companies
-        </label> */}
-        {/* <select
-          className="category"
-          id="companies"
-          multiple
-          onChange={(e) => {
-            const selectedOptions = Array.from(
-              e.target.selectedOptions,
-              (option) => option.value
-            );
-            setSelectedCompanies(selectedOptions);
-          }}
-          value={selectedCompanies}
-        >
-          {companies.map((company) => (
-            <option key={company._id} value={company._id}>
-              {company.name}
-            </option>
-          ))}
-        </select> */}
-
         <input
           type="submit"
           name="submit"
@@ -144,7 +121,7 @@ function AdminPanel() {
                   {category.companies.map((company) => `${company.name}, `)}
                 </td> */}
                 <td>
-                  <Link to={`/api/categories/${category._id}/edit`}>
+                  <Link to={`https://spaceloom.onrender.com/api/categories/${category._id}/edit`}>
                     <button className="button">Edit</button>
                   </Link>
                   <button onClick={() => onDeleteCategory(category._id)} className="button">

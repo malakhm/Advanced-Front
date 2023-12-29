@@ -17,3 +17,17 @@ body {
 .pages {
     background-color: #0E395A;
 }
+.App{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.table-main-component-new {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  justify-self: center;
+  width: 80%;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,19 @@
+.table-component-main-class {
+    margin-top: 10%;
+}
+
+.text-warning{
+    color: blue !important;
+}
+
+.table-icon-main-component{
+    font-size: 22px !important;
+    
+}
+
+.delete{
+    color: red;
+}
+.edit{
+    color: goldenrod;
+}

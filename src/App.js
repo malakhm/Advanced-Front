@@ -16,7 +16,7 @@ import Categories from './pages/Categories/Categories.js';
 // import AdminList from './adminPanel/adminList.js';
 // import EditUser from './adminPanel/editUser.js';
 // import Loginpage from './adminPanel/Loginpage.js';
-import Tables from './components/Table/table.js';
+import Companies from './pages/Admin/Companies';
 import Sidebar from './components/sidebar/sidebar.js';
 // ...
 
@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
       <Sidebar/>
       <div className='table-main-component-new d-flex flex-column'>
-       <Tables/>
+       <Companies/>
        </div>
       </BrowserRouter>
     </div>

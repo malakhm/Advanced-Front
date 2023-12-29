@@ -13,26 +13,12 @@ import {
 
 } from 'cdbreact';
 
-const Sidebar = () => {
+import AdminMenu from './AdminMenu';
+const Sidebar = ({ children }) => {
   return (
       <CDBSidebar textColor="#0E395A" backgroundColor="#fff" >
         <CDBSidebarHeader prefix={<i className="fa fa-bars" />}><img style={{width: "180px"}} src={logo} /></CDBSidebarHeader>
-        <CDBSidebarContent>
-          <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large" iconSize="lg">
-              Dashboard
-            </CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="sticky-note" iconSize="sm">
-              Components
-            </CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="credit-card" iconType="solid" textFontSize="14px">
-              Sales
-            </CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="gamepad" iconType="solid" textFontSize="14px">
-              Games
-            </CDBSidebarMenuItem>
-          </CDBSidebarMenu>
-        </CDBSidebarContent>
+       { children }
         
         <CDBSidebarFooter style={{ textAlign: 'center' }}>
           <div
@@ -47,3 +33,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+

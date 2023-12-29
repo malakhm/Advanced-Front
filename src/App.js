@@ -18,13 +18,14 @@ import Categories from './pages/Categories/Categories.js';
 // import Loginpage from './adminPanel/Loginpage.js';
 import Companies from './pages/Admin/Companies';
 import Sidebar from './components/sidebar/sidebar.js';
-// ...
+import AdminMenu from './components/sidebar/AdminMenu.js';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Sidebar/>
+  <Sidebar><AdminMenu/></Sidebar>
+    
       <div className='table-main-component-new d-flex flex-column'>
        <Companies/>
        </div>

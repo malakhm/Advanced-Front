@@ -17,6 +17,13 @@ import AdminList from './adminPanel/adminList.js';
 import EditUser from './adminPanel/editUser.js';
 import Loginpage from './adminPanel/Loginpage.js';
 
+
+///
+import ASideBar from './components/ASidebar/ASidebar.js';
+import ACompanySidebar from './pages/ACompanySidebar/ACompanySidebar.js';
+import ALoginPage from "./adminPanel/ALoginPage/ALoginPage.js"
+import ASignInPage from './adminPanel/ASignInPage/ASignInPage.js';
+import ASignUpPage from './adminPanel/ASignUpPage/ASignUpPage.js';
 // ...
 
 function App() {
@@ -35,10 +42,10 @@ function AppContent() {
 
   return (
     <>
-      {isAdminRoute ? <AdminNavbar /> : <Navbar />}
-      <div className="pages">
+      {/* {isAdminRoute ? <AdminNavbar /> : <Navbar />} */}
+      {/* <div className="pages"> */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />
           <Route path="/Companies" element={<CompaniesPage />} />
           <Route path="/Categories" element={<Categories />} />
           <Route path="/About" element={<AboutPage />} />
@@ -55,15 +62,17 @@ function AppContent() {
           <Route path="/api/categories/:categoryId/edit" element={<EditCategory />} />
           <Route path="/api/design/:designId/edit" element={<EditDesign />} />
           <Route path="/api/users/:userId/edit" element={<EditUser />} />
+ */}
 
-
-
-
+<Route path="/api/company" element={<ASideBar><ACompanySidebar/></ASideBar>} />
+<Route path="/getstarted" element={<ALoginPage />} />
+<Route path="/signin" element={<ASignInPage />} />
+<Route path="/signup" element={<ASignUpPage />} />
 
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
        
-      </div>
+      {/* </div> */}
     </>
   );
 }

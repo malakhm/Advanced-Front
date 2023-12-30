@@ -15,10 +15,10 @@
   height: 100%;
 }
 
-.BLogo {
+/* .BLogo {
   height: 90%;
   width: 90%;
-}
+} */
 
 .password-input-container {
   display: flex;
@@ -182,6 +182,10 @@ label {
     margin-left: -30px;
     margin-top: 5px;
   }
+  .BLogo {
+    height: 85%;
+    width: 85%;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
@@ -291,5 +295,9 @@ label {
     fill: white;
     margin-left: -30px;
     margin-top: 5px;
+  }
+  .BLogo {
+    height: 90%;
+    width: 90%;
   }
 }

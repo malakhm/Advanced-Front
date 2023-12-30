@@ -1,0 +1,77 @@
+.ASignUpPage-Container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../Photos/Background-Spaceloom.png");
+}
+
+.ASignUpPage-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.ASignUpPage-Text {
+  color: #0e395a;
+  display: none;
+}
+.ASignUpPage-Logo .CLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .ASignUpPage-Container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+  }
+
+  .CLogo {
+    height: 90%;
+    width: 90%;
+  }
+
+  .ASignUpPage-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+
+  .ASignUpPage-Text {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .ASignUpPage-Container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+  }
+  .CLogo {
+    height: 90%;
+    width: 90%;
+  }
+  .ASignUpPage-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+
+  .ASignUpPage-Text {
+    color: white;
+  }
+}

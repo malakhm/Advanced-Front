@@ -1,0 +1,295 @@
+.ASignInPage-Container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../Photos/Background-Spaceloom.png");
+}
+
+.ASignInPage-Content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.BLogo {
+  height: 90%;
+  width: 90%;
+}
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.signup-link {
+  color: #da9100;
+  font-weight: normal;
+  cursor: pointer;
+  transition: color 0.3s, font-weight 0.3s;
+}
+
+.signup-link:hover {
+  color: #0e395a;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+label {
+  display: flex;
+  color: #0e395a;
+  font-weight: bold;
+}
+
+.signin-input-a {
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+}
+
+.signin-input-a:focus {
+  outline: none;
+  border: 1px solid transparent;
+  color: #0e395a;
+}
+.signup-text {
+  color: #0e395a;
+  display: flex;
+  justify-content: center;
+}
+.signup-word {
+  margin-left: 8px;
+}
+
+/* .input-wrapper {
+  flex: 1;
+} */
+
+@media only screen and (max-width: 600px) {
+  .ASignInPage-Container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .ASignInPage-first-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 0 auto;
+  }
+
+  .ASignInPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1.5;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+    flex-direction: column;
+  }
+
+  .ASignInPage-Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .password-input-container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  .signup-link {
+    color: #da9100;
+    font-weight: normal;
+    cursor: pointer;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+
+  .signup-link:hover {
+    color: white;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  label {
+    display: flex;
+    color: white;
+    font-weight: bold;
+  }
+
+  .signup-text {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 150px;
+  }
+
+  .signin-input-a {
+    border: 1px solid white;
+    border-radius: 0.75rem;
+    width: 100%;
+    background-color: #0e395a;
+    color: white;
+  }
+
+  .email-input1 {
+    padding: 5px 20px 5px 10px;
+    margin-top: 10px;
+  }
+  .password-input1 {
+    padding: 5px 10px 5px 20px;
+    margin-top: 10px;
+  }
+
+  .signin-input-a:focus {
+    outline: none;
+    border: 1px solid white;
+    color: white;
+  }
+  .eye-wrapper {
+    color: white;
+    fill: white;
+    margin-left: -30px;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .ASignInPage-Container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .ASignInPage-first-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 0 auto;
+  }
+
+  .ASignInPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+    flex-direction: column;
+    padding-top: 40px;
+  }
+
+  .ASignInPage-Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .password-input-container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  .signup-link {
+    color: #da9100;
+    font-weight: normal;
+    cursor: pointer;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+
+  .signup-link:hover {
+    color: white;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  label {
+    display: flex;
+    /* margin: auto; */
+    color: white;
+    font-weight: bold;
+  }
+
+  .signup-text {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+  }
+
+  .signin-input-a {
+    border: 1px solid white;
+    border-radius: 0.75rem;
+    width: 100%;
+    background-color: #0e395a;
+    color: white;
+  }
+
+  .email-input1 {
+    padding: 5px 20px 5px 10px;
+    margin-top: 10px;
+  }
+  .password-input1 {
+    padding: 5px 10px 5px 20px;
+    margin-top: 10px;
+  }
+
+  .signin-input-a:focus {
+    outline: none;
+    border: 1px solid white;
+    color: white;
+  }
+  .eye-wrapper {
+    color: white;
+    fill: white;
+    margin-left: -30px;
+    margin-top: 5px;
+  }
+}

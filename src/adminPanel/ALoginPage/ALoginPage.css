@@ -1,0 +1,162 @@
+.ALoginPage-container {
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  background-image: url("../../Photos/Background-Spaceloom.png");
+}
+
+.ALoginPage-first-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+}
+
+.ALoginPage-second-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.5;
+  width: 100%;
+  margin: auto;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.Logo {
+  height: 90%;
+  width: 90%;
+}
+
+.Text-Logo .Text-Quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -5%;
+  color: #0e395a;
+  margin: auto;
+  margin-left: 5%;
+}
+
+.ALoginPage-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn {
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  margin: 20% auto;
+}
+
+.btn-blue {
+  background-color: #0e395a;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background-color: #da9100;
+  color: #fff;
+}
+.signup-link {
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ALoginPage-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: none;
+  }
+
+  .ALoginPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1.5;
+    width: 100%;
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+  }
+
+  .Logo {
+    height: 70%;
+    width: 70%;
+  }
+
+  .Text-Logo .Text-Quote {
+    margin: auto;
+  }
+
+  .btn {
+    /* font-weight: bold; */
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.75rem;
+    margin: 10% auto;
+  }
+
+  .btn-blue {
+    background-color: #fff;
+    color: #da9100;
+  }
+
+  .btn-blue:hover {
+    background-color: #da9100;
+    color: #fff;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .ALoginPage-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: none;
+  }
+
+  .ALoginPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1.5;
+    width: 100%;
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+  }
+
+  .Logo {
+    height: 70%;
+    width: 70%;
+  }
+
+  .Text-Logo .Text-Quote {
+    margin: auto;
+  }
+
+  .btn {
+    font-weight: bold;
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.75rem;
+    margin: 20% auto;
+  }
+
+  .btn-blue {
+    background-color: #fff;
+    color: #da9100;
+  }
+
+  .btn-blue:hover {
+    background-color: #da9100;
+    color: #fff;
+  }
+}

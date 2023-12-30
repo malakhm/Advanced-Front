@@ -60,7 +60,7 @@ const ASignInPage = () => {
           <p className="signup-text">
             Don't have an account?{" "}
             <Link to="/signup" className="signup-link">
-             <span className="signup-word">Sign up</span> 
+              <span className="signup-word">Sign up</span>
             </Link>
           </p>
         </div>

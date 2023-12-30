@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import "./ASignUpPage.css";
 
 const ASignUpPage = () => {
-  return (
-    <div>ASignUpPage</div>
-  )
-}
+  return <div>ASignUpPage</div>;
+};
 
-export default ASignUpPage
+export default ASignUpPage;

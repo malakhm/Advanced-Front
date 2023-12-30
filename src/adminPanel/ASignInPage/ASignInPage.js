@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./ASignInPage.css";
 import Logo from "../../Photos/Logo.png";
-import EyeOpen from "../../Photos/eyeopen.svg";
+import { BsEyeFill } from "react-icons/bs";
+import { BsEyeSlashFill } from "react-icons/bs";
+
 import { Link } from "react-router-dom";
 
 const ASignInPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
@@ -20,30 +22,45 @@ const ASignInPage = () => {
         <div className="ASignInPage-second-part">
           <form>
             <label>Email</label>
-            <input type="text" placeholder="Enter your email" required />
+            <input
+              className="signin-input-a email-input1"
+              type="text"
+              placeholder="Enter your email"
+              required
+            />
             <br />
             <label>Password</label>
             <div className="password-input-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-                required
-              />
-              <img
-                src={EyeOpen}
-                alt="Toggle Password"
-                className="password-toggle-icon"
+              <div className="input-wrapper">
+                <input
+                  className="signin-input-a password-input1"
+                  type={passwordVisible ? "text" : "password"}
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div
+                className={`eye-wrapper ${
+                  window.innerWidth > 600 ? "white-icon" : ""
+                }`}
                 onClick={togglePasswordVisibility}
-              />
+              >
+                {passwordVisible ? (
+                  <BsEyeFill size={20} />
+                ) : (
+                  <BsEyeSlashFill size={20} />
+                )}
+              </div>
             </div>
+
             <button type="submit" className="btn btn-blue">
               Login
             </button>
           </form>
-          <p>
+          <p className="signup-text">
             Don't have an account?{" "}
             <Link to="/signup" className="signup-link">
-              Sign up
+             <span className="signup-word">Sign up</span> 
             </Link>
           </p>
         </div>

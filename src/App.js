@@ -19,21 +19,22 @@ import Categories from './pages/Categories/Categories.js';
 import Companies from './pages/Admin/Companies';
 import Sidebar from './components/sidebar/sidebar.js';
 import AdminMenu from './components/sidebar/AdminMenu.js';
-import ALoginPage from '../src/adminPanel/ALoginPage/ALoginPage.js'
-import ASignInPage from './adminPanel/ASignInPage/ASignInPage.js'
+// import ALoginPage from '../src/adminPanel/ALoginPage/ALoginPage.js'
+// import ASignInPage from './adminPanel/ASignInPage/ASignInPage.js'
+import AppRoutes from './Routers/routes.js';
 // ...
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {/* <Sidebar><AdminMenu/></Sidebar> */}
+      <Sidebar><AdminMenu/></Sidebar>
       <div className='table-main-component-new d-flex flex-column'>
        {/* <Companies/> */}
-       <ASignInPage/>
        </div>
+       {/* <AppRoutes /> */}
       </BrowserRouter> 
-   
+      
     </div>
   );
 }

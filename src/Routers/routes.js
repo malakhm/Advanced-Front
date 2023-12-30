@@ -5,14 +5,14 @@ import ASignUpPage from "../adminPanel/ASignUpPage/ASignUpPage.js";
 const AppRoutes = () => {
   return (
     <>
-      <Router>
+      
         <Routes>
           <Route path="/getstarted" element={<ALoginPage />} />
           <Route path="/signin" element={<ASignInPage />} />
           <Route path="/signup" element={<ASignUpPage />} />
 
         </Routes>
-      </Router>
+    
     </>
   );
 };

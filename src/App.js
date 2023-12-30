@@ -28,11 +28,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Sidebar><AdminMenu/></Sidebar>
-      <div className='table-main-component-new d-flex flex-column'>
+      {/* <Sidebar><AdminMenu/></Sidebar> */}
+      {/* <div className='table-main-component-new d-flex flex-column'> */}
        {/* <Companies/> */}
-       </div>
-       {/* <AppRoutes /> */}
+       {/* </div> */}
+       <AppRoutes />
       </BrowserRouter> 
       
     </div>

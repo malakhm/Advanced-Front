@@ -1,0 +1,110 @@
+.CSignUpPage-Container {
+  max-height: 110vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../Photos/Background-Spaceloom.png");
+}
+
+.CSignUpPage-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  max-height: 100vh;
+  width: 100vw;
+}
+
+.CSignUpPage-Text {
+  color: #0e395a;
+  display: none;
+}
+.CSignUpPage-Logo .DLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .CSignUpPage-Container {
+    height: 150vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+    /* overflow: hidden; */
+  }
+
+  .CSignInPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex: 1.5; */
+    width: 100%;
+    /* height: 100%; */
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+    flex-direction: column;
+    padding: 10px;    
+  }
+
+  .DLogo {
+    height: 90%;
+    width: 90%;
+  }
+
+  .CSignUpPage-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+
+  .CSignUpPage-Text {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .CSignUpPage-Container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+    overflow: hidden;
+  }
+  .DLogo {
+    height: 85%;
+    width: 85%;
+  }
+  .CSignUpPage-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+  .CSignInPage-second-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    background-color: #0e395a;
+    flex-direction: column;
+    padding-top: 40px;
+  }
+
+
+  .CSignUpPage-Text {
+    color: white;
+  }
+}

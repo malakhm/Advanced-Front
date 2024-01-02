@@ -6,7 +6,37 @@ import Button from 'react-bootstrap/Button';
 import { FaTrashCan } from "react-icons/fa6";
 import './Styles/Companies.css'
 import { Link } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
+const handleDelete = async (id) => {
+	Swal.fire({
+	  title: "Are you sure you want to delete?",
+	  icon: "question",
+	  iconHtml: "?",
+	  confirmButtonText: "Delete",
+	  cancelButtonText: "Cancel",
+	  showCancelButton: true,
+	  showCloseButton: true,
+	}).then(async (result) => {
+	  if (result.isConfirmed) {
+		try {
+		  // Assuming 'id' is defined somewhere in your code
+		  const response = await axios.delete(
+			`http://localhost:5000/api/companies/${id}`
+		  );
+  
+		  Swal.fire({
+			title: "Deleted!",
+			text: "Your file has been deleted.",
+			icon: "success",
+			
+		  });
+		} catch (err) {
+		  console.log(err);
+		}
+	  }
+	});
+  };
+  
 
 //custom styling for the table 
 const customStyles = {
@@ -99,22 +129,23 @@ const columns = [
 	{
 		name: 'Edit',
 		cell: (row) => 
-		<Link to="/edit-company" state={{	id:row.id,
-											Name: row.name,
-											email:row.email,
-											logo: row.logo,
-											Location: row.location,
-											phone: row.phone,
-											website: row.website_link,
-											}}>
-			<CiEdit className='table-icon-main-component edit' onClick={() => handleEdit(row.id)} id={row.id}>Edit</CiEdit>
+		<Link to="/edit-company" 
+		state={{id:row.id,
+				Name: row.name,
+				email:row.email,
+				logo: row.logo,
+				Location: row.location,
+				phone: row.phone,
+				website: row.website_link,
+				}}>
+			<CiEdit className='table-icon-main-component edit'id={row.id}>Edit</CiEdit>
 		</Link>,
 		sortable: true,
 		reorder: true,
 	},
 	{
 		name: 'Delete',
-		cell: (row) => <FaTrashCan  className='table-icon-main-component delete' onClick={() => alert(row.id)} id={row.id}>Delete</FaTrashCan>,
+		cell: (row) => <FaTrashCan  className='table-icon-main-component delete' onClick={() => handleDelete(row.id)} id={row.id}>Delete</FaTrashCan>,
 		sortable: true,
 		reorder: true,
 	},
@@ -125,19 +156,19 @@ const columns = [
 }
 ];
 //events handling
-const handleEdit = async(id)=>{
+// const handleEdit = async(id)=>{
 	
-	try{
-		const response = await axios.put(`http://localhost:5000/api/companies/${id}`)
-		if(response.status === 200) setData(response.data.data)
-	}
-	catch(err){
-		console.log(err.message)
-	}
+// 	try{
+// 		const response = await axios.put(`http://localhost:5000/api/companies/${id}`)
+// 		if(response.status === 200) setData(response.data.data)
+// 	}
+// 	catch(err){
+// 		console.log(err.message)
+// 	}
 
 	
 
-}
+// }
 
 //fetch the data
 const fetchdata = async()=>{

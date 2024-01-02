@@ -12,12 +12,15 @@ import CLoginPage from "../companyPanel/CLoginPage/CLoginPage.js";
 import CSignInPage from "../companyPanel/CSignInPage/CSignInPage.js";
 import CSignUpPage from "../companyPanel/CSignUpPage/CSignUpPage.js";
 
+import ContactUs from "../pages/ContactUs/ContactUs.js";
+
 const AppRoutes = () => {
   return (
     <>
       {/* <Sidebar>
         <CompanyMenu />
       </Sidebar> */}
+
       <Routes>
         <Route path="/" element={<Companies />} />
         <Route path="/add-company" element={<AddForm />} />
@@ -29,6 +32,9 @@ const AppRoutes = () => {
         <Route path="/getstarted-company" element={<CLoginPage />} />
         <Route path="/signin-company" element={<CSignInPage />} />
         <Route path="/signup-company" element={<CSignUpPage />} />
+
+        <Route path="/contact" element={<ContactUs />} />
+
       </Routes>
     </>
   );

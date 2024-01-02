@@ -117,7 +117,7 @@ const AboutPage = () => {
   }
 
   return (
-    <>
+    <div className="noflex-aboutpage">
       <Header imageSrc={imageHeader} />
       <div className="AboutUsPage">
         <div className="Header"></div>
@@ -246,7 +246,7 @@ const AboutPage = () => {
           <img src={Arrowup} className="Arrowup" alt="Scroll to top" />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

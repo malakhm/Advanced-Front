@@ -48,7 +48,7 @@ const EditForms =() =>{
     
       );
       console.log(response)
-      toast.success("campaign added successfully !");
+      toast.success("company edited successfully !");
       navigate("/");
     } catch (error) {
       console.log(error.message)

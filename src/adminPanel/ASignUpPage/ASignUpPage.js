@@ -3,23 +3,20 @@ import "./ASignUpPage.css";
 import Logo from "../../Photos/Logo.png";
 import { BsEyeFill } from "react-icons/bs";
 import { BsEyeSlashFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const ASignUpPage = () => {
-  // State for password visibility
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  // States for form inputs
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Toggle password visibility
+  const navigate = useNavigate();
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // Handle input changes
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -32,7 +29,6 @@ const ASignUpPage = () => {
     setPassword(e.target.value);
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,23 +37,20 @@ const ASignUpPage = () => {
     console.log("Password:", password);
 
     try {
-      // Create a new user
       const response = await axios.post("http://localhost:5000/api/users/", {
         username: username,
         email: email,
         password: password,
       });
 
-      // Access user data from the response
-      const userData = response.data.data;
-      console.log(userData);
+      const Data = response.data.data;
+      console.log(Data);
 
-      // Use the user data as needed
-      console.log("User ID:", userData.id);
-      console.log("Username:", userData.username);
-      console.log("Email:", userData.email);
+      console.log("User ID:", Data.id);
+      console.log("Username:", Data.username);
+      console.log("Email:", Data.email);
 
-      // You can also redirect the user or perform other actions here
+      navigate("/signin");
     } catch (error) {
       console.error("Error creating user:", error.message);
     }
@@ -120,12 +113,9 @@ const ASignUpPage = () => {
                 )}
               </div>
             </div>
-            <Link type="submit" to="/signin" className="btn btn-blue">
+            <button type="submit" className="btn btn-blue">
               Get Started
-            </Link>
-            {/* <button type="submit" className="btn btn-blue">
-              
-            </button> */}
+            </button>
           </form>
           <p className="signup-text">
             Already have an account?{" "}

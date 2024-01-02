@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ASignInPage.css";
+import "../../adminPanel/ASignInPage/ASignInPage.css";
 import Logo from "../../Photos/Logo.png";
 import { BsEyeFill } from "react-icons/bs";
 import { BsEyeSlashFill } from "react-icons/bs";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const ASignInPage = () => {
+const CSignInPage = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -34,7 +34,7 @@ const ASignInPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/sign",
+        "http://localhost:5000/api/companies/sign",
         {
           email,
           password,
@@ -107,7 +107,7 @@ const ASignInPage = () => {
           </form>
           <p className="signup-text">
             Don't have an account?{" "}
-            <Link to="/signup" className="signup-link">
+            <Link to="/signup-company" className="signup-link">
               <span className="signup-word">Sign up</span>
             </Link>
           </p>
@@ -117,4 +117,4 @@ const ASignInPage = () => {
   );
 };
 
-export default ASignInPage;
+export default CSignInPage;

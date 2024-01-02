@@ -2,3 +2,7 @@
     background-color: #0000; /* Replace with the actual color for the active menu item */
   }
   
+
+  .sidebar-component-main{
+    height: auto !important;
+}

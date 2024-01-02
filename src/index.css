@@ -11,17 +11,19 @@
   margin: 0;
   padding: 0;
 }
+body{
+  overflow-x: hidden;
 
+}
 /* .pages {
     background-color: #0E395A;
 } */
 .App{
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
 }
-
 .table-main-component-new {
   align-items: center;
   justify-content: center;

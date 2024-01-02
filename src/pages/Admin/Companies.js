@@ -5,6 +5,10 @@ import { CiEdit } from "react-icons/ci";
 import Button from 'react-bootstrap/Button';
 import { FaTrashCan } from "react-icons/fa6";
 import './Styles/Companies.css'
+import { Link } from 'react-router-dom'
+
+
+//custom styling for the table 
 const customStyles = {
 	headRow: {
 	  style: {
@@ -32,7 +36,8 @@ const customStyles = {
 	cells: {
 	  style: {
 		fontSize: '14px', // Adjust the font size for regular cells
-		paddingLeft: '0', // Adjust the padding for regular cells
+		paddingTop: '20px', // Adjust the padding for regular cells
+		paddingBottom: '10px',
 	  },
 	},
 	pagination: {
@@ -41,6 +46,14 @@ const customStyles = {
 	  },
 	},
   };
+
+
+//code for fixed header
+const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
+const [data, setData] = useState([])
+
+
+//create the table structure
 const columns = [
 	{
 		name: 'id',
@@ -61,7 +74,7 @@ const columns = [
 	},
 	{
 		name: 'logo',
-		selector: row => row.logo,
+		selector: row => <img src={row.logo} width='80px' height='80px'/>,
 		sortable: true,
 		reorder: true,
 	},
@@ -85,7 +98,17 @@ const columns = [
 	},
 	{
 		name: 'Edit',
-		cell: (row) => <CiEdit className='table-icon-main-component edit' onClick={() => alert(row.id)} id={row.id}>Edit</CiEdit>,
+		cell: (row) => 
+		<Link to="/edit-company" state={{	id:row.id,
+											Name: row.name,
+											email:row.email,
+											logo: row.logo,
+											Location: row.location,
+											phone: row.phone,
+											website: row.website_link,
+											}}>
+			<CiEdit className='table-icon-main-component edit' onClick={() => handleEdit(row.id)} id={row.id}>Edit</CiEdit>
+		</Link>,
 		sortable: true,
 		reorder: true,
 	},
@@ -101,10 +124,22 @@ const columns = [
   
 }
 ];
+//events handling
+const handleEdit = async(id)=>{
+	
+	try{
+		const response = await axios.put(`http://localhost:5000/api/companies/${id}`)
+		if(response.status === 200) setData(response.data.data)
+	}
+	catch(err){
+		console.log(err.message)
+	}
 
-const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
-const [data, setData] = useState([])
+	
 
+}
+
+//fetch the data
 const fetchdata = async()=>{
   try{
     const response = await axios.get('http://localhost:5000/api/companies/');
@@ -123,17 +158,17 @@ useEffect(()=>{
 },[])
 
   return(
+	<div className='table-main-component-new d-flex flex-column'> 
     <DataTable
-    
-		columns={columns}
+	columns={columns}
     data = {data}
-		fixedHeader
+	fixedHeader
     highlightOnHover
     customStyles={customStyles}
-		fixedHeaderScrollHeight={fixedHeaderScrollHeight}
-		pagination
+	fixedHeaderScrollHeight={fixedHeaderScrollHeight}
+	pagination
 	/>
-
+</div>
   )
 }
 

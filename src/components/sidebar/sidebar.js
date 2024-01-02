@@ -13,9 +13,13 @@ import {
 
 } from 'cdbreact';
 
-import AdminMenu from './AdminMenu';
+import './sidebar.css'
 const Sidebar = ({ children }) => {
   return (
+    <div
+      className="sidebar-component-main"
+      style={{ display: "flex", overflow: "scroll initial" }}
+    >
       <CDBSidebar textColor="#0E395A" backgroundColor="#fff" >
         <CDBSidebarHeader prefix={<i className="fa fa-bars" />}><img style={{width: "180px"}} src={logo} /></CDBSidebarHeader>
        { children }
@@ -29,6 +33,7 @@ const Sidebar = ({ children }) => {
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
+      </div>
   )
 };
 

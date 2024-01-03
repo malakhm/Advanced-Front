@@ -13,7 +13,7 @@ import CSignInPage from "../companyPanel/CSignInPage/CSignInPage.js";
 import CSignUpPage from "../companyPanel/CSignUpPage/CSignUpPage.js";
 
 import ContactUs from "../pages/ContactUs/ContactUs.js";
-
+import AAboutUs from "../pages/AAboutUs/AAboutUs.js";
 const AppRoutes = () => {
   return (
     <>
@@ -34,6 +34,7 @@ const AppRoutes = () => {
         <Route path="/signup-company" element={<CSignUpPage />} />
 
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/about" element={<AAboutUs />} />
 
       </Routes>
     </>

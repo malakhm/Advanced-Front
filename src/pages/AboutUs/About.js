@@ -117,7 +117,7 @@ const AboutPage = () => {
   }
 
   return (
-    <div className="noflex-aboutpage">
+    <div>
       <Header imageSrc={imageHeader} />
       <div className="AboutUsPage">
         <div className="Header"></div>

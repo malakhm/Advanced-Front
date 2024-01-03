@@ -34,7 +34,7 @@
 }
 
 .left {
-  /* background: url("/src/Photos/royal-blue-couch-living-room.jpg") no-repeat center; */
+  background: url("/src/Photos/royal-blue-couch-living-room.jpg") no-repeat center;
   background-size: cover;
   height: 100%;
 }

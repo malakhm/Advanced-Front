@@ -5,7 +5,7 @@ import { CiEdit } from "react-icons/ci";
 import Button from 'react-bootstrap/Button';
 import { FaTrashCan } from "react-icons/fa6";
 import './Styles/Companies.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Sidebar from '../../components/sidebar/sidebar.js'
 import AdminMenu from '../../components/sidebar/AdminMenu.js'
@@ -85,8 +85,10 @@ const customStyles = {
 const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 	
 	const [data, setData] = useState([])
-
-
+	const navigate = useNavigate()
+	const nav = ()=>{
+		navigate('/add-company')
+	}
 	//create the table structure
 	const columns = [
 		{
@@ -181,7 +183,13 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 		<>
 		<Sidebar><AdminMenu/></Sidebar>
 		<div className='table-main-component-new d-flex flex-column'> 
-		<div className='Add-company-dashboard-admin-div'><button className="btn btn-blue Add-company-dashboard-admin ">Add Company</button></div>
+		<div className='Add-company-dashboard-admin-div'>
+		
+				<button className="btn btn-blue Add-company-dashboard-admin " onClick={()=>nav()}>
+					Add Company
+				</button>
+		
+		</div>
 		<DataTable
 		columns={columns}
 		data = {data}

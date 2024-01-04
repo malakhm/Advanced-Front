@@ -4,7 +4,8 @@ import { useLocation , useNavigate} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-
+import Sidebar from '../../components/sidebar/sidebar.js'
+import AdminMenu from '../../components/sidebar/AdminMenu'
 const EditForms =() =>{
   const navigate = useNavigate();
   const location = useLocation();
@@ -59,6 +60,8 @@ const EditForms =() =>{
   
 
   return (
+    <>
+    <Sidebar><AdminMenu/></Sidebar>
 	<div class="form-bg container">
     <div class="container">
       <div class="row">
@@ -136,6 +139,7 @@ const EditForms =() =>{
       </div>
     </div>
   </div>
+  </>
   )
 }
 

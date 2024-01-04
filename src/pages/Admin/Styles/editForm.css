@@ -9,6 +9,13 @@
     border-radius: 20px;
     box-shadow: 0 0 25px -15px rgba(0, 0, 0, 0.3);
   }
+
+  @media (min-width: 912px){
+    .form-container{
+    width: 50vw;
+      
+    }
+  }
   .form-container .title{
     color: #000;
     font-size: 25px;
@@ -96,6 +103,7 @@
     left: 2px;
     top: 2.5px;
     transition: all 0.3s ease;
+
   }
   .form-container .form-horizontal .check-terms .checkbox:checked:before{ opacity: 1; }
   .form-container .form-horizontal .check-terms .checkbox:not(:checked):before{ opacity: 0; }
@@ -116,7 +124,7 @@
   .form-container .signin-link a:hover{ text-decoration: underline; }
   .form-container .form-horizontal .signup{
     color: #fff;
-    background: #00A9EF;
+    background: #0e395a;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
@@ -126,22 +134,34 @@
     border-radius: 10px;
     transition: all 0.3s ease 0s;
   }
+
+
+.signup {
+  background-color: #0e395a !important;
+  color: #fff!important;
+}
+
+.signup:hover {
+  background-color: #da9100 !important;
+  color: #fff !important;
+}
   .form-container .form-horizontal .btn:hover,
   .form-container .form-horizontal .btn:focus{
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    box-shadow: 3px 3px rgba(0,0,0,0.15),5px 5px rgba(0,0,0,0.1);
     outline: none;
   }
   @media only screen and (max-width:912px){
     .form-container .form-horizontal .form-group{ width: 100%; }
     .form-container .signin-link{
-        width: 100%;
+        width: 40px;
         margin: 0 10px 15px;
     }
+    
   }
   
     .form-bg{
       display: flex;
-      width:80%;
+      width:1500px;
       flex-direction: column;
     }
+

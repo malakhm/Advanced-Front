@@ -1,8 +1,58 @@
 import React from 'react'
 import './Styles/editForm.css'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import Sidebar from '../../components/sidebar/sidebar.js'
+import AdminMenu from '../../components/sidebar/AdminMenu'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 const AddForm =() =>{
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('');
+  const [location, setLocation] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [website, setWebsite] = useState('');
+
+  const navigate = useNavigate()
+const handleSubmit= async(e)=>{
+  e.preventDefault();
+  if(password === confirm){
+    try {
+      const response = await axios.post(`http://localhost:5000/api/companies/`,{
+      name,
+      email,
+      location,
+      phone,
+      password,
+      website_link:website
+  }) 
+    if(response.status === 201){
+      toast.success('user added successfully !')
+      navigate('/')
+    }
+  
+  
+  }catch(err){
+    if(err.response && err.response.status === 409){
+    toast.warning('User already exists' )
+
+
+    }
+      console.error(err.code);
+    }
+  }
+  else{
+    toast.error('passwords do not match !')
+  }
+  
+}
   
   return (
+    <>
+    <Sidebar><AdminMenu/></Sidebar>
 	<div class="form-bg container">
     <div class="container">
       <div class="row">
@@ -16,6 +66,7 @@ const AddForm =() =>{
                   type="text"
                   class="form-control"
                   placeholder="User Name"
+                  onChange={(e)=>setName(e.target.value)}
                 />
               </div>
               <div class="form-group">
@@ -24,22 +75,17 @@ const AddForm =() =>{
                   type="email"
                   class="form-control"
                   placeholder="Email Address"
+                  onChange={(e)=>setEmail(e.target.value)}
                 />
               </div>
-              <div class="form-group">
-                <label>Logo</label>
-                <input
-                  type="file"
-                  class="form-control"
-                  
-                />
-              </div>
+              
               <div class="form-group">
                 <label>Location</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Location"
+                  onChange={(e)=>setLocation(e.target.value)}
                 />
               </div>
               <div class="form-group">
@@ -48,6 +94,7 @@ const AddForm =() =>{
                   type="text"
                   class="form-control"
                   placeholder="Phone Number"
+                  onChange={(e)=>setPhone(e.target.value)}
                 />
               </div>
               <div class="form-group">
@@ -55,6 +102,7 @@ const AddForm =() =>{
                 <input type="password"
                 class="form-control"
                 placeholder="Password"
+                onChange={(e)=>setPassword(e.target.value)}
                 />
               </div>
               
@@ -63,6 +111,7 @@ const AddForm =() =>{
                 <input type="password"
                  class="form-control"
                  placeholder="Confirm Password"
+                 onChange={(e)=>setConfirm(e.target.value)}
                  />
               </div>
 
@@ -71,16 +120,22 @@ const AddForm =() =>{
                 <input type="text"
                 class="form-control"
                 placeholder="https://www.google.com"
+                onChange={(e)=>setWebsite(e.target.value)}
                 />
               </div>
               
-              <button class="btn signup">Save</button>
+              <button class="btn btn-blue signup"
+              onClick={handleSubmit}
+              >
+                Save
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </>
   )
 }
 

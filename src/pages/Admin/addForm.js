@@ -38,8 +38,6 @@ const handleSubmit= async(e)=>{
   }catch(err){
     if(err.response && err.response.status === 409){
     toast.warning('User already exists' )
-
-
     }
       console.error(err.code);
     }

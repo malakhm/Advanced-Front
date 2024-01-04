@@ -6,3 +6,7 @@
   .sidebar-component-main{
     height: auto !important;
 }
+.activeClicked{
+  background-color: goldenrod !important;
+  color: white !important;
+}

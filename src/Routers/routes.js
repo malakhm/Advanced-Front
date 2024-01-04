@@ -14,9 +14,11 @@ import CSignUpPage from "../companyPanel/CSignUpPage/CSignUpPage.js";
 import Test from "../pages/Test.js";
 import AdminProtectedRoute from './AdminProtectedRoutes.js'
 import ContactUs from "../pages/ContactUs/ContactUs.js"
-import AAboutUs from "../pages/AAboutUs/AAboutUs.js"
-import AHome from "../pages/AHome/AHome.js"
-
+import Users from "../pages/Admin/Users.js";
+import EditUser from "../pages/Admin/editUser.js";
+// import AAboutUs from "../pages/AAboutUs/AAboutUs.js"
+// import AHome from "../pages/AHome/AHome.js"
+import AddUser from "../pages/Admin/addUser.js";
 const AppRoutes = () => {
   return (
     <>
@@ -31,7 +33,10 @@ const AppRoutes = () => {
         <Route element={<AdminProtectedRoute/>}>
           <Route path="/add-company" element={<AddForm />} />
         </Route>
+        <Route path="/users" element={<Users />} />
         <Route path="/edit-company" element={<EditForms />}/>
+        <Route path="/add-user" element={<AddUser/>}/>
+        <Route path="/edit-user" element={<EditUser/>}/>
         <Route path="/getstarted" element={<ALoginPage />} />
         <Route path="/signin" element={<ASignInPage />} />
         <Route path="/signup" element={<ASignUpPage />} />
@@ -41,8 +46,9 @@ const AppRoutes = () => {
         <Route path="/signup-company" element={<CSignUpPage />} />
 
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/about" element={<AAboutUs />} />
-        <Route path="/home" element={<AHome />} />
+    
+        {/* <Route path="/about" element={<AAboutUs />} /> */}
+        {/* <Route path="/home" element={<AHome />} /> */}
       </Routes>
     </>
   );

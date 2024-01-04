@@ -56,7 +56,7 @@ const EmailForm = () => {
     <div>
       <ANavbar />
       <h3 className="contactus-title">Send us a message now!</h3>
-      <div className="contactus-container container">
+      <div className="contactus-container-main-component container-main-component">
         <div className="contact-box">
           <form className="contactus-form right" onSubmit={sendEmail}>
             <label>
@@ -114,7 +114,7 @@ const EmailForm = () => {
             </button>
           </form>
           {isMessageSent}
-          <div className="image-container-contactus left">
+          <div className="image-container-main-component-contactus left">
             {/* <img src={CouchImage} alt="background-contactus" /> */}
           </div>
         </div>

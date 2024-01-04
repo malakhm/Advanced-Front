@@ -6,8 +6,9 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , NavLink} from 'react-router-dom'
 import { toast } from 'react-toastify';
+import './sidebar.css'
 const AdminMenu = () => {
   const [activeMenuItem, setActiveMenuItem] = useState('Companies');
 
@@ -27,6 +28,7 @@ const AdminMenu = () => {
   return (
     <CDBSidebarContent>
       <CDBSidebarMenu>
+      <NavLink exact to="/" activeClassName="activeClicked">
         <CDBSidebarMenuItem
           icon="building"
           iconSize="lg"
@@ -35,14 +37,18 @@ const AdminMenu = () => {
         >
           Companies
         </CDBSidebarMenuItem>
-        <CDBSidebarMenuItem
-          icon="users"
-          iconSize="lg"
-          active={activeMenuItem === 'Users'}
-          onClick={() => handleMenuItemClick('Users')}
-        >
-          Users
-        </CDBSidebarMenuItem>
+      </NavLink>
+
+      <NavLink exact to="/users" activeClassName="activeClicked">
+          <CDBSidebarMenuItem
+            icon="users"
+            iconSize="lg"
+            active={activeMenuItem === 'Users'}
+            onClick={() => handleMenuItemClick('Users')}
+          >
+            Users
+          </CDBSidebarMenuItem>
+      </NavLink>
         <CDBSidebarMenuItem
           icon="file"
           iconType="solid"

@@ -23,7 +23,10 @@ const AppRoutes = () => {
         <Route element={<AdminProtectedRoute/>}>
           <Route path="/" element={<Companies />} />
         </Route>
-        <Route path="/add-company" element={<AddForm />} />
+
+        <Route element={<AdminProtectedRoute/>}>
+          <Route path="/add-company" element={<AddForm />} />
+        </Route>
         <Route path="/edit-company" element={<EditForms />}/>
         <Route path="/getstarted" element={<ALoginPage />} />
         <Route path="/signin" element={<ASignInPage />} />

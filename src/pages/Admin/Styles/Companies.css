@@ -17,3 +17,16 @@
 .edit{
     color: goldenrod;
 }
+.Add-company-dashboard-admin{
+    display: flex;
+    width: 30%;
+    margin: 2px !important;
+}
+.Add-company-dashboard-admin-div{
+    display: flex;
+    width: 100%;
+    /* border: 2px solid black; */
+    justify-content: flex-end;
+    padding-right: 5%;
+    margin-bottom: 10px;
+}

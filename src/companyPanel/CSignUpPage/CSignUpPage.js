@@ -72,7 +72,7 @@ const CSignUpPage = () => {
       console.log(Data);
 
       console.log("User ID:", Data.id);
-      console.log("Username:", Data.username);
+      console.log("Username:", Data.name);
       console.log("Email:", Data.email);
       console.log("Phone:", Data.phone);
       console.log("Location:", Data.location);

@@ -11,13 +11,18 @@ import AddForm from "../pages/Admin/addForm.js";
 import CLoginPage from "../companyPanel/CLoginPage/CLoginPage.js"
 import CSignInPage from "../companyPanel/CSignInPage/CSignInPage.js"
 import CSignUpPage from "../companyPanel/CSignUpPage/CSignUpPage.js";
+import Test from "../pages/Test.js";
+import AdminProtectedRoute from './AdminProtectedRoutes.js'
 const AppRoutes = () => {
   return (
     <>
-    <Sidebar><CompanyMenu /></Sidebar>
+
       <Routes>
-     
-        <Route path="/" element={<Companies />} />
+
+        <Route path="/test" element={<Test/>}/>
+        <Route element={<AdminProtectedRoute/>}>
+          <Route path="/" element={<Companies />} />
+        </Route>
         <Route path="/add-company" element={<AddForm />} />
         <Route path="/edit-company" element={<EditForms />}/>
         <Route path="/getstarted" element={<ALoginPage />} />

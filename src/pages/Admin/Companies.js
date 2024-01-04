@@ -7,6 +7,8 @@ import { FaTrashCan } from "react-icons/fa6";
 import './Styles/Companies.css'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import Sidebar from '../../components/sidebar/sidebar.js'
+import AdminMenu from '../../components/sidebar/AdminMenu.js'
 const handleDelete = async (id) => {
 	Swal.fire({
 	  title: "Are you sure you want to delete?",
@@ -72,6 +74,7 @@ const customStyles = {
 	},
 	pagination: {
 	  style: {
+		marginTop:'30px',
 		border: 'none',
 	  },
 	},
@@ -80,127 +83,117 @@ const customStyles = {
 
 //code for fixed header
 const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
-const [data, setData] = useState([])
-
-
-//create the table structure
-const columns = [
-	{
-		name: 'id',
-		selector: row => row.id,
-		sortable: true,
-		reorder: true,
-	},{
-		name: 'name',
-		selector: row => row.name,
-		sortable: true,
-		reorder: true,
-	},
-	{
-		name: 'email',
-		selector: row => row.email,
-		sortable: true,
-		reorder: true,
-	},
-	{
-		name: 'logo',
-		selector: row => <img src={row.logo} width='80px' height='80px'/>,
-		sortable: true,
-		reorder: true,
-	},
-  {
-		name: 'location',
-		selector: row => row.location,
-		sortable: true,
-		reorder: true,
-	},
-  {
-		name: 'phone',
-		selector: row => row.phone,
-		sortable: true,
-		reorder: true,
-	},
-  {
-		name: 'website url',
-		selector: row => row.website_link,
-		sortable: true,
-		reorder: true,
-	},
-	{
-		name: 'Edit',
-		cell: (row) => 
-		<Link to="/edit-company" 
-		state={{id:row.id,
-				Name: row.name,
-				email:row.email,
-				logo: row.logo,
-				Location: row.location,
-				phone: row.phone,
-				website: row.website_link,
-				}}>
-			<CiEdit className='table-icon-main-component edit'id={row.id}>Edit</CiEdit>
-		</Link>,
-		sortable: true,
-		reorder: true,
-	},
-	{
-		name: 'Delete',
-		cell: (row) => <FaTrashCan  className='table-icon-main-component delete' onClick={() => handleDelete(row.id)} id={row.id}>Delete</FaTrashCan>,
-		sortable: true,
-		reorder: true,
-	},
 	
+	const [data, setData] = useState([])
 
-{
-  
-}
-];
-//events handling
-// const handleEdit = async(id)=>{
+
+	//create the table structure
+	const columns = [
+		{
+			name: 'id',
+			selector: row => row.id,
+			sortable: true,
+			reorder: true,
+		},{
+			name: 'name',
+			selector: row => row.name,
+			sortable: true,
+			reorder: true,
+		},
+		{
+			name: 'email',
+			selector: row => row.email,
+			sortable: true,
+			reorder: true,
+		},
+		{
+			name: 'logo',
+			selector: row => <img src={row.logo} width='80px' height='80px'/>,
+			sortable: true,
+			reorder: true,
+		},
+	{
+			name: 'location',
+			selector: row => row.location,
+			sortable: true,
+			reorder: true,
+		},
+	{
+			name: 'phone',
+			selector: row => row.phone,
+			sortable: true,
+			reorder: true,
+		},
+	{
+			name: 'website url',
+			selector: row => row.website_link,
+			sortable: true,
+			reorder: true,
+		},
+		{
+			name: 'Edit',
+			cell: (row) => 
+			<Link to="/edit-company" 
+			state={{id:row.id,
+					Name: row.name,
+					email:row.email,
+					logo: row.logo,
+					Location: row.location,
+					phone: row.phone,
+					website: row.website_link,
+					}}>
+				<CiEdit className='table-icon-main-component edit'id={row.id}>Edit</CiEdit>
+			</Link>,
+			sortable: true,
+			reorder: true,
+		},
+		{
+			name: 'Delete',
+			cell: (row) => <FaTrashCan  className='table-icon-main-component delete' onClick={() => handleDelete(row.id)} id={row.id}>Delete</FaTrashCan>,
+			sortable: true,
+			reorder: true,
+		},
+		
+
+	{
 	
-// 	try{
-// 		const response = await axios.put(`http://localhost:5000/api/companies/${id}`)
-// 		if(response.status === 200) setData(response.data.data)
-// 	}
-// 	catch(err){
-// 		console.log(err.message)
-// 	}
-
+	}
+	]
+	//fetch the data
+	const fetchdata = async()=>{
+	try{
+		const response = await axios.get('http://localhost:5000/api/companies/');
+		if(response.status == 200){
+		setData(response.data.data)
+		}
+		console.log(response.data.data)
+	}
+	catch(err){
+		console.error(err.message)
+	}
 	
+	}
+	useEffect(()=>{
+	fetchdata();
+	},[])
 
-// }
-
-//fetch the data
-const fetchdata = async()=>{
-  try{
-    const response = await axios.get('http://localhost:5000/api/companies/');
-    if(response.status == 200){
-      setData(response.data.data)
-    }
-    console.log(response.data.data)
-  }
-  catch(err){
-    console.error(err.message)
-  }
-  
-}
-useEffect(()=>{
-  fetchdata();
-},[])
-
-  return(
-	<div className='table-main-component-new d-flex flex-column'> 
-    <DataTable
-	columns={columns}
-    data = {data}
-	fixedHeader
-    highlightOnHover
-    customStyles={customStyles}
-	fixedHeaderScrollHeight={fixedHeaderScrollHeight}
-	pagination
-	/>
-</div>
-  )
+	return(
+		<>
+		<Sidebar><AdminMenu/></Sidebar>
+		<div className='table-main-component-new d-flex flex-column'> 
+		<div className='Add-company-dashboard-admin-div'><button className="btn btn-blue Add-company-dashboard-admin ">Add Company</button></div>
+		<DataTable
+		columns={columns}
+		data = {data}
+		fixedHeader
+		highlightOnHover
+		customStyles={customStyles}
+		fixedHeaderScrollHeight={fixedHeaderScrollHeight}
+		pagination
+		/>
+	</div>
+	</>
+	)
 }
 
 

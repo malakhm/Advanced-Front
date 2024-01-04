@@ -6,12 +6,22 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 const AdminMenu = () => {
   const [activeMenuItem, setActiveMenuItem] = useState('Companies');
 
   const handleMenuItemClick = (menuItem) => {
     setActiveMenuItem(menuItem);
     // Add logic to handle the click event, e.g., navigate to the corresponding page
+  };
+
+  const navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    navigate("/signin");
+    localStorage.clear();
+    toast.success("Logged out successfully !");
   };
 
   return (
@@ -62,7 +72,7 @@ const AdminMenu = () => {
           iconSize="lg"
 
           active={activeMenuItem === 'Logout'}
-          onClick={() => handleMenuItemClick('Logout')}
+          onClick={handleLogout}
         >
           Logout
         </CDBSidebarMenuItem>

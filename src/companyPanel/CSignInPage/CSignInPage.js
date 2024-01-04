@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "../../adminPanel/ASignInPage/ASignInPage.css";
 import Logo from "../../Photos/Logo.png";
 import { BsEyeFill } from "react-icons/bs";
@@ -6,25 +6,27 @@ import { BsEyeSlashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { CompanyContext } from "../../Context/CompanyConext";
+import { toast } from "react-toastify";
 const CSignInPage = () => {
+  // import the company context props
+  const {setCompany, setToken, fetchData} = useContext(CompanyContext)
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+
+//set state value to the input value
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
-
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,13 +48,18 @@ const CSignInPage = () => {
       console.log("Access Token:", Data.accessToken);
 
       if (response.status === 200) {
-        alert("Logged in successfully!");
-        localStorage.setItem("authToken", Data.accessToken);
-        // console.log("authToken:", localStorage.getItem("authToken"));
-        localStorage.getItem("authToken");
+        const token = Data.accessToken;
+        setToken(token)
+        await new Promise((resolve) => {
+          localStorage.setItem("token", token);
+          resolve();
+        });
+        await fetchData();
+        setCompany(Data)
+        toast.success("Logged in successfully!");
         navigate("/test");
       } else {
-        alert("Login failed");
+        toast.warning("Login failed");
       }
     } catch (error) {
       console.log("Failed to log in", error.message);

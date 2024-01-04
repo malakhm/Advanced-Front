@@ -14,6 +14,7 @@ import CSignUpPage from "../companyPanel/CSignUpPage/CSignUpPage.js";
 
 import ContactUs from "../pages/ContactUs/ContactUs.js";
 import AAboutUs from "../pages/AAboutUs/AAboutUs.js";
+import AHome from "../pages/AHome/AHome.js";
 const AppRoutes = () => {
   return (
     <>
@@ -35,7 +36,7 @@ const AppRoutes = () => {
 
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/about" element={<AAboutUs />} />
-
+        <Route path="/home" element={<AHome />} />
       </Routes>
     </>
   );

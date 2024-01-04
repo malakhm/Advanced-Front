@@ -17,7 +17,7 @@ const ANavbar = () => {
       <img src={Logo} alt="" className="anavbarLogo" />
       <div className="Navbar">
         <div className="header_Links_anavbar">
-          <Link to="/" className="N-home">
+          <Link to="/home" className="N-home">
             Home
           </Link>
           <Link to="/Companies" className="N-companies">
@@ -49,7 +49,7 @@ const ANavbar = () => {
       {!collapse ? (
         <nav className="header_mobile_nav">
           <div className="header_mobile_ul">
-            <Link to="/" className="N-home">
+            <Link to="/home" className="N-home">
               Home
             </Link>
             <Link to="/Companies" className="N-companies">
@@ -62,7 +62,7 @@ const ANavbar = () => {
               AboutUs
             </Link>
             <Link
-              to="/About#Contact"
+              to="/contact"
               onClick={executeScroll}
               className="N-contact"
             >

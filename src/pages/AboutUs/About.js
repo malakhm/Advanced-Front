@@ -9,6 +9,7 @@ import Img1 from "../../Photos/categories-1.png";
 import Img2 from "../../Photos/categories-2.png";
 import Img3 from "../../Photos/categories-3.png";
 
+
 const AboutPage = () => {
   const [feedbacksFirstName, setFeedbacksFirstName] = useState("");
   const [feedbacksLastName, setFeedbacksLastName] = useState("");
@@ -116,7 +117,7 @@ const AboutPage = () => {
   }
 
   return (
-    <>
+    <div>
       <Header imageSrc={imageHeader} />
       <div className="AboutUsPage">
         <div className="Header"></div>
@@ -245,7 +246,7 @@ const AboutPage = () => {
           <img src={Arrowup} className="Arrowup" alt="Scroll to top" />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

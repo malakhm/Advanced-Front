@@ -5,7 +5,7 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import {useNavigate} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 const CompanyMenu = () => {
   const [activeMenuItem, setActiveMenuItem] = useState('Companies');
@@ -27,7 +27,7 @@ const CompanyMenu = () => {
   return (
     <CDBSidebarContent>
       <CDBSidebarMenu>
-
+      <NavLink exact to="/account" activeClassName="activeClicked">
         <CDBSidebarMenuItem
           icon="user-circle"
           iconSize="lg"
@@ -35,7 +35,10 @@ const CompanyMenu = () => {
           onClick={() => handleMenuItemClick('Companies')}
         >
           Account
-        </CDBSidebarMenuItem>
+        </CDBSidebarMenuItem></NavLink>
+        <NavLink exact to="/mycategories" activeClassName="activeClicked">
+
+
         <CDBSidebarMenuItem
           icon="file"
           iconSize="lg"
@@ -44,6 +47,7 @@ const CompanyMenu = () => {
         >
           Categories
         </CDBSidebarMenuItem>
+        </NavLink>
         <CDBSidebarMenuItem
           icon="seedling"
           iconType="solid"

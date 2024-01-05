@@ -23,6 +23,8 @@ import Categories from "../pages/Admin/Categories.js";
 import EditCategory from "../pages/Admin/editCategory.js";
 import Account from "../pages/Company/Account.js";
 import EditAccount from '../pages/Company/EditAccount.js'
+import CategoriesCompany from '../pages/Company/Categories.js'
+import EditCategoryCompany from '../pages/Company/editCategory.js'
 const AppRoutes = () => {
   return (
     <>
@@ -52,8 +54,10 @@ const AppRoutes = () => {
         <Route path="/signup-company" element={<CSignUpPage />} />
         <Route path='/edit-account' element={<EditAccount/>}/>
         <Route path="/account" element={<Account/>}/>
+        <Route path="/edit-category-company" element={<EditCategoryCompany/>}/>
+
         <Route path="/contact" element={<ContactUs />} />
-    
+        <Route path="/mycategories" element={<CategoriesCompany />} />
         {/* <Route path="/about" element={<AAboutUs />} /> */}
         {/* <Route path="/home" element={<AHome />} /> */}
       </Routes>

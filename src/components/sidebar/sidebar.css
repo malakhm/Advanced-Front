@@ -10,3 +10,14 @@
   background-color: goldenrod !important;
   color: white !important;
 }
+
+@media (max-width: 912px){
+  .sidebar-component-main{
+    height: 100vh;
+    
+  }
+  
+}
+.App{
+  height: 100vh;
+}

@@ -46,3 +46,7 @@ body {
   background-image: url('./Photos//bg.png');
   height: auto;
 }
+.form-bg{
+  height: 100vh;
+
+}

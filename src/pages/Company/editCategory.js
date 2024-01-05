@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
-import "./Styles/editForm.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Sidebar from "../../components/sidebar/sidebar.js";
 import AdminMenu from "../../components/sidebar/AdminMenu";
-import { AuthContext } from "../../Context/AuthContext";
-const EditCategory = () => {
+import { CompanyContext } from "../../Context/CompanyConext.js";
+const EditCategoryCompany = () => {
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext);
+  const { token } = useContext(CompanyContext);
   const location = useLocation();
   const { id, Name } = location.state || {};
   console.log(id, Name);
@@ -26,7 +25,7 @@ const EditCategory = () => {
       formData.append("image", image);
 
       const response = await axios.put(
-        `http://localhost:5000/api/categories/2`,
+        `http://localhost:5000/api/categories/${id}`,
         formData,
         {
           headers: {
@@ -37,7 +36,7 @@ const EditCategory = () => {
       );
       console.log(response);
       toast.success("category edited successfully !");
-      navigate("/categories");
+      navigate("/mycategories");
     } catch (error) {
       console.log(error.message);
       toast.error("something went wrong !!!!");
@@ -87,4 +86,4 @@ const EditCategory = () => {
   );
 };
 
-export default EditCategory;
+export default EditCategoryCompany;

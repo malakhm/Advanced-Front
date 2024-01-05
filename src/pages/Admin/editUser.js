@@ -62,7 +62,7 @@ const EditUser = () => {
           <div class="row">
             <div class="col-md-offset-3 col-md-6">
               <div class="form-container">
-                <h3 class="title">Edit Company</h3>
+                <h3 class="title">Edit User</h3>
                 <form class="form-horizontal">
                   <div class="form-group">
                     <label>Username</label>

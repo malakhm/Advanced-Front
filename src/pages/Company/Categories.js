@@ -58,6 +58,9 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 	
 	const [data, setData] = useState([])
 	const navigate = useNavigate()
+	const nav = ()=>{
+		navigate('/add-category')
+	}
 	const { token, company } = useContext(CompanyContext)
 
 	const handleDelete = async (id) => {
@@ -163,7 +166,13 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 		<>
 		<Sidebar><CompanyMenu/></Sidebar>
 		<div className='table-main-component-new d-flex flex-column'> 
-	
+		<div className='Add-company-dashboard-admin-div'>
+		
+		<button className="btn btn-blue Add-company-dashboard-admin " onClick={()=>nav()}>
+			Add Category
+		</button>
+
+</div>
 		<DataTable
 		columns={columns}
 		data = {data}

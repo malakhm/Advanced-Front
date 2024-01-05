@@ -37,8 +37,6 @@ const CompanyMenu = () => {
           Account
         </CDBSidebarMenuItem></NavLink>
         <NavLink exact to="/mycategories" activeClassName="activeClicked">
-
-
         <CDBSidebarMenuItem
           icon="file"
           iconSize="lg"
@@ -48,6 +46,8 @@ const CompanyMenu = () => {
           Categories
         </CDBSidebarMenuItem>
         </NavLink>
+
+        <NavLink exact to="/mydesigns" activeClassName="activeClicked">
         <CDBSidebarMenuItem
           icon="seedling"
           iconType="solid"
@@ -58,7 +58,7 @@ const CompanyMenu = () => {
           onClick={() => handleMenuItemClick('Categories')}
         >
           Designs
-        </CDBSidebarMenuItem>
+        </CDBSidebarMenuItem></NavLink>
         <CDBSidebarMenuItem
           icon="comment"
           iconType="solid"

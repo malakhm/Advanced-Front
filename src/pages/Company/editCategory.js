@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Sidebar from "../../components/sidebar/sidebar.js";
-import AdminMenu from "../../components/sidebar/AdminMenu";
+import CompanyMenu from "../../components/sidebar/CompanyMenu";
 import { CompanyContext } from "../../Context/CompanyConext.js";
 const EditCategoryCompany = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const EditCategoryCompany = () => {
   return (
     <>
       <Sidebar>
-        <AdminMenu />
+        <CompanyMenu />
       </Sidebar>
       <div class="form-bg container">
         <div class="container">

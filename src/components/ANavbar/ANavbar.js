@@ -17,7 +17,7 @@ const ANavbar = () => {
     const element = document.getElementById("User");
     element.scrollIntoView({ behavior: "smooth" });
   };
-  console.log(user);
+  // console.log(user);
 
   //logout
   const navigate = useNavigate();

@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     try {
       if (token) {
         axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+        
       }
     } catch (err) {
       console.error(err);

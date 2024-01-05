@@ -34,7 +34,8 @@
 }
 
 .left {
-  background: url("/src/Photos/royal-blue-couch-living-room.jpg") no-repeat center;
+  background: url("/src/Photos/royal-blue-couch-living-room.jpg") no-repeat
+    center;
   background-size: cover;
   height: 100%;
 }
@@ -108,6 +109,12 @@
 
 .contactus-footer {
   padding-top: 65px;
+}
+
+.pages-height {
+  border: 2px yellowgreen solid;
+  height: 100vh;
+  margin: 20px;
 }
 
 @media only screen and (max-width: 600px) {

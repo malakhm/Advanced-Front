@@ -16,6 +16,8 @@ import AdminProtectedRoute from './AdminProtectedRoutes.js'
 import ContactUs from "../pages/ContactUs/ContactUs.js"
 import AAboutUs from "../pages/AAboutUs/AAboutUs.js"
 import AHome from "../pages/AHome/AHome.js"
+import EditUserProfile from "../pages/UserProfile/EditUserProfile.js";
+import UserProfile from "../pages/UserProfile/UserProfile.js";
 
 const AppRoutes = () => {
   return (
@@ -32,6 +34,8 @@ const AppRoutes = () => {
         <Route path="/getstarted" element={<ALoginPage />} />
         <Route path="/signin" element={<ASignInPage />} />
         <Route path="/signup" element={<ASignUpPage />} />
+        <Route path="/user-profile" element={<UserProfile/>}/>
+        <Route path="/edit-user" element={<EditUserProfile/>}/>
         {/*Company*/}
         <Route path="/getstarted-company" element={<CLoginPage />} />
         <Route path="/signin-company" element={<CSignInPage />} />

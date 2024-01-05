@@ -106,6 +106,10 @@
   }
 } */
 
+.contactus-footer {
+  padding-top: 65px;
+}
+
 @media only screen and (max-width: 600px) {
   .contactus-title {
     margin-top: 15px;

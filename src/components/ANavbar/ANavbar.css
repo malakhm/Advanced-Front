@@ -114,6 +114,59 @@ header-anavbar {
   background-color: #ffa733;
 }
 
+.N-Login-text {
+  color: white;
+}
+
+.profile-container-nav {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-circle-nav {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-image-nav {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dropdow-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdow-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdow-nav li {
+  padding: 10px;
+}
+
+.dropdow-nav a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.profile-container-nav:hover .dropdow-nav {
+  display: block;
+}
+
 @media only screen and (max-width: 960px) {
   header {
     flex-direction: column;

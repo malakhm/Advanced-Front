@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ANavbar from "../../components/ANavbar/ANavbar.js";
 import AFooter from "../../components/AFooter/AFooter.js";
 import Header from "../../components/header/Header.js";
 import imageHeader from "../../Photos/header-1.png";
 import "./AHome.css";
 import axios from "axios";
-
+import { AuthContext } from "../../Context/AuthContext.js";
+import { toast } from "react-toastify";
 // Category images
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -21,9 +22,11 @@ const AHome = () => {
   //fetch feedbacks
   const [feedbacks, setFeedbacks] = useState("");
   const [content, setContent] = useState("");
-  const yourAuthToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IlVzZXIiLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE3MDQzMTg5NjAsImV4cCI6MTcwNDQwNTM2MH0.BCoi_Fkz4P7eXmJD8QGK7THB-MPWtEktFERUxiiuoBg";
 
+  //check if the user is logged in
+  const { user, token } = useContext(AuthContext);
+
+  const AuthToken = token;
   const handleContent = (e) => {
     setContent(e.target.value);
   };
@@ -33,16 +36,23 @@ const AHome = () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/feedbacks",
-        { content },
+        { content, UserId: user.id },
         {
           headers: {
-            Authorization: `Bearer ${yourAuthToken}`,
+            Authorization: `Bearer ${AuthToken}`,
           },
         }
       );
-      const data = response.data;
-      console.log(data);
+      // const data = response.data;
+      const newFeedback = response.data.data;
+      console.log(newFeedback);
+      setFeedbacks((prevFeedbacks) => [newFeedback, ...prevFeedbacks]);
+
+      // console.log(data);
     } catch (error) {
+      if (error.response && error.response.status === 403) {
+        toast.warning("You need to login first !!!!!");
+      }
       console.log("Failed to post the feedback!", error.message);
     }
   };
@@ -125,6 +135,7 @@ const AHome = () => {
                 onChange={handleContent}
                 className="input-box"
               />
+
               <button type="submit" className="comment-button">
                 Submit
               </button>

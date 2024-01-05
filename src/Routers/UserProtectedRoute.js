@@ -12,7 +12,7 @@ const AdminProtectedRoute = () => {
     navigate("/signin");
   } else {
     // Check if the user is an admin
-    if (!token || user.role != 'User') {
+    if (!token || user.role !== 'User') {
      
       // If not authenticated, redirect to the login page
         toast.warning("you need to be authorized to access!");

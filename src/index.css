@@ -7,9 +7,19 @@
   -moz-osx-font-smoothing: grayscale;
    background-color: #0E395A;
 } */
+@font-face {
+  font-family: bold;
+  src: url(./Photos/static/Teko-Bold.ttf);
+}
+@font-face {
+  font-family: medium;
+  src: url(./Photos/Acme-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;
+  font-family: medium;
+
 }
 body {
   overflow-x: hidden;

@@ -57,7 +57,7 @@ const CSignInPage = () => {
         await fetchData();
         setCompany(Data)
         toast.success("Logged in successfully!");
-        navigate("/test");
+        navigate("/account");
       } else {
         toast.warning("Login failed");
       }

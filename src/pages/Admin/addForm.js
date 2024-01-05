@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Styles/editForm.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
@@ -6,8 +6,9 @@ import Sidebar from '../../components/sidebar/sidebar.js'
 import AdminMenu from '../../components/sidebar/AdminMenu'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthContext'
 const AddForm =() =>{
-
+const { token } = useContext(AuthContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
@@ -28,6 +29,11 @@ const handleSubmit= async(e)=>{
       phone,
       password,
       website_link:website
+  } ,{
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    },
   }) 
     if(response.status === 201){
       toast.success('user added successfully !')

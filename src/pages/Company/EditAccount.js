@@ -1,32 +1,31 @@
 import React, { useContext } from 'react'
-import './Styles/editForm.css'
 import { useLocation , useNavigate} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import Sidebar from '../../components/sidebar/sidebar.js'
 import AdminMenu from '../../components/sidebar/AdminMenu'
-import { AuthContext } from '../../Context/AuthContext'
-const EditForms =() =>{
+import { CompanyContext } from '../../Context/CompanyConext.js'
+const EditAccount =() =>{
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext)
+  const { token , setCompany} = useContext(CompanyContext)
   const location = useLocation();
   const {id,
         Name,
-        email,
+        Email,
         Location,
-        website,
-        phone,
-        } = location.state || {}
+        Website,
+        Phone,
+        Logo} = location.state || {}
        
-  // console.log(id, Name, email)
+  // console.log(id, Name, Email)
   //creating states for all fields
   const [name, setName] = useState(Name || '')
-  const [mail, setEmail] = useState(email || '')
+  const [email, setEmail] = useState(Email || '')
   const [loc, seLocation] = useState(Location || '')
-  const [Website, setWebsite] = useState(website || '')
-  const [Phone, setPhone] = useState(phone || '')
-  const [Logo, setLogo] = useState('')
+  const [website, setWebsite] = useState(Website || '')
+  const [phone, setPhone] = useState(Phone || '')
+  const [logo, setLogo] = useState(Logo || '')
 
   const handleEdit = async(e)=>{
     e.preventDefault();
@@ -34,11 +33,11 @@ const EditForms =() =>{
       const formData = new FormData();
 
       formData.append("name", name);
-      formData.append("email", mail);
+      formData.append("email", email);
       formData.append("location", loc);
-      formData.append("website_link", Website);
-      formData.append("phone", Phone);
-      // formData.append("logo", Logo);
+      formData.append("website_link", website);
+      formData.append("phone", phone);
+      formData.append("logo", logo);
 
       const response = await axios.put(
         `http://localhost:5000/api/companies/${id}`,
@@ -52,8 +51,9 @@ const EditForms =() =>{
     
       );
       console.log(response)
+      setCompany(response.data.data)
       toast.success("company edited successfully !");
-      navigate("/");
+      navigate("/account");
     } catch (error) {
       console.log(error.message)
       toast.error("something went wrong !!!!");
@@ -70,7 +70,7 @@ const EditForms =() =>{
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
           <div class="form-container">
-            <h3 class="title">Edit Company</h3>
+            <h3 class="title">Edit Profile</h3>
             <form class="form-horizontal">
               <div class="form-group">
                 <label>Name</label>
@@ -89,7 +89,7 @@ const EditForms =() =>{
                   class="form-control"
                   placeholder="Email Address"
                   onChange={(e)=>setEmail(e.target.value)}
-                  value={mail}
+                  value={email}
                 />
               </div>
               <div class="form-group">
@@ -120,7 +120,7 @@ const EditForms =() =>{
                   type="text"
                   class="form-control"
                   placeholder="Phone Number"
-                  value={Phone}
+                  value={phone}
                   onChange={(e)=>setPhone(e.target.value)}
                 />
               </div>
@@ -130,7 +130,7 @@ const EditForms =() =>{
                 <input type="text"
                 class="form-control"
                 placeholder="https://www.google.com"
-                value={Website}
+                value={website}
                 onChange={(e)=>setWebsite(e.target.value)}
                 />
               </div>
@@ -146,4 +146,4 @@ const EditForms =() =>{
   )
 }
 
-export default EditForms
+export default EditAccount

@@ -19,6 +19,10 @@ import EditUser from "../pages/Admin/editUser.js";
 // import AAboutUs from "../pages/AAboutUs/AAboutUs.js"
 // import AHome from "../pages/AHome/AHome.js"
 import AddUser from "../pages/Admin/addUser.js";
+import Categories from "../pages/Admin/Categories.js";
+import EditCategory from "../pages/Admin/editCategory.js";
+import Account from "../pages/Company/Account.js";
+import EditAccount from '../pages/Company/EditAccount.js'
 const AppRoutes = () => {
   return (
     <>
@@ -37,6 +41,8 @@ const AppRoutes = () => {
         <Route path="/edit-company" element={<EditForms />}/>
         <Route path="/add-user" element={<AddUser/>}/>
         <Route path="/edit-user" element={<EditUser/>}/>
+        <Route path="/categories" element={<Categories/>}/>
+        <Route path="/edit-category" element={<EditCategory/>}/>
         <Route path="/getstarted" element={<ALoginPage />} />
         <Route path="/signin" element={<ASignInPage />} />
         <Route path="/signup" element={<ASignUpPage />} />
@@ -44,7 +50,8 @@ const AppRoutes = () => {
         <Route path="/getstarted-company" element={<CLoginPage />} />
         <Route path="/signin-company" element={<CSignInPage />} />
         <Route path="/signup-company" element={<CSignUpPage />} />
-
+        <Route path='/edit-account' element={<EditAccount/>}/>
+        <Route path="/account" element={<Account/>}/>
         <Route path="/contact" element={<ContactUs />} />
     
         {/* <Route path="/about" element={<AAboutUs />} /> */}

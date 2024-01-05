@@ -28,7 +28,7 @@ const EditUser = () => {
     try {
       const formData = new FormData();
 
-      formData.append("name", username);
+      formData.append("username", username);
       formData.append("email", email);
       formData.append("image", Image);
       formData.append("role", role);

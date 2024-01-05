@@ -49,28 +49,19 @@ const AdminMenu = () => {
             Users
           </CDBSidebarMenuItem>
       </NavLink>
+      <NavLink exact to="/categories" activeClassName="activeClicked">
+
         <CDBSidebarMenuItem
           icon="file"
           iconType="solid"
           textFontSize="16px"
           iconSize="lg"
-
           active={activeMenuItem === 'Categories'}
           onClick={() => handleMenuItemClick('Categories')}
         >
           Categories
-        </CDBSidebarMenuItem>
-        <CDBSidebarMenuItem
-          icon="user-secret"
-          iconType="solid"
-          iconSize="lg"
-
-          textFontSize="16px"
-          active={activeMenuItem === 'Admins'}
-          onClick={() => handleMenuItemClick('Admins')}
-        >
-          Admins
-        </CDBSidebarMenuItem>
+        </CDBSidebarMenuItem></NavLink>
+        
         <CDBSidebarMenuItem
           icon="sign-out-alt"
           iconType="solid"

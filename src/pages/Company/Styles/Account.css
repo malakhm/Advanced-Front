@@ -1,0 +1,83 @@
+.account-title-name{
+    font-family: bold;
+  }
+
+  .profile-with-name{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .Company-main-account-profile{
+    padding-top: 10%;
+    background-image: url('../../../Photos/bg.png');
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
+
+  .card-components-main{
+    margin-left: 5%;
+    padding: 10px;
+    flex-wrap: wrap;
+    
+
+    
+  }
+
+  .single-container-component-main{
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    border-radius: 25px;
+    margin-top: 5%;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+
+    
+  }
+  .icon-color-style{
+    display: flex;
+    gap: 5px;
+    font-size: 32px;
+    color: #0e395a;
+  }
+  .name-icon-same-container{
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    
+
+  }
+
+  .card-components-all-main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .link-button-edit-account{
+    display: flex;
+    justify-content: flex-end;
+
+   
+  }
+
+  @media (max-width: 768px) {
+    .image-profile-main-acc{
+        width: 128px;
+        height: 128px;
+    }
+    .profile-with-name{
+        margin-left: 40%;
+    }
+    .card-components-main{
+        flex-wrap: wrap;
+    }
+    .card-components-all-main{
+        flex-wrap: wrap;
+
+    }
+  }

@@ -6,7 +6,7 @@ export const CompanyContext = createContext(null);
 export const CompanyProvider = ({ children }) => {
     const [company, setCompany] = useState(() => {
       // Try to get user from localStorage on initial load
-      const storedUser = localStorage.getItem("companny");
+      const storedUser = localStorage.getItem("company");
       return storedUser ? JSON.parse(storedUser) : null;
     });
 

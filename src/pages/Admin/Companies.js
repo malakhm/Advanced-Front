@@ -1,6 +1,6 @@
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CiEdit } from "react-icons/ci";
 import Button from 'react-bootstrap/Button';
 import { FaTrashCan } from "react-icons/fa6";
@@ -9,36 +9,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Sidebar from '../../components/sidebar/sidebar.js'
 import AdminMenu from '../../components/sidebar/AdminMenu.js'
-const handleDelete = async (id) => {
-	Swal.fire({
-	  title: "Are you sure you want to delete?",
-	  icon: "question",
-	  iconHtml: "?",
-	  confirmButtonText: "Delete",
-	  cancelButtonText: "Cancel",
-	  showCancelButton: true,
-	  showCloseButton: true,
-	}).then(async (result) => {
-	  if (result.isConfirmed) {
-		try {
-		  // Assuming 'id' is defined somewhere in your code
-		  const response = await axios.delete(
-			`http://localhost:5000/api/companies/${id}`
-		  );
-  
-		  Swal.fire({
-			title: "Deleted!",
-			text: "Your file has been deleted.",
-			icon: "success",
-			
-		  });
-		} catch (err) {
-		  console.log(err);
-		}
-	  }
-	});
-  };
-  
+import {AuthContext} from '../../Context/AuthContext.js'
 
 //custom styling for the table 
 const customStyles = {
@@ -89,6 +60,38 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 	const nav = ()=>{
 		navigate('/add-company')
 	}
+	const { token } = useContext(AuthContext)
+
+	const handleDelete = async (id) => {
+		Swal.fire({
+		  title: "Are you sure you want to delete?",
+		  icon: "question",
+		  iconHtml: "?",
+		  confirmButtonText: "Delete",
+		  cancelButtonText: "Cancel",
+		  showCancelButton: true,
+		  showCloseButton: true,
+		}).then(async (result) => {
+		  if (result.isConfirmed) {
+			try {
+			  // Assuming 'id' is defined somewhere in your code
+			  const response = await axios.delete(
+				`http://localhost:5000/api/companies/${id}`,{headers:{Authorization: `Bearer ${token}`}}
+			  );
+	  
+			  Swal.fire({
+				title: "Deleted!",
+				text: "Your file has been deleted.",
+				icon: "success",
+				
+			  });
+			} catch (err) {
+			  console.log(err);
+			}
+		  }
+		});
+	  };
+	  
 	//create the table structure
 	const columns = [
 		{

@@ -107,15 +107,6 @@
   }
 } */
 
-.contactus-footer {
-  padding-top: 65px;
-}
-
-.pages-height {
-  border: 2px yellowgreen solid;
-  height: 100vh;
-  margin: 20px;
-}
 
 @media only screen and (max-width: 600px) {
   .contactus-title {

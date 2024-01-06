@@ -29,7 +29,7 @@ const AHome = () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/feedbacks",
-        { content, UserId: user.id },
+        { content, UserId: user ? user.id : null }, // Pass UserId only if the user is logged in
         {
           headers: {
             Authorization: `Bearer ${AuthToken}`,
@@ -82,6 +82,7 @@ const AHome = () => {
     // Update the URL with the new page number
     window.history.pushState({}, "", `?page=${pageNumber}`);
   };
+
   return (
     <div>
       <ANavbar />
@@ -89,52 +90,60 @@ const AHome = () => {
         <div className="pages-height">
           <Header imageSrc={imageHeader} />
         </div>
+        <div className="feedback-title">Feedback Section</div>
 
         <div className="main-container feedback-container-main pages-height">
-          {user && feedbacks.length > 0 && (
-            <div className="comments-grid">
-              {displayedFeedbacks.map((item) => (
-                <div className="comments-item" key={item.id}>
-                  <div className="comment-container">
-                    {item.User && item.User.username
-                      ? item.User.username
-                      : "uknownuser"}
-                  </div>
-                  <p className="comment-itself">{item.content}</p>
+          <div className="left-section">
+            {user ? (
+              <form onSubmit={submitFeedback}>
+                <div className="comment-flexbox">
+                  <h3 className="comment-text">Write your feedback!</h3>
+                  <textarea
+                    value={content}
+                    onChange={handleContent}
+                    className="input-box"
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-blue comment-button"
+                  >
+                    Submit
+                  </button>
                 </div>
-              ))}
-            </div>
-          )}
-
-          {user ? (
-            <form onSubmit={submitFeedback}>
-              <div className="comment-flexbox">
-                <h3 className="comment-text">Write your feedback!</h3>
-                <textarea
-                  value={content}
-                  onChange={handleContent}
-                  className="input-box"
-                />
-                <button type="submit" className="comment-button">
-                  Submit
-                </button>
-              </div>
-            </form>
-          ) : (
-            <div className="comment-flexbox">
+              </form>
+            ) : (
+              <div className="comment-flexbox center">
               <p className="comment-text">
                 You need to log in to post feedback.
               </p>
             </div>
-          )}
+            )}
+          </div>
 
-          {/* Pagination moved here */}
-          <div className="pagination-container">
-            <APagination
-              feedbacksPerPage={feedbacksPerPage}
-              totalFeedbacks={feedbacks.length}
-              paginate={paginate}
-            />
+          <div className="right-section">
+            {feedbacks.length > 0 && (
+              <div className="comments-grid">
+                {displayedFeedbacks.map((item) => (
+                  <div className="comments-item" key={item.id}>
+                    <div className="comment-container">
+                      {item.User && item.User.username
+                        ? item.User.username
+                        : "uknownuser"}
+                    </div>
+                    <p className="comment-itself">{item.content}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Pagination */}
+            <div className="pagination-container">
+              <APagination
+                feedbacksPerPage={feedbacksPerPage}
+                totalFeedbacks={feedbacks.length}
+                paginate={paginate}
+              />
+            </div>
           </div>
         </div>
       </div>

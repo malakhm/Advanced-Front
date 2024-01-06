@@ -25,7 +25,7 @@ const AppRoutes = () => {
 
       <Routes>
 
-        <Route path="/test" element={<Test/>}/>
+        {/* <Route path="/test" element={<Test/>}/> */}
         <Route element={<AdminProtectedRoute/>}>
           <Route path="/" element={<Companies />} />
         </Route>

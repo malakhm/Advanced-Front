@@ -120,7 +120,7 @@ const EmailForm = () => {
         </div>
       </div>
 
-      <AFooter />
+      <AFooter/>
     </div>
   );
 };

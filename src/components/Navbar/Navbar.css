@@ -103,7 +103,7 @@ header {
     padding: 10px;
   }
   .N-Login {
-    background-color: #DA9100;
+    /* background-color: #DA9100; */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -111,6 +111,7 @@ header {
     font-size: 1rem;
     margin-left: 1rem;
     text-decoration: none;
+    color: white;
   }
   
   .N-Login:hover {

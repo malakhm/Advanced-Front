@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import ANavbar from "../../components/ANavbar/ANavbar.js";
 import AFooter from "../../components/AFooter/AFooter.js";
 import Header from "../../components/header/Header.js";
 import imageHeader from "../../Photos/header-1.png";
 import "./AHome.css";
 import axios from "axios";
-
-// Category images
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
+import { AuthContext } from "../../Context/AuthContext.js";
+import { toast } from "react-toastify";
+import APagination from "./APagination.js";
 
 const AHome = () => {
-  // const itemData = useState(null)
-  //fetch categories
-  const [categories, setCategories] = useState("");
-  const [design, setDesign] = useState([]);
-  //fetch feedbacks
-  const [feedbacks, setFeedbacks] = useState("");
+  const { user, token } = useContext(AuthContext);
+  const AuthToken = token;
+  const [feedbacks, setFeedbacks] = useState([]);
   const [content, setContent] = useState("");
-  const yourAuthToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IlVzZXIiLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE3MDQzMTg5NjAsImV4cCI6MTcwNDQwNTM2MH0.BCoi_Fkz4P7eXmJD8QGK7THB-MPWtEktFERUxiiuoBg";
+  const [currentPage, setCurrentPage] = useState(1);
+  const [feedbacksPerPage] = useState(4);
+
+  const location = useLocation();
 
   const handleContent = (e) => {
     setContent(e.target.value);
@@ -33,103 +29,122 @@ const AHome = () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/feedbacks",
-        { content },
+        { content, UserId: user ? user.id : null }, // Pass UserId only if the user is logged in
         {
           headers: {
-            Authorization: `Bearer ${yourAuthToken}`,
+            Authorization: `Bearer ${AuthToken}`,
           },
         }
       );
-      const data = response.data;
-      console.log(data);
+      const newFeedback = response.data.data;
+      setFeedbacks((prevFeedbacks) => [newFeedback, ...prevFeedbacks]);
+      setContent(""); // Clear the content after submitting feedback
+      toast.success("Feedback posted successfully!");
     } catch (error) {
-      console.log("Failed to post the feedback!", error.message);
+      if (error.response && error.response.status === 403) {
+        toast.warning("You need to log in to post feedback.");
+      } else {
+        console.error("Failed to post feedback:", error.message);
+      }
     }
   };
 
   useEffect(() => {
-    const fetchfeedbacks = async () => {
+    const fetchFeedbacks = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/feedbacks");
-        // console.log(response);
-        const data = await response.json();
-        console.log(data.data);
-        setFeedbacks(data.data);
+        const response = await axios.get("http://localhost:5000/api/feedbacks");
+        console.log(response.data);
+        setFeedbacks(response.data.data);
+
+        // Parse page number from the URL
+        const urlParams = new URLSearchParams(location.search);
+        const page = parseInt(urlParams.get("page")) || 1;
+        setCurrentPage(page);
       } catch (error) {
         console.error("Error fetching feedbacks:", error);
+        setFeedbacks([]);
       }
     };
-    fetchfeedbacks();
-  }, []);
+
+    fetchFeedbacks();
+  }, [location.search]);
+
+  // Pagination Logic
+  const indexOfLastFeedback = currentPage * feedbacksPerPage;
+  const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
+  const displayedFeedbacks = feedbacks.slice(
+    indexOfFirstFeedback,
+    indexOfLastFeedback
+  );
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Update the URL with the new page number
+    window.history.pushState({}, "", `?page=${pageNumber}`);
+  };
 
   return (
     <div>
       <ANavbar />
       <div className="AHome-Container">
-        <Header imageSrc={imageHeader} />
-        <div className="Home-Categories-Section">
-          <h4>Categories</h4>
-          {/* <ImageList sx={{ width: 500, height: 450 }}>
-            {itemData.map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${item.img}?w=248&fit=crop&auto=format`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-                <ImageListItemBar
-                  title={item.title}
-                  subtitle={item.author}
-                  actionIcon={
-                    <IconButton
-                      sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                      aria-label={`info about ${item.title}`}
-                    >
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </ImageListItem>
-            ))}
-          </ImageList> */}
+        <div className="pages-height">
+          <Header imageSrc={imageHeader} />
         </div>
-        {/* <div className="Home-Feedback-Section">
-          <h4>Feedback</h4>
-          {feedbacks &&
-            feedbacks.map((each, index) => (
-              <div className="comments-item" key={index}>
-                <h1 className="name-comments">{each.User.username}</h1>
-                <p className="comment-itself">{each.content}</p>
-              </div>
-            ))}
-  
-  
+        <div className="feedback-title">Feedback Section</div>
 
-        </div> */}
-
-        <div className="main-container">
-          {feedbacks &&
-            feedbacks.map((each, index) => (
-              <div className="comments-item" key={index}>
-                <div className="comment-container">{each.username}</div>
-                <p className="comment-itself">{each.content}</p>
-              </div>
-            ))}
-
-          <form onSubmit={submitFeedback}>
-            <div className="comment-flexbox">
-              <h3 className="comment-text">Write your feedback!</h3>
-              <textarea
-                value={content}
-                onChange={handleContent}
-                className="input-box"
-              />
-              <button type="submit" className="comment-button">
-                Submit
-              </button>
+        <div className="main-container feedback-container-main pages-height">
+          <div className="left-section">
+            {user ? (
+              <form onSubmit={submitFeedback}>
+                <div className="comment-flexbox">
+                  <h3 className="comment-text">Write your feedback!</h3>
+                  <textarea
+                    value={content}
+                    onChange={handleContent}
+                    className="input-box"
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-blue comment-button"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <div className="comment-flexbox center">
+              <p className="comment-text">
+                You need to log in to post feedback.
+              </p>
             </div>
-          </form>
+            )}
+          </div>
+
+          <div className="right-section">
+            {feedbacks.length > 0 && (
+              <div className="comments-grid">
+                {displayedFeedbacks.map((item) => (
+                  <div className="comments-item" key={item.id}>
+                    <div className="comment-container">
+                      {item.User && item.User.username
+                        ? item.User.username
+                        : "uknownuser"}
+                    </div>
+                    <p className="comment-itself">{item.content}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Pagination */}
+            <div className="pagination-container">
+              <APagination
+                feedbacksPerPage={feedbacksPerPage}
+                totalFeedbacks={feedbacks.length}
+                paginate={paginate}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <AFooter />

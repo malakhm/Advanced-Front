@@ -46,7 +46,7 @@ const ASignUpPage = () => {
       const Data = response.data.data;
       console.log(Data);
 
-      console.log("User ID:", Data.id);
+      // console.log("User ID:", Data.id);
       console.log("Username:", Data.username);
       console.log("Email:", Data.email);
 

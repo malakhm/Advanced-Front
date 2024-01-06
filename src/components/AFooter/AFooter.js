@@ -9,7 +9,7 @@ import Youtube from '../../Photos/Youtube.png';
 
 const AFooter = () => {
   return (
-    <footer className='footer'>
+    <footer className='footer contactus-footer'>
       <div className="footer-img">
         <img src={Logo} alt="spaceloom" />
       </div>

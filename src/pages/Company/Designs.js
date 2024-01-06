@@ -76,7 +76,7 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 			try {
 			  // Assuming 'id' is defined somewhere in your code
 			  const response = await axios.delete(
-				`http://localhost:5000/api/categories/${id}`,{headers:{Authorization: `Bearer ${token}`}}
+				`http://localhost:5000/api/designs/${id}`,{headers:{Authorization: `Bearer ${token}`}}
 			  );
 	  
 			  Swal.fire({

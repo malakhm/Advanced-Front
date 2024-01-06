@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import Sidebar from '../../components/sidebar/sidebar.js'
 import AdminMenu from '../../components/sidebar/AdminMenu'
 import { CompanyContext } from '../../Context/CompanyConext.js'
+import CompanyMenu from '../../components/sidebar/CompanyMenu.js'
 const EditAccount =() =>{
   const navigate = useNavigate();
   const { token , setCompany} = useContext(CompanyContext)
@@ -64,7 +65,7 @@ const EditAccount =() =>{
 
   return (
     <>
-    <Sidebar><AdminMenu/></Sidebar>
+    <Sidebar><CompanyMenu/></Sidebar>
 	<div class="form-bg container">
     <div class="container">
       <div class="row">

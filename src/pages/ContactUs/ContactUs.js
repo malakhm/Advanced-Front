@@ -58,7 +58,7 @@ const EmailForm = () => {
       <h3 className="contactus-title">Send us a message now!</h3>
       <div className="contactus-container-main-component container-main-component">
         <div className="contact-box">
-          <form className="contactus-form right" onSubmit={sendEmail}>
+          <form className="contactus-form right-contactus" onSubmit={sendEmail}>
             <label>
               Name
               <input
@@ -67,7 +67,7 @@ const EmailForm = () => {
                 value={formData.from_name}
                 onChange={handleInputChange}
                 required
-                className="field"
+                className="fielda"
               />
             </label>
 
@@ -79,7 +79,7 @@ const EmailForm = () => {
                 value={formData.from_email}
                 onChange={handleInputChange}
                 required
-                className="field"
+                className="fielda"
               />
             </label>
 
@@ -91,7 +91,7 @@ const EmailForm = () => {
                 value={formData.subject}
                 onChange={handleInputChange}
                 required
-                className="field"
+                className="fielda"
               />
             </label>
 
@@ -103,7 +103,7 @@ const EmailForm = () => {
                 onChange={handleInputChange}
                 required
                 maxLength={maxCharacters}
-                className="field"
+                className="fielda"
               />
             </label>
             <span className="character-count">
@@ -114,7 +114,7 @@ const EmailForm = () => {
             </button>
           </form>
           {isMessageSent}
-          <div className="image-container-main-component-contactus left">
+          <div className="image-container-main-component-contactus left-contactus">
             {/* <img src={CouchImage} alt="background-contactus" /> */}
           </div>
         </div>

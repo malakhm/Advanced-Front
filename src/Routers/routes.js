@@ -16,8 +16,8 @@ import AdminProtectedRoute from "./AdminProtectedRoutes.js";
 import ContactUs from "../pages/ContactUs/ContactUs.js";
 import Users from "../pages/Admin/Users.js";
 import EditUser from "../pages/Admin/editUser.js";
-// import AAboutUs from "../pages/AAboutUs/AAboutUs.js"
-// import AHome from "../pages/AHome/AHome.js"
+import AAboutUs from "../pages/AAboutUs/AAboutUs.js";
+import AHome from "../pages/AHome/AHome.js";
 import AddUser from "../pages/Admin/addUser.js";
 import Categories from "../pages/Admin/Categories.js";
 import EditCategory from "../pages/Admin/editCategory.js";
@@ -71,8 +71,8 @@ const AppRoutes = () => {
         <Route path="/edit-mydesign" element={<EditDesignCompany />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/mycategories" element={<CategoriesCompany />} />
-        {/* <Route path="/about" element={<AAboutUs />} /> */}
-        {/* <Route path="/home" element={<AHome />} /> */}
+        <Route path="/about" element={<AAboutUs />} />
+        <Route path="/home" element={<AHome />} />
       </Routes>
     </>
   );

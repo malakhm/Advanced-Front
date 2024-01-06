@@ -41,7 +41,7 @@ const ANavbar = () => {
           <Link to="/Companies" className="N-companies">
             Companies
           </Link>
-          <Link to="/Categories" className="N-categories">
+          <Link to="/category" className="N-categories">
             Categories
           </Link>
           <Link to="/About" className="N-about">

@@ -31,7 +31,8 @@ import AddDesign from "../pages/Company/AddDesign.js";
 import EditDesignCompany from "../pages/Company/EditDesign.js";
 import EditUserProfile from "../pages/UserProfile/EditUserProfile.js";
 import UserProfile from "../pages/UserProfile/UserProfile.js";
-
+import Categorie from "../pages/Categories/Categories.js";
+import DesignsClient from "../pages/Categories/Designs.js";
 const AppRoutes = () => {
   return (
     <>
@@ -71,6 +72,8 @@ const AppRoutes = () => {
         <Route path="/edit-mydesign" element={<EditDesignCompany />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/mycategories" element={<CategoriesCompany />} />
+        <Route path="/category" element={<Categorie />} />
+        <Route path="/details" element={<DesignsClient />} />
         <Route path="/about" element={<AAboutUs />} />
         <Route path="/home" element={<AHome />} />
       </Routes>

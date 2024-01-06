@@ -9,7 +9,7 @@
     
   }
   .min-Header{
-  background-color: #0E395A;
+    background-color: rgba(14, 57, 90, 0.6);
   padding-top:30px ;
   text-align: center;
   justify-content: center;
@@ -17,9 +17,9 @@
   
   .categories_Buttons button {
     border: 1px solid transparent;
-    border-color: #0E395A;
+    background-color: transparent;
     padding: 5px 10px;
-    background-color: #0E395A;
+   
     text-decoration: none;
     color: white;
     position: relative;
@@ -50,11 +50,12 @@
   
   .image-container {
     text-align: center;
-    background-color: #0E395A;
+    background-color: rgba(14, 57, 90, 0.6);
     padding-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 77vh;
   }
   
   
@@ -93,4 +94,88 @@
     .image {
       width: 50%; 
       height: 150px; }
+
+    
   }
+
+
+  .hr{
+    color: rgb(255, 255, 255);
+    width: 80%;
+  }
+
+  .designs-main-component-div{
+    align-items: center;
+    justify-content: center;
+  }
+  .by-designs-owner-main{
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .image-logo-company-designs{
+    margin-right: 10px;
+  }
+
+/* designs details styling */
+.Designs-main-details-component-h{
+  background-color: rgba(14, 57, 90, 0.6);
+  min-height: 84vh;
+  align-items: center;
+  justify-content: center;
+
+}
+/* DesignsClient.css */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Default to a single column for small screens */
+  grid-gap: 60px; /* Adjust the gap between items */
+  max-width: 90%; /* Adjust as needed */
+  margin: 20px auto;
+}
+
+/* Responsive styles for medium-sized screens (tablets) */
+@media (min-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+     /* Two columns for medium screens */
+  }
+}
+
+/* Responsive styles for large screens (desktops) */
+@media (min-width: 992px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for large screens */
+  }
+}
+/* Responsive styles for large screens (desktops) */
+@media (max-width: 992px) {
+  .image-grid {
+    margin: 10%; /* Three columns for large screens */
+  }
+}
+
+.grid-item {
+  overflow: hidden; /* Ensure images don't overflow */
+}
+
+.single-image-design-details {
+  width: 100%;
+  height: auto;
+  border-radius: 0 65px 0 65px;
+  display: flex; /* Remove extra spacing below images */
+}
+
+
+.more-details-details{
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.title-category-name-details-main{
+  font-size: 50px;
+  color: white;
+}

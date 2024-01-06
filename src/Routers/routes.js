@@ -33,6 +33,7 @@ import EditUserProfile from "../pages/UserProfile/EditUserProfile.js";
 import UserProfile from "../pages/UserProfile/UserProfile.js";
 import Categorie from "../pages/Categories/Categories.js";
 import DesignsClient from "../pages/Categories/Designs.js";
+import CompaniesPage from "../pages/Companies/Companies.js";
 const AppRoutes = () => {
   return (
     <>
@@ -74,6 +75,7 @@ const AppRoutes = () => {
         <Route path="/mycategories" element={<CategoriesCompany />} />
         <Route path="/category" element={<Categorie />} />
         <Route path="/details" element={<DesignsClient />} />
+        <Route path="/companies" element={<CompaniesPage/>} />
         <Route path="/about" element={<AAboutUs />} />
         <Route path="/home" element={<AHome />} />
       </Routes>

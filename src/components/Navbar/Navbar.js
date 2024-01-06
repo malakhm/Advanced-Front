@@ -19,7 +19,7 @@ const Navbar = () => {
          <div className='Navbar'>
             <div className="header_Links">
                <Link to="/" className="N-home">Home</Link>
-               <Link to="/Companies" className="N-companies">Companies</Link>
+               <Link to="/companies" className="N-companies">Companies</Link>
                <Link to="/Categories" className="N-categories">Categories</Link>
                <Link to="/About" className="N-about">AboutUs</Link>
                <Link to="/About#Contact" name={'contactUs'} onClick={executeScroll} className="N-contact"> ContactUs </Link>

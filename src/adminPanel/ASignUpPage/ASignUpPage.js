@@ -43,7 +43,7 @@ const ASignUpPage = () => {
         password: password,
       });
 
-      const Data = response.data.data;
+      const Data = response.data;
       console.log(Data);
 
       // console.log("User ID:", Data.id);

@@ -22,7 +22,7 @@
   flex: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .feedback-title {
@@ -117,9 +117,30 @@
 }
 
 .div-width-card-feedback {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   margin-top: 10px;
   width: 31%;
   display: flex;
   justify-content: center;
+  word-break: break-all;
+}
+
+.feeeedback-card-1::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: opacity 0.3s; 
+}
+
+.feeeedback-card-1::-webkit-scrollbar-thumb {
+  background-color: #0e395a;
+  border-radius: 6px;
+}
+
+.feeeedback-card-1::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+.feeeedback-card-1:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(14, 57, 90, 0.6);
+  opacity: 1;
 }

@@ -5,6 +5,7 @@ import { BsEyeFill } from "react-icons/bs";
 import { BsEyeSlashFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const CSignUpPage = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -48,13 +49,6 @@ const CSignUpPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Phone:", phone);
-    console.log("Location:", location);
-    console.log("Website_link:", website_link);
-
     try {
       const response = await axios.post(
         "http://localhost:5000/api/companies/",
@@ -70,17 +64,26 @@ const CSignUpPage = () => {
 
       const Data = response.data.data;
       console.log(Data);
-
-      console.log("User ID:", Data.id);
-      console.log("Username:", Data.name);
-      console.log("Email:", Data.email);
-      console.log("Phone:", Data.phone);
-      console.log("Location:", Data.location);
-      console.log("Website_link:", Data.website_link);
-
+      toast.success("Company created successfully!");
       navigate("/signin-company");
     } catch (error) {
-      console.error("Error creating user:", error.message);
+      if (error.response) {
+        const { status, data } = error.response;
+
+        if (status === 409) {
+          if (data.field === "name") {
+            toast.error("Company with this name already exists.");
+          } else if (data.field === "email") {
+            toast.error("Company with this email already exists.");
+          } else {
+            toast.error("Failed to create company. Please try again.");
+          }
+        } else {
+          toast.error("Failed to create company. Please try again.");
+        }
+      } else {
+        console.error("Error creating company:", error.message);
+      }
     }
   };
 
@@ -132,7 +135,7 @@ const CSignUpPage = () => {
               value={website_link}
               onChange={handleWebsite_link}
             />
-            
+
             <label>Email</label>
             <input
               className="signin-input-a email-input1"
@@ -142,7 +145,7 @@ const CSignUpPage = () => {
               value={email}
               onChange={handleEmail}
             />
-            
+
             <label>Password</label>
             <div className="password-input-container">
               <div className="input-wrapper">

@@ -153,8 +153,10 @@ const AHome = () => {
                         <Card
                           className="red"
                           style={{
-                            width: "400px",
-                            height: "200px",
+                            // width: "400px",
+                            minWidth: "300px",
+                            // minHeight: "600px",
+                            maxHeight: "200px",
                             marginLeft: "-10px",
                             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                             display: "flex",

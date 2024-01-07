@@ -5,6 +5,7 @@ import { BsEyeFill } from "react-icons/bs";
 import { BsEyeSlashFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 const ASignUpPage = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -32,10 +33,6 @@ const ASignUpPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     try {
       const response = await axios.post("http://localhost:5000/api/users/", {
         username: username,
@@ -43,16 +40,33 @@ const ASignUpPage = () => {
         password: password,
       });
 
-      const Data = response.data.data;
+      const Data = response.data;
       console.log(Data);
 
       // console.log("User ID:", Data.id);
-      console.log("Username:", Data.username);
-      console.log("Email:", Data.email);
+      // console.log("Username:", Data.data.username);
+      // console.log("Email:", email);
 
+      toast.success("Account created successfully!");
       navigate("/signin");
     } catch (error) {
       console.error("Error creating user:", error.message);
+
+      if (error.response && error.response.status === 400) {
+        const errorData = error.response.data;
+        if (errorData.message === "Email already exists!") {
+          toast.error("Email already exists!");
+        } else if (errorData.message === "Username already exists!") {
+          toast.error("Username already exists!");
+        }
+      } else if (error.response && error.response.status === 422) {
+        const errorData = error.response.data;
+        if (errorData.message === "Invalid password") {
+          toast.error("Invalid password. Password must be strong!");
+        }
+      } else {
+        toast.error("Failed to create account. Please try again.");
+      }
     }
   };
 

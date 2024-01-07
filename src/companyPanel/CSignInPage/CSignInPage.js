@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import "../../adminPanel/ASignInPage/ASignInPage.css";
 import Logo from "../../Photos/Logo.png";
 import { BsEyeFill } from "react-icons/bs";
@@ -10,14 +10,13 @@ import { CompanyContext } from "../../Context/CompanyConext";
 import { toast } from "react-toastify";
 const CSignInPage = () => {
   // import the company context props
-  const {setCompany, setToken, fetchData} = useContext(CompanyContext)
+  const { setCompany, setToken, fetchData } = useContext(CompanyContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-
-//set state value to the input value
+  //set state value to the input value
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -49,20 +48,19 @@ const CSignInPage = () => {
 
       if (response.status === 200) {
         const token = Data.accessToken;
-        setToken(token)
+        setToken(token);
         await new Promise((resolve) => {
           localStorage.setItem("token", token);
           resolve();
         });
         await fetchData();
-        setCompany(Data)
+        setCompany(Data);
         toast.success("Logged in successfully!");
         navigate("/account");
-      } else {
-        toast.warning("Login failed");
       }
     } catch (error) {
       console.log("Failed to log in", error.message);
+      toast.warning("Wrong credentials!");
     }
   };
 

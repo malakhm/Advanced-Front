@@ -10,36 +10,39 @@
 }
 .card-wrapper {
   margin: 10px 20px;
+  height: 100%;
+  background-color: transparent !important;
+  border: none !important;;
+
+ 
 }
 
 .card-wrapper,
 .card {
   width: 50rem;
-  height: 40rem;
-  padding-top: 3rem;
+  border: none !important;
+  gap: 10px;
+
+ 
+ 
 }
 
-.card h2 {
-  margin: 5px 0;
-  text-align: center;
-  color: #fff;
+
+
+.card  {
+  align-items: center;
+  height:35rem !important;
+  justify-content: center;
+  
 }
 
-.card .front {
-  background-color: #082235;
-  border: 1px solid #d9d9d9;
-}
 
-body {
-  background-color: #f1f1f1;
-  font-family: Inter, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 300;
-}
 
 .card-wrapper {
   display: inline-block;
   -webkit-perspective: 1000px;
   perspective: 1000px;
+  margin-bottom: 200px;
 }
 .card-wrapper .card {
   position: relative;
@@ -51,6 +54,7 @@ body {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition-delay: 1s;
+  
 }
 .card-wrapper .card .front,
 .card-wrapper .card .back {
@@ -63,9 +67,7 @@ body {
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
-.card-wrapper .card .front {
-  z-index: 2;
-}
+
 .card-wrapper .card .back,
 .card-wrapper.flip-right .card .back {
   -webkit-transform: rotateY(180deg);
@@ -182,3 +184,40 @@ body {
 }
 
 
+
+.body{
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -100px;
+}
+.body-container-main-compoenent{
+  background-color: rgba(14, 57, 90, 0.6);
+
+
+}
+
+.additional-info-main{
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.info-spacer{
+  gap: 90px;
+  font-size: 22px;
+}
+
+.hr{
+  border: black 1px solid;
+}
+.btnclassname{
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+.icon-for-company-contact-card{
+ gap: 20px;
+ justify-content: space-between;
+}

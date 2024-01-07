@@ -106,7 +106,7 @@ const AHome = () => {
     <div>
       <ANavbar />
       <div className="AHome-Container">
-        <div className="pages-height page-header-home">
+        <div className="pages-heighta page-header-home">
           <Header imageSrc={imageHeader} />
         </div>
         <div className="feedback-title">Feedback Section</div>
@@ -149,9 +149,7 @@ const AHome = () => {
                     {item.User && (
                       <>
                         {/* {console.log("User Image URL:", item.User.image)} */}
-       
                         <Card
-                          className="red"
                           style={{
                             // width: "400px",
                             minWidth: "300px",

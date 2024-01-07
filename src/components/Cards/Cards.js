@@ -1,60 +1,73 @@
-import React from 'react';
-import "./Cards.css"
-import { useEffect, useState } from 'react';
-import Slider from "../Slider/Slider.js"
-import Email from "../../Photos/Email.png"
-import Gmail from "../../Photos/Gmail.png"
-import Location from "../../Photos/Location.png"
-import MobileNumber from "../../Photos/MobileNumber.png"
-
+import React from "react";
+import "./Cards.css";
+import { useEffect, useState } from "react";
+import Slider from "../Slider/Slider.js";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { IoMailOutline } from "react-icons/io5";
+import { IoIosLink } from "react-icons/io";
+import { MdOutlinePlace } from "react-icons/md";
+import { IoCallOutline } from "react-icons/io5";
 
 const FlipCard = () => {
-  const [companies, setcompanies] = useState([])
+  const [companies, setCompanies] = useState([]);
+  const fetchCompanies = async () => {
+    const response = await axios.get("http://localhost:5000/api/companies/");
 
+    setCompanies(response.data.data);
+  };
+  console.log(companies);
   useEffect(() => {
-    const fetchCompanies = async () => {
-      const response = await fetch("https://spaceloom.onrender.com/api/companies")
-      const json = await response.json()
-      if (response.ok) {
-        setcompanies(json.data)
-      }
-    }
-    console.log(companies)
     fetchCompanies();
-  }, [])
+  }, []);
   return (
-
     <div className="cards">
-
       {companies &&
-        companies.map(each => (
+        companies.map((each) => (
           <div className="card-wrapper flip-right">
-            <div className="card">
-              <div className="front">
-                <img src={`https://spaceloom.onrender.com/${each.logo}`} alt='' className='card-Logo' />
-                <div className='Info'>
-                  <img src={Email} alt='' className='Icon1' /> <h3>{each.website_link}</h3>
-                  <img src={Gmail} alt='' className='Icon1' />   <h3>{each.email}</h3>
-                </div>
-                <div className='Info2'>
-                  <img src={Location} alt='' className='Icon2' />  <h3>{each.location}</h3>
-                  <img src={MobileNumber} alt='' className='Icon2' />  <h3>{each.telephone}</h3>
-                </div>
-
-                <div className='CompanyText'>
-                  <h2> @{each.name} </h2>
-                </div>
+            <div className="card d-flex flex-column">
+              <div className="front-updated-component">
+                <img
+                  src={each.logo}
+                  alt=""
+                  className="rounded-circle card-Logo"
+                />
               </div>
+              <div className="additional-info-main d-flex flex-column">
+                <h2> {each.name} </h2>
+                <div className="info-spacer d-flex">
+                  <div className="icon-for-company-contact-card d-flex">
+                    <IoIosLink />
+                    <span className="text-muted">{each.website_link}</span>
+                  </div>
+                  <div className="icon-for-company-contact-card d-flex">
+                    <IoMailOutline />
+                    <span className="text-muted">{each.email}</span>
+                  </div>
+                </div>
+                <div className="info-spacer d-flex">
+                  <div className="icon-for-company-contact-card d-flex">
+                    <MdOutlinePlace />
+                    <span className="text-muted">{each.location}</span>
+                  </div>
+            
+                  <div className="icon-for-company-contact-card d-flex">
+                    <IoCallOutline />
+                    <span className="text-muted">{each.phone}</span>
+                  </div>
+                </div>
+                <hr className="hr"></hr>
+              </div>
+              <Link className="btn btn-blue btnclassname"> Message</Link>
+
               <div className="back">
-                <Slider companyId={each._id} />
+                <Slider companyId={each.id} />
               </div>
             </div>
           </div>
         ))}
     </div>
+  );
+};
 
-  )
-
-}
-
-export default FlipCard
+export default FlipCard;

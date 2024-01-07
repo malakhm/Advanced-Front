@@ -1,8 +1,7 @@
 import React, { useState,useEffect} from "react";
 import "./Slider.css";
-import arrowLeft from "../../Photos/ArrowLeft.png";
-import arrowRight from "../../Photos/ArrowRight.png";
-
+import { IoIosArrowDropright } from "react-icons/io";
+import { IoIosArrowDropleft } from "react-icons/io";
 const Slider = ({ companyId }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [images,setImages]= useState([]);
@@ -10,9 +9,10 @@ const Slider = ({ companyId }) => {
 
   const Getdesigns = async() => {
     try {
-      const response = await fetch(`https://spaceloom.onrender.com/api/designs/company/${companyId}`);
+      const response = await fetch(`http://localhost:5000/api/designs/get/${companyId}`);
       const data=  await response.json();
-      setDesigns(data)
+      setDesigns(data.data)
+     
 
     } catch (err) {
       console.error(err);
@@ -41,25 +41,24 @@ const Slider = ({ companyId }) => {
 
   return (
     <div className="slider">
-                    
+                  
        <div className="slider-container">
-        <img
-          src={arrowLeft}
-          alt="Prev"
-          className="arrowleft"
+       <div className="icons-icon-icon"> 
+        <IoIosArrowDropleft
+         
           onClick={prevSlide}
-        />
+        /></div>
         <img
-          src={`https://spaceloom.onrender.com/${images[currentImage]}`}
+          src={images[currentImage]}
           alt={`Slide ${currentImage}`}
-          className={`slider-image ${currentImage > 0 ? "prev" : ""}`}
+          className={` slider-image ${currentImage > 0 ? "prev" : ""}`}
         />
-        <img
-          src={arrowRight}
-          alt="Next"
-          className="arrowright"
+        <div className="icons-icon-icon"> 
+
+        <IoIosArrowDropright
           onClick={nextSlide}
         />
+        </div>
       </div> 
 
 

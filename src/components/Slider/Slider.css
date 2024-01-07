@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Inter');
 
   .slider {
     display: flex;
@@ -57,13 +56,17 @@
   }
 
   .arrowright {
-    width: 10%;
+    color: rgb(103, 206, 13);
+    padding: 100px;
+    margin-left: 200px;
+    font-size: 22px
   }
   
   .slider-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: max-content;
   }
   
   
@@ -102,3 +105,10 @@
     height: 150px;
     } 
   }
+
+  .icons-icon-icon{
+    margin: 40px;
+    font-size: 50px;
+
+  }
+  

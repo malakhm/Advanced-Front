@@ -13,6 +13,7 @@ import imageHeader from "../../Photos/header-1.png";
 import { AuthContext } from "../../Context/AuthContext.js";
 import { toast } from "react-toastify";
 import "./AHome.css";
+import { Hidden } from "@mui/material";
 
 const AHome = () => {
   const { user, token } = useContext(AuthContext);
@@ -150,6 +151,7 @@ const AHome = () => {
                       <>
                         {/* {console.log("User Image URL:", item.User.image)} */}
                         <Card
+                          className="feeeedback-card-1"
                           style={{
                             // width: "400px",
                             minWidth: "300px",
@@ -160,20 +162,23 @@ const AHome = () => {
                             display: "flex",
                             flexDirection: "column",
                             borderRadius: "10px",
-                            paddingTop: "10px",
+                            justifyContent: "flex-start",
                             overflowY:
                               item.content && item.content.length > 160
                                 ? "auto"
                                 : "hidden",
+
+                            overflowX: "hidden",
                           }}
                         >
                           <div
                             style={{
-                              borderBottom: "1px solid blue",
+                              borderBottom: "2px solid #0e395a",
                               display: "flex",
-                              justifyContent: "flex-start",
+                              // justifyContent: "flex-start",
                               alignItems: "center",
-                              padding: "10px",
+                              // padding: "10px",
+                              width: "100%",
                             }}
                           >
                             <div>

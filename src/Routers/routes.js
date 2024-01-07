@@ -34,6 +34,7 @@ import UserProfile from "../pages/UserProfile/UserProfile.js";
 import Categorie from "../pages/Categories/Categories.js";
 import DesignsClient from "../pages/Categories/Designs.js";
 import CompaniesPage from "../pages/Companies/Companies.js";
+
 const AppRoutes = () => {
   return (
     <>

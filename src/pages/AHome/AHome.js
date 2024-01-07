@@ -193,7 +193,7 @@ const AHome = () => {
                                 }}
                               />
                             </div>
-                            <div>
+                            <div className="comment-container">
                               <h5>
                                 {item.User && item.User.username
                                   ? item.User.username

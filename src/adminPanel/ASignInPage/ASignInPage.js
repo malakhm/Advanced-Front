@@ -1,4 +1,4 @@
-import React, { useState , useContext} from "react";
+import React, { useState, useContext } from "react";
 import "./ASignInPage.css";
 import Logo from "../../Photos/Logo.png";
 import { BsEyeFill } from "react-icons/bs";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext.js";
 import { toast } from "react-toastify";
 const ASignInPage = () => {
-  const { setUser, setToken, fetchData} = useContext(AuthContext)
+  const { setUser, setToken, fetchData } = useContext(AuthContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -42,37 +42,32 @@ const ASignInPage = () => {
           password,
         }
       );
-      // console.log(response.data);
+
       const Data = response.data;
       console.log("Data:", Data);
       console.log("Access Token:", Data.accessToken);
 
       if (response.status === 200) {
         const token = response.data.accessToken;
-        setToken(token)
+        setToken(token);
         await new Promise((resolve) => {
           localStorage.setItem("token", token);
           resolve();
         });
         await fetchData();
-        if(response.data.role === "User"){
+        if (response.data.role === "User") {
           navigate("/home");
-        }
-        else{
-          navigate("/")
+        } else {
+          navigate("/");
         }
         setUser(response.data);
-        console.log(response.data);
         toast.success("Logged in successfully!");
-        
-      } else {
-        toast.warning("wrong credentials");
-      }
+      } 
     } catch (error) {
       console.log("Failed to log in", error.message);
+      toast.error("Wrong credentials.");
     }
   };
-  
 
   return (
     <div className="ASignInPage-Container">

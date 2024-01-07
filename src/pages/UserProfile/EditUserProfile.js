@@ -95,60 +95,67 @@ const EditUserProfile = () => {
   };
 
   return (
-    <div className="userprofile-container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-9">
-          <form className="form-horizontal">
-            <div className="panel panel-default">
-              <div className="panel-body text-center">
-                {/* Profile picture */}
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
-              </div>
-            </div>
-
-            <div className="panel-body">
-              <div className="form-group">
-                <label className="col-sm-9 control-label">Username</label>
-                <div className="col-sm-9">
+    <div
+      class="form-bg container"
+      style={{ height: "100vh", overflow: "hidden" }}
+    >
+      <div
+        class="container"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="form-container">
+              <h3 class="title">Edit Profile</h3>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label>Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    class="form-control"
+                    placeholder="User Name"
                     value={username}
                     onChange={handleUsername}
                   />
                 </div>
-              </div>
-              <div className="form-group">
-                <label className="col-sm-9 control-label">Email</label>
-                <div className="col-sm-9">
+                <div class="form-group">
+                  <label>Email</label>
                   <input
                     type="email"
-                    className="form-control"
+                    class="form-control"
+                    placeholder="Email Address"
                     value={email}
                     onChange={handleEmail}
                   />
                 </div>
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="col-sm-10 col-sm-offset-2">
+                <div class="form-group">
+                  <label>Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    onChange={handleImageChange}
+                  />
+                </div>
+
                 <button
+                  class="btn signup"
                   type="submit"
                   className="btn btn-blue"
                   onClick={handleSubmit}
                 >
-                  Submit
+                  Save
                 </button>
-                <Link to="/home" type="reset" className="btn btn-default">
+                <Link
+                  to="/home"
+                  type="reset"
+                  className="btn btn-default"
+                  style={{ marginTop: "-100px" }}
+                >
                   Cancel
                 </Link>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

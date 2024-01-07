@@ -88,10 +88,20 @@ const UserProfile = () => {
             </div>
             <div className="form-group">
               <div className="col-sm-10 col-sm-offset-2">
-                <Link type="submit" className="btn btn-blue" to="/edit-user">
+                <Link
+                  type="submit"
+                  className="btn btn-blue"
+                  to="/edit-user-profile"
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   Edit
                 </Link>
-                <Link to="/home" type="reset" className="btn btn-default userprofile-cancel">
+                <Link
+                  to="/home"
+                  type="reset"
+                  className="btn btn-default userprofile-cancel"
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   Cancel
                 </Link>
               </div>

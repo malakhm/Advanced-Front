@@ -34,6 +34,7 @@ import UserProfile from "../pages/UserProfile/UserProfile.js";
 import Categorie from "../pages/Categories/Categories.js";
 import DesignsClient from "../pages/Categories/Designs.js";
 import CompaniesPage from "../pages/Companies/Companies.js";
+
 const AppRoutes = () => {
   return (
     <>
@@ -56,7 +57,7 @@ const AppRoutes = () => {
         <Route path="/signin" element={<ASignInPage />} />
         <Route path="/signup" element={<ASignUpPage />} />
         <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/edit-user" element={<EditUserProfile />} />
+        <Route path="/edit-user-profile" element={<EditUserProfile />} />
         {/*Company*/}
         <Route path="/getstarted-company" element={<CLoginPage />} />
         <Route path="/signin-company" element={<CSignInPage />} />

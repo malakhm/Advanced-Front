@@ -22,7 +22,7 @@ const EditUserProfile = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/${id}`,
+          `https://spaceloomm.onrender.com/api/users/${id}`,
           {
             headers: {
               Authorization: `Bearer ${AuthToken}`,
@@ -74,7 +74,7 @@ const EditUserProfile = () => {
       formData.append("image", image);
 
       const response = await axios.put(
-        `http://localhost:5000/api/users/${id}`,
+        `https://spaceloomm.onrender.com/api/users/${id}`,
         formData,
         {
           headers: {
@@ -87,7 +87,7 @@ const EditUserProfile = () => {
       setEmail(response.data.data.email);
       setImage(response.data.data.image);
       setUser(response.data.data);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
       toast.error("Failed to update");
@@ -146,7 +146,7 @@ const EditUserProfile = () => {
                   Save
                 </button>
                 <Link
-                  to="/home"
+                  to="/"
                   type="reset"
                   className="btn btn-default"
                   style={{ marginTop: "-100px" }}

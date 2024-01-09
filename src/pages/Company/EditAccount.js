@@ -41,7 +41,7 @@ const EditAccount =() =>{
       formData.append("logo", logo);
 
       const response = await axios.put(
-        `http://localhost:5000/api/companies/${id}`,
+        `https://spaceloomm.onrender.com/api/companies/${id}`,
         formData,
         {
           headers: {

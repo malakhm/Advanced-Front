@@ -76,7 +76,7 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 			try {
 			  // Assuming 'id' is defined somewhere in your code
 			  const response = await axios.delete(
-				`http://localhost:5000/api/users/${id}`, {
+				`https://spaceloomm.onrender.com/api/users/${id}`, {
 					headers: {
 					  "Content-Type": "multipart/form-data",
 					  Authorization: `Bearer ${token}`,
@@ -159,7 +159,7 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 	//fetch the data
 	const fetchdata = async()=>{
 	try{
-		const response = await axios.get('http://localhost:5000/api/users');
+		const response = await axios.get('https://spaceloomm.onrender.com/api/users');
 		if(response.status == 200){
 		setData(response.data.data)
 		}

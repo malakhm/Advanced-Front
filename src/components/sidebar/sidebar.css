@@ -4,6 +4,7 @@
   
 
   .sidebar-component-main{
+    min-height: 100vh;
     height: auto !important;
 }
 .activeClicked{

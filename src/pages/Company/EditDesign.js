@@ -15,7 +15,7 @@ const EditDesignCompany = () => {
   // get all categories from db
   const fetchData = async () => {
     try{
-		const response = await axios.get('http://localhost:5000/api/categories');
+		const response = await axios.get('https://spaceloomm.onrender.com/api/categories');
 		if(response.status == 200){
 		setData(response.data.data)
 		}
@@ -57,7 +57,7 @@ const EditDesignCompany = () => {
          formData.append("images", image5);
       formData.append("CategoryId", category);
       const response = await axios.put(
-        `http://localhost:5000/api/designs/${id}`,
+        `https://spaceloomm.onrender.com/api/designs/${id}`,
         formData,
         {
           headers: {

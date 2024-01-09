@@ -30,7 +30,7 @@ const AHome = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/feedbacks");
+      const response = await axios.get("https://spaceloomm.onrender.com/api/feedbacks");
       setFeedbacks(response.data.data);
 
       // Parse page number from the URL
@@ -60,7 +60,7 @@ const AHome = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/feedbacks",
+        "https://spaceloomm.onrender.com/api/feedbacks",
         { content, UserId: user ? user.id : null },
         {
           headers: {

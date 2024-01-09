@@ -22,7 +22,7 @@ const handleSubmit= async(e)=>{
   e.preventDefault();
   if(password === confirm){
     try {
-      const response = await axios.post(`http://localhost:5000/api/companies/`,{
+      const response = await axios.post(`https://spaceloomm.onrender.com/api/companies/`,{
       name,
       email,
       location,
@@ -37,7 +37,7 @@ const handleSubmit= async(e)=>{
   }) 
     if(response.status === 201){
       toast.success('user added successfully !')
-      navigate('/')
+      navigate('/home')
     }
   
   

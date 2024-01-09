@@ -2,17 +2,35 @@ import React, { useEffect, useState } from 'react';
 import "./Categories.css";
 import ANavbar from "../../components/ANavbar/ANavbar.js";
 import AFooter from "../../components/AFooter/AFooter.js";
-import axios from 'axios';
+import { FaHeart } from "react-icons/fa";
+import { AuthContext } from '../../Context/AuthContext.js';
+import { useContext } from 'react';
+import axios from 'axios'
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 const Categorie = () => {
   const [categories, setCategories] = useState([]);
   const [designs, setDesigns] = useState([]);
   const [Filterdesigns, setFilterDesigns] = useState([]);
   const [filterCat, setFilterCat] = useState('all');
-
+  const { user } = useContext(AuthContext)
+  const handlelike = async(id)=>{
+    try {
+      const response = await axios.post(`https://spaceloomm.onrender.com/api/favorites`,{
+      UserId:user.id,
+      DesignId:id
+    })
+    if(response.status === 200 || response.status === 201){
+      toast.success('Success')
+    }
+    } catch (error) {
+      console.log(error)
+      
+    } 
+  }
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/categories');
+      const response = await axios.get('https://spaceloomm.onrender.com/api/categories');
       
       if (response.status === 200) {
         setCategories(response.data.data);
@@ -25,7 +43,7 @@ const Categorie = () => {
 
   const fetchDesign = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/designs/');
+      const response = await axios.get('https://spaceloomm.onrender.com/api/designs/');
      
       if (response.status === 200) {
         setDesigns(response.data.data);
@@ -84,6 +102,7 @@ const Categorie = () => {
             {Filterdesigns.length>0?
             Filterdesigns && Filterdesigns.map(each=>(
               <div className='designs-main-component-div d-flex flex-column'>
+                <FaHeart onClick={()=>handlelike(each.id)} className='d-flex '/>
               <Link to='/details' 
                   state={{id:each.id,
                           images:each.images,
@@ -98,8 +117,9 @@ const Categorie = () => {
                   
                  <img className='rounded-circle image-logo-company-designs' width='35px' height='35px' src={each.Company.logo}/>
                 {each.Company.name}<br/>
-               
                </div>
+              
+
                </div>
                
               </div>

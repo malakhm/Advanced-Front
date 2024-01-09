@@ -23,7 +23,7 @@ const UserProfile = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/${id}`,
+          `https://spaceloomm.onrender.com/api/users/${id}`,
           {
             headers: {
               Authorization: `Bearer ${AuthToken}`,
@@ -93,11 +93,11 @@ const UserProfile = () => {
                   className="btn btn-blue"
                   to="/edit-user-profile"
                   style={{ display: "flex", justifyContent: "center" }}
-                >
+                >6
                   Edit
                 </Link>
                 <Link
-                  to="/home"
+                  to="/"
                   type="reset"
                   className="btn btn-default userprofile-cancel"
                   style={{ display: "flex", justifyContent: "center" }}

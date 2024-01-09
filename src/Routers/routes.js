@@ -34,51 +34,89 @@ import UserProfile from "../pages/UserProfile/UserProfile.js";
 import Categorie from "../pages/Categories/Categories.js";
 import DesignsClient from "../pages/Categories/Designs.js";
 import CompaniesPage from "../pages/Companies/Companies.js";
-
+import UserProtectedRoute from "./UserProtectedRoute.js";
+import ProtectedRoute from "./CompanyProtectedRoute.js";
 const AppRoutes = () => {
   return (
     <>
       <Routes>
         {/* <Route path="/test" element={<Test/>}/> */}
-        <Route element={<AdminProtectedRoute />}>
-          <Route path="/" element={<Companies />} />
-        </Route>
+          <Route path="/" element={<AHome />} />
 
         <Route element={<AdminProtectedRoute />}>
           <Route path="/add-company" element={<AddForm />} />
         </Route>
-        <Route path="/users" element={<Users />} />
-        <Route path="/edit-company" element={<EditForms />} />
-        <Route path="/add-user" element={<AddUser />} />
-        <Route path="/edit-user" element={<EditUser />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/edit-category" element={<EditCategory />} />
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/users" element={<Users />} />
+        </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/edit-company" element={<EditForms />} />
+        </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/add-user" element={<AddUser />} />
+        </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/edit-user" element={<EditUser />} />
+        </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/categories" element={<Categories />} />
+        </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/edit-category" element={<EditCategory />} />
+        </Route>
         <Route path="/getstarted" element={<ALoginPage />} />
         <Route path="/signin" element={<ASignInPage />} />
         <Route path="/signup" element={<ASignUpPage />} />
-        <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/edit-user-profile" element={<EditUserProfile />} />
+
+        <Route element={<UserProtectedRoute />}>
+          <Route path="/user-profile" element={<UserProfile />} />
+        </Route>
+        <Route element={<UserProtectedRoute />}>
+          <Route path="/edit-user-profile" element={<EditUserProfile />} />
+        </Route>
+
         {/*Company*/}
         <Route path="/getstarted-company" element={<CLoginPage />} />
         <Route path="/signin-company" element={<CSignInPage />} />
         <Route path="/signup-company" element={<CSignUpPage />} />
-        <Route path="/edit-account" element={<EditAccount />} />
-        <Route path="/account" element={<Account />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/edit-account" element={<EditAccount />} />
+        </Route>
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/account" element={<Account />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route
           path="/edit-category-company"
           element={<EditCategoryCompany />}
         />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route path="add-category" element={<AddCategory />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route path="/mydesigns" element={<DesignsCompany />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route path="/add-design" element={<AddDesign />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route path="/edit-mydesign" element={<EditDesignCompany />} />
-        <Route path="/contact" element={<ContactUs />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
         <Route path="/mycategories" element={<CategoriesCompany />} />
+        </Route>
+
+        {/* Client Side */}
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/category" element={<Categorie />} />
         <Route path="/details" element={<DesignsClient />} />
-        <Route path="/companies" element={<CompaniesPage/>} />
+        <Route path="/companies" element={<CompaniesPage />} />
         <Route path="/about" element={<AAboutUs />} />
-        <Route path="/home" element={<AHome />} />
+        <Route element={<AdminProtectedRoute />}>
+        <Route path="/home" element={<Companies />} />
+        </Route>
       </Routes>
     </>
   );

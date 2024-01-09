@@ -73,7 +73,7 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 			try {
 			  // Assuming 'id' is defined somewhere in your code
 			  const response = await axios.delete(
-				`http://localhost:5000/api/categories/${id}`,{headers:{Authorization: `Bearer ${token}`}}
+				`https://spaceloomm.onrender.com/api/categories/${id}`,{headers:{Authorization: `Bearer ${token}`}}
 			  );
 	  
 			  Swal.fire({
@@ -143,7 +143,7 @@ const FixedHeaderStory = ({ fixedHeaderScrollHeight }) => {
 	//fetch the data
 	const fetchdata = async()=>{
 	try{
-		const response = await axios.get('http://localhost:5000/api/categories');
+		const response = await axios.get('https://spaceloomm.onrender.com/api/categories');
 		if(response.status == 200){
 		setData(response.data.data)
 		}

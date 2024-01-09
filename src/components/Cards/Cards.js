@@ -12,7 +12,7 @@ import { IoCallOutline } from "react-icons/io5";
 const FlipCard = () => {
   const [companies, setCompanies] = useState([]);
   const fetchCompanies = async () => {
-    const response = await axios.get("http://localhost:5000/api/companies/");
+    const response = await axios.get("https://spaceloomm.onrender.com/api/companies/");
 
     setCompanies(response.data.data);
   };

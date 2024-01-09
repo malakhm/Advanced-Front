@@ -28,7 +28,7 @@ const AdminMenu = () => {
   return (
     <CDBSidebarContent>
       <CDBSidebarMenu>
-      <NavLink exact to="/" activeClassName="activeClicked">
+      <NavLink exact to="/home" activeClassName="activeClicked">
         <CDBSidebarMenuItem
           icon="building"
           iconSize="lg"

@@ -27,7 +27,7 @@ const ANavbar = () => {
     localStorage.clear();
     setUser(null);
     toast.success("Logged out successfully !");
-    navigate("/home");
+    navigate("/");
   };
 
   return (
@@ -35,7 +35,7 @@ const ANavbar = () => {
       <img src={Logo} alt="" className="anavbarLogo" />
       <div className="Navbar">
         <div className="header_Links_anavbar">
-          <Link to="/home" className="N-home">
+          <Link to="/" className="N-home">
             Home
           </Link>
           <Link to="/Companies" className="N-companies">
@@ -65,7 +65,7 @@ const ANavbar = () => {
                     <a href="/user-profile">Edit Profile</a>
                   </li>
                   <li>
-                    <a href="/home" onClick={handleLogout}>
+                    <a href="/" onClick={handleLogout}>
                       Log Out
                     </a>
                   </li>
@@ -118,7 +118,7 @@ const ANavbar = () => {
                       <a href="/user-profile">Edit Profile</a>
                     </li>
                     <li>
-                      <a href="/home" onClick={handleLogout}>
+                      <a href="/" onClick={handleLogout}>
                         Log Out
                       </a>
                     </li>

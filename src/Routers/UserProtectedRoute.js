@@ -3,7 +3,7 @@ import { AuthContext } from "../Context/AuthContext.js";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 
-const AdminProtectedRoute = () => {
+const UserProtectedRoute = () => {
   const { token, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -24,4 +24,4 @@ const AdminProtectedRoute = () => {
     return <Outlet />;
   }
 
-export default AdminProtectedRoute;
+export default UserProtectedRoute;

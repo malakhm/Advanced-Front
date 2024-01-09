@@ -26,7 +26,7 @@ const EditCategory = () => {
       formData.append("image", image);
 
       const response = await axios.put(
-        `http://localhost:5000/api/categories/2`,
+        `https://spaceloomm.onrender.com/api/categories/2`,
         formData,
         {
           headers: {

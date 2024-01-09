@@ -34,7 +34,7 @@ const EditUser = () => {
       formData.append("role", role);
 
       const response = await axios.put(
-        `http://localhost:5000/api/users/${id}`,
+        `https://spaceloomm.onrender.com/api/users/${id}`,
         formData,
         {
           headers: {

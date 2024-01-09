@@ -35,7 +35,7 @@ const CSignInPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/companies/sign",
+        "https://spaceloomm.onrender.com/api/companies/sign",
         {
           email,
           password,

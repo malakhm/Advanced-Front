@@ -38,10 +38,10 @@ const EditForms =() =>{
       formData.append("location", loc);
       formData.append("website_link", Website);
       formData.append("phone", Phone);
-      // formData.append("logo", Logo);
+      formData.append("logo", Logo);
 
       const response = await axios.put(
-        `http://localhost:5000/api/companies/${id}`,
+        `https://spaceloomm.onrender.com/api/companies/${id}`,
         formData,
         {
           headers: {
@@ -53,7 +53,7 @@ const EditForms =() =>{
       );
       console.log(response)
       toast.success("company edited successfully !");
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.log(error.message)
       toast.error("something went wrong !!!!");

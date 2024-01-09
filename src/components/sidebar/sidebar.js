@@ -29,7 +29,7 @@ const Sidebar = ({ children }) => {
             className="sidebar-btn-wrapper"
             style={{padding: '20px 5px'}}
           >
-            Sidebar Footer
+            @Spaceloom
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>

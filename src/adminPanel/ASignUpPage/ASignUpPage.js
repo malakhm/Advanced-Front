@@ -34,7 +34,7 @@ const ASignUpPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/users/", {
+      const response = await axios.post("https://spaceloomm.onrender.com/api/users/", {
         username: username,
         email: email,
         password: password,

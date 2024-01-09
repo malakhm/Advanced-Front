@@ -9,7 +9,7 @@ const Slider = ({ companyId }) => {
 
   const Getdesigns = async() => {
     try {
-      const response = await fetch(`http://localhost:5000/api/designs/get/${companyId}`);
+      const response = await fetch(`https://spaceloomm.onrender.com/api/designs/get/${companyId}`);
       const data=  await response.json();
       setDesigns(data.data)
      

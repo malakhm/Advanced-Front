@@ -22,7 +22,7 @@ const AddCategory = () => {
       formData.append("image", image);
       formData.append("CompanyId", company.id);
       const response = await axios.post(
-        `http://localhost:5000/api/categories`,
+        `https://spaceloomm.onrender.com/api/categories`,
         formData,
         {
           headers: {

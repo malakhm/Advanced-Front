@@ -51,7 +51,7 @@ const CSignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/companies/",
+        "https://spaceloomm.onrender.com/api/companies/",
         {
           name: name,
           email: email,

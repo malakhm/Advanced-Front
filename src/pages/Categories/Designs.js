@@ -6,7 +6,10 @@ import AFooter from '../../components/AFooter/AFooter.js';
 const DesignsClient = () => {
   const location = useLocation();
   const { id, categoryName, images, companyLogo, companyName } = location.state || {};
+ 
+  const fetchLikes = async()=>{
 
+  }
   return (
     <div className='d-flex flex-column'>
       <ANavbar />
@@ -21,6 +24,7 @@ const DesignsClient = () => {
                 {companyName}<br/>
                
                </div>
+
                </div>
         </div>
         

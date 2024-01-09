@@ -36,7 +36,7 @@ const ASignInPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/sign",
+        "https://spaceloomm.onrender.com/api/users/sign",
         {
           email,
           password,
@@ -56,9 +56,9 @@ const ASignInPage = () => {
         });
         await fetchData();
         if (response.data.role === "User") {
-          navigate("/home");
-        } else {
           navigate("/");
+        } else {
+          navigate("/home");
         }
         setUser(response.data);
         toast.success("Logged in successfully!");
